@@ -1,0 +1,27 @@
+.cardCust{
+    direction: rtl;
+    // height: 500px;
+    // width: 20%;
+    border-radius: 39px 39px 39px 39px;
+
+    padding: 2%;
+}
+.title{
+    font-size: 150%;
+
+}
+span{
+    font-size: 100%;
+}
+:host ::ng-deep .p-tabview .p-tabview-nav{
+    background-color: rgb(255, 255, 255);; /* Specify your desired background color here */
+}
+:host ::ng-deep .p-tabview-panels {
+    background-color: rgba(236, 236, 236, 1);
+    height: 250%;
+    width: 100%;
+    margin-top: 20px;
+}
+.cardCust ::ng-deep .p-tabPanel[header="פרטים אישיים"] .ui-tabview-title {
+    color: red; /* Specify your desired color here */
+}
