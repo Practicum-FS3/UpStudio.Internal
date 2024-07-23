@@ -1,9 +1,9 @@
-body {
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  direction: rtl !important;
-  text-align: right !important;
-}
+// body {
+//   background-color: #f9f9f9;
+//   font-family: Arial, sans-serif;
+//   direction: rtl !important;
+//   text-align: right !important;
+// }
 
 .panel {
   padding: 20px;
@@ -15,14 +15,14 @@ body {
   margin: 0 auto;
 }
 
-h1 {
-  color: #d91c5c;
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; 
-}
+// h1 {
+//   color: #d91c5c;
+//   text-align: center;
+//   margin-bottom: 20px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-end; 
+// }
 
 .contact-icon {
   width: 30px;
@@ -87,11 +87,11 @@ h1 {
   direction: rtl !important;
 }
 
-.accordion-content {
-  padding: 10px;
-  background-color: #ffcc0f;
-  text-align: right; 
-}
+// .accordion-content {
+//   padding: 10px;
+//   background-color: #ffcc0f;
+//   text-align: right; 
+// }
 
 .pagination-buttons {
   display: flex;
@@ -99,27 +99,27 @@ h1 {
   margin-top: 20px;
 }
 
-button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  background-color: #4c4c49;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-  text-align: right; 
-}
+// button {
+//   margin: 0 10px;
+//   padding: 10px 20px;
+//   background-color: #4c4c49;
+//   color: #fff;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   font-size: 14px;
+//   transition: background-color 0.3s ease;
+//   text-align: right; 
+// }
 
-button:hover {
-  background-color: #333;
-}
+// button:hover {
+//   background-color: #333;
+// }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
+// button:disabled {
+//   background-color: #ccc;
+//   cursor: not-allowed;
+// }
 
 .bt{
   direction: rtl;
