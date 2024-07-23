@@ -5,8 +5,6 @@ import { CustomerService } from 'src/app/Services/customers.service';
 import { AccordionModule } from 'primeng/accordion';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-customers-list',
   templateUrl: './customers-list.component.html',
