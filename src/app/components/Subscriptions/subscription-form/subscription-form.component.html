@@ -1,0 +1,15 @@
+<div *ngIf="actionType=='add'">
+<form [formGroup]="subscriptionForm" (ngSubmit)="saveDetails(subscriptionForm)">
+    <label for="title">סוג מנוי</label>
+    <input pInputText type="text" name="title" formControlName="title" >
+    <label for="numberOfTrainingPerWeek">מס' אימונים בשבוע</label>
+    <p-inputNumber name="numberOfTrainingPerWeek" formControlName="numberOfTrainingPerWeek"/>
+    <label for="totalTraining">מס' אימונים כולל</label>
+    <p-inputNumber name="totalTraining" formControlName="totalTraining"/>
+    <label for="priceForTraining">עלות לאימון</label>
+    <p-inputNumber name="priceForTraining" formControlName="priceForTraining"/>
+    <label for="description">תיאור</label>
+    <input pInputText type="text" name="description" formControlName="description">
+    <p-button label="שמירה" type="Submit"/>
+</form>
+</div>

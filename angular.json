@@ -73,7 +73,8 @@
               "browserTarget": "UpStudio.Internal:build:production"
             },
             "development": {
-              "browserTarget": "UpStudio.Internal:build:development"
+              "browserTarget": "UpStudio.Internal:build:development",
+              "proxyConfig":"src/proxy.config.json"
             }
           },
           "defaultConfiguration": "development"
@@ -110,6 +111,6 @@
     }
   },
   "cli": {
-    "analytics": "7e020719-0f90-4322-9b92-bfa8bde237ce"
+    "analytics": "2ea060c7-b702-493f-8b2f-51dfaac8b359"
   }
 }
