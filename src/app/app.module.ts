@@ -9,11 +9,15 @@ import { CustomerService } from './Services/customers.service';
 import { HttpClientModule } from "@angular/common/http";
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { SingleLessonComponent } from './components/single-lesson/single-lesson.component';
+import { TrainingService } from './Services/trainig.servisec';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersListComponent
+    CustomersListComponent,
+    SingleLessonComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +26,9 @@ import { ButtonModule } from 'primeng/button';
     BrowserAnimationsModule,
     HttpClientModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,FormsModule
   ],
-  providers: [CustomerService],
+  providers: [CustomerService,TrainingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
