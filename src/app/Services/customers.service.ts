@@ -1,41 +1,29 @@
 import { Injectable } from "@angular/core";
 import { Customer } from "../Models/customer.model";
-import { HttpClient } from "@angular/common/http";
-import { Observable, map } from "rxjs";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Observable } from "rxjs";
 
-const CUSTOMERS=[new Customer(1,"elish", "star","elishstar1@gmail.com", 1, 1, 1, 1, true, "0504153454", "string"),
-  new Customer(2,"michal","mazoz","miachal7969@gmail.com",1,1,1,1,true,"0504153454","string")]
 @Injectable()
 export class CustomerService {
-
     apiUrl: string = "/api/Customer";
-    constructor(private _http:HttpClient){
 
-    }
+    constructor(private _http: HttpClient) {}
 
-    getCustomertFromServer():Observable<Customer[]>{
-        return this._http.get<Customer[]>(this.apiUrl)
-    }
-
-
-    getCustomerByName(name:string):Observable<Customer[]>{
-        return this.getCustomertFromServer().pipe(
-          map(customers => customers.filter(customer => 
-            customer.firstName.toLowerCase().includes(name.toLowerCase()) ||
-            customer.lastName.toLowerCase().includes(name.toLowerCase())
-          ))
-        );
+    getCustomertFromServer(): Observable<Customer[]> {
+        return this._http.get<Customer[]>(this.apiUrl);
     }
 
     getCustomerById(id: number): Observable<Customer> {
         return this._http.get<Customer>(`${this.apiUrl}/byId/${id}`);
     }
 
-    getCustomerByEmail(email: string): Observable<Customer[]> {
-      return this.getCustomertFromServer().pipe(
-        map(customers => customers.filter(customer => 
-          customer.email.toLowerCase().includes(email.toLowerCase())
-        ))
-      );
+    filterCustomers(firstName?: string, lastName?: string, email?: string): Observable<Customer[]> {
+        let params = new HttpParams();
+        
+        if (firstName) params = params.set('firstName', firstName.trim());
+        if (lastName) params = params.set('lastName', lastName.trim());
+        if (email) params = params.set('email', email.trim());
+    
+        return this._http.get<Customer[]>(`${this.apiUrl}/filter`, { params });
     }
 }
