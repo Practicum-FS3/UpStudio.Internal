@@ -1,0 +1,22 @@
+<div style="display: flex; margin: 5% 15% 15%; align-items: baseline;" dir="rtl">
+  <p-table [columns]="cols" [value]="lstSubs" dir="rtl" [tableStyle]="{ 'width': '70%' }">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td>{{rowData.title}}</td>
+        <td> סה"כ {{rowData.totalTraining}} אימונים</td>
+        <td> {{rowData.priceForTraining}} ש"ח לאימון </td>
+        <td> סה"כ {{rowData.priceForTraining * rowData.totalTraining}} ש"ח <br> {{rowData.priceForTraining * rowData.numberOfTrainingPerWeek * 4}} ש"ח בתשלום חודשי</td>
+        <td>{{rowData.description}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-speedDial [model]="options" direction="down"></p-speedDial>
+</div>
+<app-subscription-form [actionType]="action"></app-subscription-form>

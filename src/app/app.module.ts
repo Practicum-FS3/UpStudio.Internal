@@ -12,12 +12,24 @@ import { ButtonModule } from 'primeng/button';
 import { SingleLessonComponent } from './components/single-lesson/single-lesson.component';
 import { TrainingService } from './Services/trainig.servisec';
 import { FormsModule } from '@angular/forms';
+import { SubscriptionOptionsComponent } from './components/Subscriptions/subscription-options/subscription-options.component';
+import { TableModule } from 'primeng/table';
+import { ToolbarModule } from 'primeng/toolbar';
+import { SubscriptionService } from './Services/SubscriptionService';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SubscriptionFormComponent } from './components/Subscriptions/subscription-form/subscription-form.component';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { FieldsetModule } from 'primeng/fieldset';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomersListComponent,
-    SingleLessonComponent
+    SingleLessonComponent,
+    AppComponent,
+    SubscriptionOptionsComponent,
+    SubscriptionFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +41,21 @@ import { FormsModule } from '@angular/forms';
     ButtonModule,FormsModule
   ],
   providers: [CustomerService,TrainingService],
+    ButtonModule,
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    TableModule,
+    ButtonModule,
+    ToolbarModule,
+    SpeedDialModule,
+    InputTextModule,
+    FieldsetModule,
+    InputNumberModule,
+  ],
+  providers: [CustomerService,SubscriptionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
