@@ -9,6 +9,9 @@ import { CustomerService } from './Services/customers.service';
 import { HttpClientModule } from "@angular/common/http";
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { SingleLessonComponent } from './components/single-lesson/single-lesson.component';
+import { TrainingService } from './Services/trainig.servisec';
+import { FormsModule } from '@angular/forms';
 import { SubscriptionOptionsComponent } from './components/Subscriptions/subscription-options/subscription-options.component';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -23,6 +26,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
   declarations: [
     AppComponent,
     CustomersListComponent,
+    SingleLessonComponent,
     AppComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
@@ -34,6 +38,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
     BrowserAnimationsModule,
     HttpClientModule,
     InputTextModule,
+    ButtonModule,FormsModule
+  ],
+  providers: [CustomerService,TrainingService],
     ButtonModule,
     BrowserModule,
     HttpClientModule,
