@@ -19,10 +19,10 @@ export class Customer {
             this.hmoId=hmoId;
             this.paymentOptionId=paymentOptionId;
             this.subscriptionTypeId=subscriptionTypeId;
-            // this.isActive=isActive;לסדר!
+            this.isActive=isActive;
             this.tel=tel;
             this.address=address;
             this.email=email
-            this.isActive=false
+
     }
 }

@@ -1,6 +1,7 @@
-export class PaymentOptions {
+export class SubscriptionType {
     id?: number;
     title?: string;
+
     constructor(title: string) {
         this.title = title;
     }

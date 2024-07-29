@@ -1,2 +1,5 @@
-<app-customer-card></app-customer-card>
+<a *ngIf="router.url !== '/customers-list'" routerLink="/customers-list">Go to Customers List</a>
+
 <router-outlet></router-outlet>
+
+
