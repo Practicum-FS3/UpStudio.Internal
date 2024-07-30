@@ -4,7 +4,7 @@ import { CustomersListComponent } from './components/customers-list/customers-li
 import { SingleLessonComponent } from './components/single-lesson/single-lesson.component';
 
 const routes: Routes = [
-  // { path: 'customers-list', component: CustomersListComponent },
+  { path: 'customers-list', component: CustomersListComponent },
   { path: 'single-lesson', component: SingleLessonComponent },
 
 ];
