@@ -21,6 +21,15 @@ import { SubscriptionFormComponent } from './components/Subscriptions/subscripti
 import { SpeedDialModule } from 'primeng/speeddial';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { DialogModule } from 'primeng/dialog';
+
+
 
 @NgModule({
   declarations: [
@@ -53,8 +62,13 @@ import { InputNumberModule } from 'primeng/inputnumber';
     InputTextModule,
     FieldsetModule,
     InputNumberModule,
+    SplitButtonModule,
+    MessagesModule,
+    ConfirmDialogModule,
+    ToastModule,
+    DialogModule
   ],
-  providers: [CustomerService,SubscriptionService],
+  providers: [CustomerService,SubscriptionService,ConfirmationService,MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
