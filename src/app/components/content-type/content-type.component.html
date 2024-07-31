@@ -1,0 +1,27 @@
+<div class="panel">
+<p-card>
+    <p-accordion  class="acord">
+        <h1>סוגי תוכן🏁</h1>
+        <p-accordionTab *ngFor="let ct of allCT" >
+            <!-- <div *ngIf="ct.isActive == true"> -->
+                <ng-template pTemplate="header">
+                    {{ct.title}}
+                </ng-template>
+                <div class="Contact">
+                    <p>title: <br /> {{ct.title}}</p>
+                    <p>description: <br /> {{ct.description}}</p>
+                    <p>linkHP: <br /> {{ct.linkHP}}</p>
+                    <p>link2: <br /> {{ct.link2}}</p>
+                    <p>title1: <br /> {{ct.title1}}</p>
+                    <p>title2: <br /> {{ct.title2}}</p>
+                    <p>title3: <br /> {{ct.title3}}</p>
+                    <p-button label="ערוך" (click)="edit(ct.id)"></p-button>
+                </div>
+            <!-- </div> -->
+        </p-accordionTab>
+    </p-accordion>
+    <app-update-content [item]="selectedContent" (onSave)="Save($event)"></app-update-content>
+    <br/><p-button label="📖 הוסף תוכן" (click)="add()"></p-button>
+</p-card>
+
+</div>
