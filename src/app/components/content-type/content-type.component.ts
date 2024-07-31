@@ -12,7 +12,8 @@ export class ContentTypeComponent implements OnInit {
 
   @ViewChild(UpdateContentComponent) updateContentComponent!: UpdateContentComponent;
   selectedContent: ContentType = new ContentType()
-
+  update:boolean = false;
+  
   allCT: Array<ContentType> = new Array<ContentType>;
   constructor(public ctServise: ContentTypeServiseService) { }
   ngOnInit(): void {
@@ -27,13 +28,14 @@ export class ContentTypeComponent implements OnInit {
     this.ctServise.getContentTypeById(id).subscribe(succ => {
       this.selectedContent = succ
 
-      if (this.updateContentComponent) {
-        this.updateContentComponent.item = this.selectedContent;
-        this.updateContentComponent.show();
-      }
+    //   if (this.updateContentComponent) {
+    //     this.updateContentComponent.item = this.selectedContent;
+    //     this.updateContentComponent.show();
+    //   }
 
-    }
-    )
+     }
+     )
+    this.update = true
   }
 
   Save(content: ContentType) {
@@ -52,6 +54,10 @@ export class ContentTypeComponent implements OnInit {
       })
     }
 
+  }
+
+  Close(){
+    this.update = false
   }
 
   add() {
