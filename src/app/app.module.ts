@@ -21,6 +21,10 @@ import { SubscriptionFormComponent } from './components/Subscriptions/subscripti
 import { SpeedDialModule } from 'primeng/speeddial';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ContentTypeComponent } from './components/content-type/content-type.component';
+import { UpdateContentComponent } from './components/content-type/update-content/update-content.component';
+import { DialogModule } from 'primeng/dialog';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     AppComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
+    ContentTypeComponent,
+    UpdateContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +44,15 @@ import { InputNumberModule } from 'primeng/inputnumber';
     BrowserAnimationsModule,
     HttpClientModule,
     InputTextModule,
-    ButtonModule,FormsModule
+    ButtonModule,FormsModule,
+    ReactiveFormsModule,
+    TableModule,
+    SpeedDialModule,
+    DialogModule, 
+    CardModule
+
   ],
-  providers: [CustomerService,TrainingService],
+  providers: [CustomerService,TrainingService,
     ButtonModule,
     BrowserModule,
     HttpClientModule,
@@ -53,8 +65,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
     InputTextModule,
     FieldsetModule,
     InputNumberModule,
+    SubscriptionService,
+    
   ],
-  providers: [CustomerService,SubscriptionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

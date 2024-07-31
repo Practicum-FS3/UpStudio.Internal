@@ -1,0 +1,36 @@
+<p-dialog header="Edit Item" [(visible)]="display">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="title">Title</label>
+        <input id="title" type="text" pInputText [(ngModel)]="item.title" />
+      </div>
+      <div class="p-field">
+        <label for="description">Description</label>
+        <input id="description" type="text" pInputText [(ngModel)]="item.description" />
+      </div>
+      <div class="p-field">
+        <label for="linkHP">linkHP</label>
+        <input id="linkHP" type="text" pInputText [(ngModel)]="item.linkHP" />
+      </div>
+      <div class="p-field">
+        <label for="link2">link2</label>
+        <input id="link2" type="text" pInputText [(ngModel)]="item.link2" />
+      </div>
+      <div class="p-field">
+        <label for="title1">title1</label>
+        <input id="title1" type="text" pInputText [(ngModel)]="item.title1" />
+      </div>
+      <div class="p-field">
+        <label for="title2">title2</label>
+        <input id="title2" type="text" pInputText [(ngModel)]="item.title2" />
+      </div>
+      <div class="p-field">
+        <label for="title3">title3</label>
+        <input id="title3" type="text" pInputText [(ngModel)]="item.title3" />
+      </div>
+    </div>
+    <p-footer>
+      <button pButton type="button" label="Save" icon="pi pi-check" (click)="save()" class="p-button-success"></button>
+      <button pButton type="button" label="Cancel" icon="pi pi-times" (click)="display=false" class="p-button-secondary"></button>
+    </p-footer>
+  </p-dialog>
