@@ -28,11 +28,6 @@ export class ContentTypeComponent implements OnInit {
     this.ctServise.getContentTypeById(id).subscribe(succ => {
       this.selectedContent = succ
 
-    //   if (this.updateContentComponent) {
-    //     this.updateContentComponent.item = this.selectedContent;
-    //     this.updateContentComponent.show();
-    //   }
-
      }
      )
     this.update = true
@@ -41,8 +36,10 @@ export class ContentTypeComponent implements OnInit {
   Save(content: ContentType) {
     if (content.id != 0) {
       this.ctServise.updateC(content.id, content).subscribe(a => {
-        this.ctServise.getAllContentType().subscribe(d =>
+        this.ctServise.getAllContentType().subscribe(d =>{
           this.allCT = d
+          this.update = false
+          }
         )
       })
     } else {
