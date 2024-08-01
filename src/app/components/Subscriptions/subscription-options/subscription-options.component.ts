@@ -18,7 +18,6 @@ export class SubscriptionOptionsComponent {
 
   constructor(private _subscriptionService: SubscriptionService,
               private _confirmationService: ConfirmationService,
-              private _messageService: MessageService,
             ) { }
 
   ngOnInit() {
@@ -36,10 +35,9 @@ export class SubscriptionOptionsComponent {
         label: 'Update',
         icon: 'pi pi-pencil',
         command: () => {
-          // this.cancleAction();
           this.action = 'update';
           this.saveCurrentId(rowData.id);
-          console.log('i press UODATE to id: ', this.currentSubId)
+          console.log('i press update to id: ', this.currentSubId)
         }
       },
       {
