@@ -11,25 +11,24 @@
         <img src="assets/search-icon2.png" alt="Search Icon" class="search-icon">
       </div>
     </div>
-  
     <p-accordion>
-      <p-accordionTab *ngFor="let customer of displayedCustomers">
+      <p-accordionTab *ngFor="let customer of displayedCustomers" (click)="selectCust(customer.id)">
         <ng-template pTemplate="header">
           {{ customer.firstName }} {{ customer.lastName }}
         </ng-template>
         <div class="accordion-content">
           <p class="m-0">
-            מזהה לקוח: {{ customer.id }}
+            <!-- מזהה לקוח: {{ customer.id }} -->
+            <app-customer-card *ngIf="selectedCustomerId === customer.id" [custId]="selectedCustomerId"></app-customer-card>
           </p>
         </div>
       </p-accordionTab>
     </p-accordion>
-    
     <div class="pagination-buttons" *ngIf="customers.length > itemsPerPage">
       <button (click)="previousPage()" [disabled]="currentPage === 1">הקודם</button>
       <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= customers.length">הבא</button>
     </div>
-  </div> 
+  </div>
   <div class="bt">
     <p-button label="הוספת לקוח" [raised]="true"  (click)="navigateToAddCustomer()" severity="secondary" class="add-customer-button">
       <span class="add-customer-icon-wrapper">
@@ -37,5 +36,5 @@
       </span>
     </p-button>
   </div>
-  
+  <app-customer-card *ngIf="addCust" ></app-customer-card>
 </div>

@@ -2,26 +2,26 @@ import { Time } from "./Time.model";
 
 export class Training {
     id: number;
-    trainingTypeID: number;
+    trainingCustomerTypeID: number;
     trainerID: number;
     dayOfWeek: number;
-    hour: Time = { hour: 0, minute: 0 };
+    time: Time = { hour: 0, minute: 0 };
     participantsCount: number;
     isActive: boolean;
     constructor(
         id: number,
-        trainingTypeID: number,
+        trainingCustomerTypeID: number,
         trainerID: number,
         dayOfWeek: number,
-        hour: Time,
+        time: Time,
         participantsCount: number,
         isActive: boolean
     ) {
         this.id = id;
-        this.trainingTypeID =trainingTypeID;
+        this.trainingCustomerTypeID =trainingCustomerTypeID;
         this.trainerID =trainerID;
         this.dayOfWeek= dayOfWeek;
-        this.hour= hour;
+        this.time= time;
         this.participantsCount= participantsCount;
         this.isActive= isActive;
     }

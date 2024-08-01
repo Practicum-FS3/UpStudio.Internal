@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
-import { Training } from "../components/single-lesson/models/Training.model";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
+import { Training } from "../Models/Training.model";
 
 @Injectable()
 export class TrainingService {

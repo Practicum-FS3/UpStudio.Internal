@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { TrainingService } from 'src/app/Services/trainig.servisec';
-import { Training } from './models/Training.model';
 import { NgModel } from '@angular/forms';
-import { Time } from './models/Time.model';
+import { Time } from '../../Models/Time.model';
 import { InputTextModule } from 'primeng/inputtext';
+import { Training } from 'src/app/Models/Training.model';
 
 
 

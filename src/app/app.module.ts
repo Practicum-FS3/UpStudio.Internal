@@ -11,16 +11,21 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SingleLessonComponent } from './components/single-lesson/single-lesson.component';
 import { TrainingService } from './Services/trainig.servisec';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubscriptionOptionsComponent } from './components/Subscriptions/subscription-options/subscription-options.component';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { SubscriptionService } from './Services/SubscriptionService';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SubscriptionFormComponent } from './components/Subscriptions/subscription-form/subscription-form.component';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { CustomerCardComponent } from "./components/customer-card/customer-card.component";
+import { TrainingCustomerService } from './Services/trainingCustomer.service';
+import { TrainingTypeService } from './Services/trainingType.service';
+import { TrainerService } from './Services/trainer.service';
+import { AvailableTraining } from './Models/availableTraining.model';
+import { AvailableTrainingService } from './Services/availableTraining.service';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -36,7 +41,6 @@ import { DialogModule } from 'primeng/dialog';
     AppComponent,
     CustomersListComponent,
     SingleLessonComponent,
-    AppComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
   ],
@@ -47,29 +51,23 @@ import { DialogModule } from 'primeng/dialog';
     BrowserAnimationsModule,
     HttpClientModule,
     InputTextModule,
-    ButtonModule,FormsModule
-  ],
-  providers: [CustomerService,TrainingService],
     ButtonModule,
-    BrowserModule,
-    HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     TableModule,
-    ButtonModule,
     ToolbarModule,
     SpeedDialModule,
-    InputTextModule,
     FieldsetModule,
     InputNumberModule,
+    CustomerCardComponent
+],
+  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService],
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
     DialogModule
   ],
-  providers: [CustomerService,SubscriptionService,ConfirmationService,MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

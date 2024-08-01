@@ -1,0 +1,186 @@
+<div class="cardCust">
+    <p-tabView>
+        <p-tabPanel header="פרטים אישיים">
+            <ng-container *ngIf="!toedit; else otherContent">
+                <p>
+                    <label class="title">שם </label><br>
+                    <span [innerText]=" (currentCustomer?.lastName) + ' ' + (currentCustomer?.firstName)"></span>
+                </p>
+                <p>
+                    <label class="title">טלפון </label><br>
+                    <span [innerText]="currentCustomer?.tel"></span>
+                </p>
+                <p>
+                    <label class="title">מייל </label><br>
+                    <span [innerText]="currentCustomer?.email"></span>
+                </p>
+                <p>
+                    <label class="title">כתובת </label><br>
+                    <span [innerText]="currentCustomer?.address"></span>
+                </p>
+                <div>
+                    <label class="title">סוג לקוח </label><br>
+                    <div *ngFor="let allCustType of customersType">
+                        <span *ngIf="allCustType.id==currentCustomer?.customerTypeId">{{allCustType.title}}</span>
+                    </div>
+                </div>
+                <p>
+                    <label class="title">סטטוס</label><br>
+                    <span>{{ currentCustomer?.isActive ? 'פעיל' : 'לא פעיל' }}</span>
+                </p>
+                <div>
+                    <label class="title">אפשרויות תשלום </label><br>
+                    <div *ngFor="let allpaymentOptions of paymentOptions">
+                        <span
+                            *ngIf="allpaymentOptions.id==currentCustomer?.paymentOptionId">{{allpaymentOptions.title}}</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="title">קופת חולים </label><br>
+                    <div *ngFor="let hmo of allHMO">
+                        <span
+                            *ngIf="hmo.id==currentCustomer?.hmoId">{{hmo.title}}</span>
+                    </div>
+                </div>
+                <input type="button" value="עריכה" (click)="edit()">
+            </ng-container>
+        </p-tabPanel>
+        <p-tabPanel header="מצב מנוי">
+            <p>
+                <label class="title">סוג מנוי </label>
+                <span [innerText]="currentCustomer?.subscriptionTypeId"></span>
+            </p>
+        </p-tabPanel>
+        <!-- <p-tabPanel header="היסטוריית אימונים">
+            <div *ngFor="let training of trainings">
+              <p>
+                <label class="title">:מאמן</label>
+                <span>{{ training.trainerName }}</span>
+              </p>
+              <p>
+                <label class="title">:תאריך אימון</label>
+                <span>{{ training.trainingDate | date: 'dd/MM/yyyy' }}</span>
+              </p>
+              <p>
+                <label class="title">:מספר משתתפים </label>
+                <span>{{ training.participantsCount }}</span>
+              </p>
+              <p>
+                <label class="title">:יום בשבוע</label>
+                <span>{{ training.dayOfWeek }}</span>
+              </p>
+              <p>
+                <label class="title">:שעה</label>
+                <span>{{ training.time.hour }}:{{ training.time.minute }}</span>
+              </p>
+              <hr>
+            </div>
+            <ng-template #noTrainings>
+                <p>אין אימונים להציג.</p>
+              </ng-template>
+          </p-tabPanel>     -->
+          
+          <p-tabPanel header="היסטוריית אימונים">
+            <ng-container *ngIf="trainings.length > 0; else noTrainings">
+                <ng-container *ngIf="currentTraining">
+                    <p>
+                        <label class="title">מאמן:</label>
+                        <span>{{ currentTraining.trainerName }}</span>
+                    </p>
+                    <p>
+                        <label class="title">תאריך אימון:</label>
+                        <span>{{ currentTraining.trainingDate | date: 'dd/MM/yyyy' }}</span>
+                    </p>
+                    <p>
+                        <label class="title">מספר משתתפים:</label>
+                        <span>{{ currentTraining.participantsCount }}</span>
+                    </p>
+                    <p>
+                        <label class="title">יום בשבוע:</label>
+                        <span>{{ currentTraining.dayOfWeek }}</span>
+                    </p>
+                    <p>
+                        <label class="title">שעה:</label>
+                        <span>{{ currentTraining.time.hour }}:{{ currentTraining.time.minute }}</span>
+                    </p>
+                    <div>
+                        <button (click)="prevTraining()" [disabled]="currentTrainingIndex === 0">אימון הבא</button>
+                        <button (click)="nextTraining()" [disabled]="currentTrainingIndex === trainings.length - 1">אימון קודם</button>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-template #noTrainings>
+                <p>אין אימונים להזנה.</p>
+            </ng-template>
+        </p-tabPanel>
+        
+    </p-tabView>
+    <ng-template #otherContent>
+        <form [formGroup]="myForm" id="form" (submit)="saveChanges()">
+            <h2>עריכה</h2>
+            <div class="form-group">
+                <label>שם פרטי</label><br>
+                <input pInputText id="firstName" formControlName="firstName" [ngModel]="currentCustomer?.firstName" />
+            </div>
+            <div class="form-group">
+                <label>שם משפחה</label><br>
+                <input pInputText id="lastName" formControlName="lastName" [ngModel]="currentCustomer?.lastName" />
+            </div>
+            <div class="form-group">
+                <label>טלפון</label><br>
+                <input pInputText id="tel" formControlName="tel" [ngModel]="currentCustomer?.tel" />
+            </div>
+            <div class="form-group">
+                <label>מייל</label><br>
+                <input pInputText id="email" formControlName="email" [ngModel]="currentCustomer?.email" />
+            </div>
+            <div class="form-group">
+                <label>כתובת</label><br>
+                <input pInputText id="address" formControlName="address" [ngModel]="currentCustomer?.address" />
+            </div>
+            <div class="form-group">
+                <label>סוג לקוח</label><br>
+                <select id="mySelect" pInputText formControlName="customerTypeId"
+                    ngModel="{{currentCustomer?.customerTypeId}}">
+                    <option *ngFor="let customerType of customersType" [value]="customerType.id">
+                        {{customerType.title}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>אפשרות תשלום</label><br>
+                <select id="mySelect" pInputText formControlName="paymentOptionId"
+                    ngModel="{{currentCustomer?.paymentOptionId}}">
+                    <option *ngFor="let paymentOptions of paymentOptions" [value]="paymentOptions.id">
+                        {{paymentOptions.title}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>קופת חולים</label><br>
+                <select id="mySelect" pInputText formControlName="hmoId"
+                    ngModel="{{currentCustomer?.hmoId}}">
+                    <option *ngFor="let hmo of allHMO" [value]="hmo.id">
+                        {{hmo.title}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>סוג מנוי</label><br>
+                <select id="mySelect" pInputText formControlName="subscriptionTypeId"
+                    ngModel="{{currentCustomer?.subscriptionTypeId}}">
+                    <option *ngFor="let subscriptionTypeId of subscriptionType" [value]="subscriptionTypeId.id">
+                        {{subscriptionTypeId.title}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+            <label>סטטוס</label>
+            <p-selectButton [options]="stateOptions" formControlName="isActive" optionLabel="label"
+                optionValue="value" />
+            </div>
+            <input type="submit" value="שמור שינויים" [disabled]="!myForm.valid">
+        </form>
+    </ng-template>
+</div>
+
