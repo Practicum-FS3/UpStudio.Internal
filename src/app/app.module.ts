@@ -26,6 +26,15 @@ import { TrainingTypeService } from './Services/trainingType.service';
 import { TrainerService } from './Services/trainer.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { DialogModule } from 'primeng/dialog';
+
+
 
 @NgModule({
   declarations: [
@@ -52,7 +61,13 @@ import { AvailableTrainingService } from './Services/availableTraining.service';
     InputNumberModule,
     CustomerCardComponent
 ],
-  providers: [CustomerService, TrainingService, SubscriptionService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService],
+  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService],
+    SplitButtonModule,
+    MessagesModule,
+    ConfirmDialogModule,
+    ToastModule,
+    DialogModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
