@@ -34,7 +34,7 @@ export class SubscriptionFormComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['actionType'] && this.actionType === 'update' || this.actionType === 'add')
       this.visible = true;
-    if (changes['actionType'] && this.actionType === 'update' && !changes['actionType'].firstChange) {
+    if (changes['actionType'] && this.actionType === 'update' ) {
       this.updateFormWithCurrentSubscription();
     }
   }
@@ -64,7 +64,6 @@ export class SubscriptionFormComponent implements OnInit, OnChanges {
     console.log('going to update: ',this.currentSubId);
     this.subToDisplay = this.lstSubs.find(x => x.id == this.currentSubId);
     if (this.subToDisplay) {
-      console.log('i found: ',this.subToDisplay)
       this.subscriptionForm.patchValue(this.subToDisplay);
     } else {
       console.warn('No subscription found with the provided id:', this.currentSubId);
@@ -87,15 +86,13 @@ export class SubscriptionFormComponent implements OnInit, OnChanges {
         console.warn('Unknown action');
     }
     this.cancleAction();
-    // this.loadSubscriptions();
+    this.loadSubscriptions();
   }
 
   private addSubscription(subscription: SubscriptionType): void {
     this.subscriptionService.addNewSubscription(subscription).subscribe({
       next: res => {
         console.log('Add response:', res);
-        this.loadChanges.emit(true);
-        this.loadSubscriptions();
       },
       error: err => {
         console.error('Add error:', err);
@@ -112,8 +109,6 @@ export class SubscriptionFormComponent implements OnInit, OnChanges {
     this.subscriptionService.updateSubscription(subscription).subscribe({
       next: res => {
         console.log('Update response:', res);
-        this.loadChanges.emit(true);
-        this.loadSubscriptions()
       },
       error: err => {
         console.error('Update error:', err);
@@ -125,8 +120,7 @@ export class SubscriptionFormComponent implements OnInit, OnChanges {
     this.subscriptionForm.reset();
     this.actionType='';
     this.currentSubId=0;
-    console.log('cancle action',this.actionType);
-    this.cdr.detectChanges();
+    this.loadChanges.emit(true);
   }
 
 }
