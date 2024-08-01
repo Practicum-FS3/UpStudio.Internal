@@ -20,6 +20,12 @@ import { SubscriptionFormComponent } from './components/Subscriptions/subscripti
 import { SpeedDialModule } from 'primeng/speeddial';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { CustomerCardComponent } from "./components/customer-card/customer-card.component";
+import { TrainingCustomerService } from './Services/trainingCustomer.service';
+import { TrainingTypeService } from './Services/trainingType.service';
+import { TrainerService } from './Services/trainer.service';
+import { AvailableTraining } from './Models/availableTraining.model';
+import { AvailableTrainingService } from './Services/availableTraining.service';
 
 @NgModule({
   declarations: [
@@ -44,8 +50,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-  ],
-  providers: [CustomerService, TrainingService, SubscriptionService],
+    CustomerCardComponent
+],
+  providers: [CustomerService, TrainingService, SubscriptionService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

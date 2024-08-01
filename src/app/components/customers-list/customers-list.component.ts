@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class CustomersListComponent implements OnInit {
   customers: Customer[] = [];
   displayedCustomers: Customer[] = [];
+  selectedCustomerId?: number;
+  addCust?:boolean
   
   private searchTerms = new Subject<{ firstName: string, lastName: string, email: string }>();
   currentPage = 1;
@@ -25,17 +27,18 @@ export class CustomersListComponent implements OnInit {
   }
 
   navigateToAddCustomer(): void {
-    this._router.navigate(['/add-customer']);
+    //this._router.navigate(['/add-customer']);
+    this.addCust=true
+
   }
 
   filterBySearch(name: string, email: string): void {
-    // Split the name into first name and last name
     const nameParts = name.split(' ');
     const firstName = nameParts[0] || '';
-    const lastName = nameParts[1] || '';
-    
+    const lastName = nameParts.slice(1).join(' ') || ''; // handling middle names as well
+
     this.searchTerms.next({ firstName, lastName, email });
-  }
+}
 
   setupSearch() {
     this.searchTerms.pipe(
@@ -77,4 +80,9 @@ export class CustomersListComponent implements OnInit {
       this.updateDisplayedCustomers();
     }
   }
+
+  selectCust(custId: number): void {
+    this.selectedCustomerId = custId;
+  }
+
 }

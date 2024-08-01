@@ -4,12 +4,11 @@ import { Observable } from "rxjs";
 import { TrainingCustomer } from "../Models/trainingCustomer.model";
 
 @Injectable()
-export class CustomerService {
+export class TrainingCustomerService {
     apiUrl: string = "api/TraningCustomer";
-
     constructor(private _http: HttpClient) {}
 
-    getCustomertFromServer(id: number): Observable<TrainingCustomer[]> {
+    getTrainingByCustomerId(id: number): Observable<TrainingCustomer[]> {
         return this._http.get<TrainingCustomer[]>(`${this.apiUrl}/byCustomerId/${id}`);
     }
    

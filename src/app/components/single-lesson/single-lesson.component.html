@@ -1,6 +1,6 @@
     <form (ngSubmit)="saveChanges(flage)" id="fo">
         <p>trainingTypeID</p>
-        <input type="text" [(ngModel)]="thistrain.trainingTypeID" name="trainingTypeID">
+        <input type="text" [(ngModel)]="thistrain.trainingCustomerTypeID" name="trainingTypeID">
 
         <p>trainerId:</p>
         <input type="text" [(ngModel)]="thistrain.trainerID" name="trainerID">
@@ -9,10 +9,10 @@
         <input type="number" [(ngModel)]="thistrain.dayOfWeek" name="dayOfWeek">
 
         <p>hour:</p>
-        <input type="number" [(ngModel)]="thistrain.hour.hour" name="hour">
+        <input type="number" [(ngModel)]="thistrain.time.hour" name="hour">
 
         <p>minute:</p>
-        <input type="number" [(ngModel)]="thistrain.hour.minute" name="minute">
+        <input type="number" [(ngModel)]="thistrain.time.minute" name="minute">
         <p>isActive</p>
         <input type="text" [(ngModel)]="thistrain.isActive" name="isActive">
 
