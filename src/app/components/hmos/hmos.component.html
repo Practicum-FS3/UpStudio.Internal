@@ -1,0 +1,53 @@
+<div class="panel">
+    <p-card>
+        <p-accordion  class="acord">
+            <h1>קופות חולים</h1>
+            <p-accordionTab *ngFor="let hmo of allHMO" >
+                <!-- <div *ngIf="ct.isActive == true"> -->
+                    <ng-template pTemplate="header">
+                        {{hmo.title}}
+                    </ng-template>
+                    <div class="Contact" *ngIf="update == false">
+                         <p>כותרת:  {{hmo.title}}</p>
+                        <p>שם ההסדר:  {{hmo.arrangementName}}</p>
+                        <p>  אימונים לחודש:  {{hmo.trainingsPerMonth}}</p>
+                        <p>מחיר לאימון:  {{hmo.trainingPrice}}</p>
+                        <p>גיל מינימלי:  {{hmo.minimumAge}}</p>
+                        <p>גיל מקסימלי:  {{hmo.maximumAge}}</p>
+                        <p>תאור אימון:  {{hmo.trainingDescription}}</p> 
+                        <p-button label="ערוך" (click)="edit(hmo.id)"></p-button>
+                    </div>
+                    <div class="Contact1" *ngIf="update == true">
+                        <input id="title" type="text" pInputText [(ngModel)]="selectedHMO.title" />
+                        <label for="title">:כותרת</label><br/><br/>
+                        <input id="arrangementName" type="text" pInputText [(ngModel)]="selectedHMO.arrangementName" />
+                        <label for="arrangementName">:שם ההסדר</label><br/><br/>
+    
+                        <input id="trainingsPerMonth" type="number" pInputText [(ngModel)]="selectedHMO.trainingsPerMonth" />
+                        <label for="trainingsPerMonth">:  אימונים לחודש</label><br/><br/>
+    
+                        <input id="trainingPrice" type="number" pInputText [(ngModel)]="selectedHMO.trainingPrice" />
+                        <label for="trainingPrice">:מחיר לאימון</label><br/><br/>
+    
+                        <input id="minimumAge" type="number" pInputText [(ngModel)]="selectedHMO.minimumAge" />
+                        <label for="minimumAge">:גיל מינימלי</label><br/><br/>
+    
+                        <input id="maximumAge" type="number" pInputText [(ngModel)]="selectedHMO.maximumAge" />
+                        <label for="maximumAge">:גיל מקסימלי</label><br/><br/>
+    
+                        <input id="trainingDescription" type="text" pInputText [(ngModel)]="selectedHMO.trainingDescription" />
+                        <label for="trainingDescription">:תאור אימון</label><br/><br/>
+    
+                        <p-button label="שמירה" (click)="Save(selectedHMO)"></p-button>
+                        <p-button label="ביטול" (click)="Close()"></p-button>
+    
+                    </div>
+                <!-- </div> -->
+            </p-accordionTab>
+        </p-accordion>
+        <app-add-hmos [item]="selectedHMO" (onSave)="Save($event)"></app-add-hmos>
+        <br/><p-button label="הוסף תוכן" (click)="add()"></p-button>
+    </p-card>
+    
+    </div>
+    

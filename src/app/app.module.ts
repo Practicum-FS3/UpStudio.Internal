@@ -25,6 +25,8 @@ import { ContentTypeComponent } from './components/content-type/content-type.com
 import { UpdateContentComponent } from './components/content-type/update-content/update-content.component';
 import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
+import { HMOsComponent } from './components/hmos/hmos.component';
+import { AddHMOsComponent } from './components/hmos/add-hmos/add-hmos.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import {CardModule} from 'primeng/card';
     SubscriptionFormComponent,
     ContentTypeComponent,
     UpdateContentComponent,
+    HMOsComponent,
+    AddHMOsComponent,
   ],
   imports: [
     BrowserModule,

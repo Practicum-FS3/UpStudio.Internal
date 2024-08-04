@@ -1,0 +1,36 @@
+<p-dialog header="Edit Item" [(visible)]="display">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="title">כותרת</label>
+        <input id="title" type="text" pInputText [(ngModel)]="item.title" />
+      </div>
+      <div class="p-field">
+        <label for="arrangementName">שם ההסדר</label>
+        <input id="arrangementName" type="text" pInputText [(ngModel)]="item.arrangementName" />
+      </div>
+      <div class="p-field">
+        <label for="trainingsPerMonth">אמונים לחודש</label>
+        <input id="trainingsPerMonth" type="number" pInputText [(ngModel)]="item.trainingsPerMonth" />
+      </div>
+      <div class="p-field">
+        <label for="trainingPrice">מחיר לאימון</label>
+        <input id="trainingPrice" type="number" pInputText [(ngModel)]="item.trainingPrice" />
+      </div>
+      <div class="p-field">
+        <label for="minimumAge">גיל מינימלי</label>
+         <input id="minimumAge" type="number" pInputText [(ngModel)]="item.minimumAge" /> 
+      </div>
+      <div class="p-field">
+        <label for="maximumAge">גיל מקסימלי</label>
+        <input id="maximumAge" type="number" pInputText [(ngModel)]="item.maximumAge" /> 
+      </div>
+      <div class="p-field">
+        <label for="trainingDescription">תאור אימון</label>
+        <input id="trainingDescription" type="text" pInputText [(ngModel)]="item.trainingDescription" />
+      </div>
+    </div>
+    <p-footer>
+      <button pButton type="button" label="שמירה" icon="pi pi-check" (click)="save()" class="p-button-success"></button>
+      <button pButton type="button" label="ביטול" icon="pi pi-times" (click)="display=false" class="p-button-secondary"></button>
+    </p-footer>
+  </p-dialog>

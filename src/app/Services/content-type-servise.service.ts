@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class ContentTypeServiseService{
   apiUrl: string = "/api/ContentType";
 
-  constructor(private _http: HttpClient) { }
+  constructor(public _http: HttpClient) { }
 
   getAllContentType(): Observable<ContentType[]> {
     return this._http.get<ContentType[]>(this.apiUrl);
