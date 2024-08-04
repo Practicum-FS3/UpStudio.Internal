@@ -18,20 +18,26 @@
                     <p-button label="ערוך" (click)="edit(ct.id)"></p-button>
                 </div>
                 <div class="Contact" *ngIf="update == true">
-                    <label for="title">:כותרת</label><br/>
-                    <input id="title" type="text" pInputText [(ngModel)]="selectedContent.title" /><br/><br/>
-                    <label for="description">:תאור</label><br/>
-                    <input id="description" type="text" pInputText [(ngModel)]="selectedContent.description" /><br/><br/>
-                    <label for="linkHP">:קישור לדף הבית</label><br/>
-                    <input id="linkHP" type="text" pInputText [(ngModel)]="selectedContent.linkHP" /><br/><br/>
-                    <label for="link2">:קישור2</label><br/>
-                    <input id="link2" type="text" pInputText [(ngModel)]="selectedContent.link2" /><br/><br/>
-                    <label for="title1">:כותרת1</label><br/>
-                    <input id="title1" type="text" pInputText [(ngModel)]="selectedContent.title1" /><br/><br/>
-                    <label for="title2">:כותרת2</label><br/>
-                    <input id="title2" type="text" pInputText [(ngModel)]="selectedContent.title2" /><br/><br/>
-                    <label for="title3">:כותרת3</label><br/>
-                    <input id="title3" type="text" pInputText [(ngModel)]="selectedContent.title3" /><br/><br/>
+                    <input id="title" type="text" pInputText [(ngModel)]="selectedContent.title" />
+                    <label for="title">:כותרת</label><br/><br/>
+                    <input id="description" type="text" pInputText [(ngModel)]="selectedContent.description" />
+                    <label for="description">:תאור</label><br/><br/>
+
+                    <input id="linkHP" type="text" pInputText [(ngModel)]="selectedContent.linkHP" />
+                    <label for="linkHP">:קישור לדף הבית</label><br/><br/>
+
+                    <input id="link2" type="text" pInputText [(ngModel)]="selectedContent.link2" />
+                    <label for="link2">:קישור2</label><br/><br/>
+
+                    <input id="title1" type="text" pInputText [(ngModel)]="selectedContent.title1" />
+                    <label for="title1">:כותרת1</label><br/><br/>
+
+                    <input id="title2" type="text" pInputText [(ngModel)]="selectedContent.title2" />
+                    <label for="title2">:כותרת2</label><br/><br/>
+
+                    <input id="title3" type="text" pInputText [(ngModel)]="selectedContent.title3" />
+                    <label for="title3">:כותרת3</label><br/><br/>
+
                     <p-button label="שמירה" (click)="Save(selectedContent)"></p-button>
                     <p-button label="ביטול" (click)="Close()"></p-button>
 
