@@ -17,7 +17,7 @@
                     <p>כותרת3:  {{ct.title3}}</p>
                     <p-button label="ערוך" (click)="edit(ct.id)"></p-button>
                 </div>
-                <div class="Contact" *ngIf="update == true">
+                <div class="Contact1" *ngIf="update == true">
                     <input id="title" type="text" pInputText [(ngModel)]="selectedContent.title" />
                     <label for="title">:כותרת</label><br/><br/>
                     <input id="description" type="text" pInputText [(ngModel)]="selectedContent.description" />
