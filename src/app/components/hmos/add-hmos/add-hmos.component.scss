@@ -2,3 +2,22 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  .custom-dialog .custom-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    direction: rtl; /* לוודא שהכיוון הוא מימין לשמאל */
+}
+
+.custom-dialog-title {
+    flex-grow: 1;
+    text-align: right;
+    margin-right: -100%;
+    font-size: 200%;
+}
+
+.p-dialog-header-close {
+    margin-right: 92%; /* העברת כפתור הסגירה לצד שמאל */
+}
