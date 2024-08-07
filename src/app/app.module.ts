@@ -23,7 +23,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CustomerCardComponent } from "./components/customer-card/customer-card.component";
 import { TrainingCustomerService } from './Services/trainingCustomer.service';
 import { TrainingTypeService } from './Services/trainingType.service';
-import { TrainerService } from './Services/trainer.service';
+import { TrainerService } from './Services/trainers.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
 import { SplitButtonModule } from 'primeng/splitbutton';
@@ -34,6 +34,8 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
 import { HomeComponent } from './components/home/home.component';
+import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
+import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
 
 
 
@@ -45,6 +47,7 @@ import { HomeComponent } from './components/home/home.component';
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
     HomeComponent,
+    TrainersListComponent, 
   ],
   imports: [
     BrowserModule,
@@ -61,14 +64,17 @@ import { HomeComponent } from './components/home/home.component';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-    CustomerCardComponent
+    CustomerCardComponent, 
+     TrainerCardComponent,
 ],
   providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
-    DialogModule
+    DialogModule,
+    TrainerService, 
+
   ],
   bootstrap: [AppComponent]
 })
