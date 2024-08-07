@@ -1,5 +1,5 @@
 <div class="container" dir="rtl">
-  <p-table [columns]="cols" [value]="lstSubs" dir="rtl" [tableStyle]="{ 'width': '100%' }">
+  <!-- <p-table [columns]="cols" [value]="lstSubs" dir="rtl" [tableStyle]="{ 'width': '100%' }">
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns">
@@ -27,7 +27,7 @@
   <br>
   <p-button label="הוסף מנוי" (onClick)="addSubPress()" icon="pi pi-plus-circle" badgeClass="p-badge-contrast" [outlined]="true" class="add-button" />
   <p-toast></p-toast>
-  <p-confirmDialog></p-confirmDialog>
+  <p-confirmDialog></p-confirmDialog> -->
 
   <app-subscription-form (loadChanges)="checkingToLoad($event)" [actionType]="action" [currentSubId]="currentSubId"></app-subscription-form>
 </div>

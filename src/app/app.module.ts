@@ -33,6 +33,7 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -43,6 +44,7 @@ import { DialogModule } from 'primeng/dialog';
     SingleLessonComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,7 @@ import { DialogModule } from 'primeng/dialog';
     InputNumberModule,
     CustomerCardComponent
 ],
-  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService],
+  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
