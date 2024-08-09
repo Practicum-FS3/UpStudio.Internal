@@ -6,7 +6,6 @@ export class Trainer {
     mail: string;
     tel: string;
     address: string;
-  
     constructor(
       id: number,
       firstName: string,

@@ -1,0 +1,40 @@
+
+<div class="panel">
+  <h1>מאמנים <img src="assets/contact-icon.png" alt="Contact Icon" class="contact-icon"></h1>
+  <div class="body">
+    <div class="search-inputs">
+      <div class="search-wrapper">
+        <input id="searchNameInput" placeholder="חפש לפי שם" type="search" class="form-control" #nameInput (input)="filterBySearch(nameInput.value, emailInput.value)" />
+        <img src="assets/search-icon2.png" alt="Search Icon" class="search-icon">
+      </div>
+      <div class="search-wrapper">
+        <input id="searchEmailInput" placeholder="חפש לפי אימייל" type="search" class="form-control" #emailInput (input)="filterBySearch(nameInput.value, emailInput.value)" />
+        <img src="assets/search-icon2.png" alt="Search Icon" class="search-icon">
+      </div>
+    </div>
+    <p-accordion>
+      <p-accordionTab *ngFor="let trainer of displayedTrainers" (click)="selectTrainer(trainer.id)">
+        <ng-template pTemplate="header">
+          {{ trainer.firstName }} {{ trainer.lastName }}
+        </ng-template>
+        <div class="accordion-content">
+          <p class="m-0">
+            <!-- מזהה מאמן: {{ trainer.id }} -->
+            <app-trainer-card *ngIf="selectedTrainerId === trainer.id" [trainerId]="selectedTrainerId"></app-trainer-card> 
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+    <div class="pagination-buttons" *ngIf="trainers.length > itemsPerPage">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">הקודם</button>
+      <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= trainers.length">הבא</button>
+    </div>
+  </div>
+  <div class="bt">
+    <p-button label="הוספת מאמן" [raised]="true"  (click)="navigateToAddTrainer()" severity="secondary" class="add-trainer-button"> 
+      <span class="add-trainer-icon-wrapper">
+        <img src="assets/plus-icon2.png" alt="Add Trainer Icon" class="add-trainer-icon">
+      </span>
+     </p-button>
+  </div>
+  <app-trainer-card *ngIf="addTrainer" ></app-trainer-card>
+</div>

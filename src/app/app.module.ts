@@ -23,13 +23,24 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CustomerCardComponent } from "./components/customer-card/customer-card.component";
 import { TrainingCustomerService } from './Services/trainingCustomer.service';
 import { TrainingTypeService } from './Services/trainingType.service';
-import { TrainerService } from './Services/trainer.service';
+import { TrainerService } from './Services/trainers.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
 import { TrainingsListComponent } from './components/trainings-list/trainings-list.component';
 import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDeatails.service';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { DialogModule } from 'primeng/dialog';
+import { HomeComponent } from './components/home/home.component';
+import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
+import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+
 
 
 @NgModule({
@@ -40,6 +51,10 @@ import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDea
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
     TrainingsListComponent,
+    HomeComponent,
+    TrainersListComponent, 
+    CustomerCardComponent,
+    TrainerCardComponent
   ],
   imports: [
     BrowserModule,
@@ -57,10 +72,18 @@ import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDea
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-    CustomerCardComponent,
-    CalendarModule
-],
-  providers: [CustomerService, TrainingService, SubscriptionService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,CustomerTrainingsDeatailsService],
+    SplitButtonModule,
+    MessagesModule,
+    ConfirmDialogModule,
+    ToastModule,
+    DialogModule,
+    CalendarModule,
+],   
+  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
+   
+    TrainerService,CustomerTrainingsDeatailsService 
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
