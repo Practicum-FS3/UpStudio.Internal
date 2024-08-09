@@ -53,8 +53,7 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     TrainingsListComponent,
     HomeComponent,
     TrainersListComponent, 
-    CustomerCardComponent,
-    TrainerCardComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -78,6 +77,8 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     ToastModule,
     DialogModule,
     CalendarModule,
+    CustomerCardComponent,
+    TrainerCardComponent
 ],   
   providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
    
