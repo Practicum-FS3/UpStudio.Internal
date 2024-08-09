@@ -26,6 +26,11 @@ import { TrainingTypeService } from './Services/trainingType.service';
 import { TrainerService } from './Services/trainer.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { TrainingsListComponent } from './components/trainings-list/trainings-list.component';
+import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDeatails.service';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +39,7 @@ import { AvailableTrainingService } from './Services/availableTraining.service';
     SingleLessonComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
+    TrainingsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,7 @@ import { AvailableTrainingService } from './Services/availableTraining.service';
     HttpClientModule,
     InputTextModule,
     ButtonModule,
+    CheckboxModule,
     FormsModule,
     ReactiveFormsModule,
     TableModule,
@@ -50,9 +57,10 @@ import { AvailableTrainingService } from './Services/availableTraining.service';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-    CustomerCardComponent
+    CustomerCardComponent,
+    CalendarModule
 ],
-  providers: [CustomerService, TrainingService, SubscriptionService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService],
+  providers: [CustomerService, TrainingService, SubscriptionService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,CustomerTrainingsDeatailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,6 @@
 //   direction: rtl !important;
 //   text-align: right !important;
 // }
-
 .panel {
   padding: 20px;
   background-color: #ffffff;
@@ -15,6 +14,43 @@
   margin: 0 auto;
 }
 
+.contact-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+.body {
+  margin-top: 10px;
+  direction: rtl;
+}
+
+.accordion-header {
+  color: #4C4C49;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.customer-detail {
+  display: flex;
+  font-size: 14px;
+}
+
+.label {
+  font-weight: bold;
+  color: #D91C5C;
+  margin-right: 8px;
+}
+
+.value {
+  color: #4C4C49;
+}
+
+
 // h1 {
 //   color: #d91c5c;
 //   text-align: center;
@@ -24,14 +60,10 @@
 //   justify-content: flex-end; 
 // }
 
-.contact-icon {
-  width: 30px;
-  height: 30px;
-  margin-left: 10px;
-}
 
 .search-inputs {
   display: flex;
+  margin-left: 9vw;
   justify-content: flex-end; 
   gap: 15px;
   margin-bottom: 30px;
@@ -74,17 +106,14 @@
 
 #searchNameInput, #searchEmailInput {
   color: #4c4c49 !important;
-  direction: rtl !important;
 }
 
 #searchNameInput::placeholder, #searchEmailInput::placeholder {
   color: #d91c5c !important;
-  direction: rtl !important;
 }
 
 .p-icon {
   margin-right: 0 !important;
-  direction: rtl !important;
 }
 
 // .accordion-content {
