@@ -1,24 +1,33 @@
-    <form (ngSubmit)="saveChanges(flage)" id="fo">
-        <p>trainingTypeID</p>
-        <input type="text" [(ngModel)]="thistrain.trainingCustomerTypeID" name="trainingTypeID">
+//הקומפוננטה הזו עוד לא סופית יש קצת תיקונים
+<form [formGroup]="form" (ngSubmit)="saveChanges(flage)" id="fo">
+  <p *ngIf="flage==0">:הוספת אימון חדש</p>
+  <p *ngIf="flage==1">:עדכון אימון קיים</p>
+  <p>סוג אימון לקוח:</p>
+  <select (change)="TCTSelectedOption($event)">
+    <option *ngFor="let person of alltrainingCustomerTypeActive" [value]="person.id">{{ person.trainingCustomerName }}</option>
+  </select>
 
-        <p>trainerId:</p>
-        <input type="text" [(ngModel)]="thistrain.trainerID" name="trainerID">
+  <p>:שם מאמנת</p>
+  <select (change)="TrainerSelectedOption($event)">
+    <option *ngFor="let person of alltrainerActive" [value]="person.id">{{ person.firstName +' '+ person.lastName}}</option>
+  </select>
 
-        <p>dayOfWeek:</p>
-        <input type="number" [(ngModel)]="thistrain.dayOfWeek" name="dayOfWeek">
+  <p>:יום בשבוע</p>
+  <input pInputText type="number" formControlName="dayOfWeek" name="dayOfWeek">
+  <small class="text-danger" *ngIf="form.get('dayOfWeek')?.hasError('required')">זהו שדה חובה</small>
+  <small class="text-danger" *ngIf="form.get('dayOfWeek')?.hasError('invalidNumberRange')">!הימים יכולים להיות בין ראשון לשישי בלבד  </small>
 
-        <p>hour:</p>
-        <input type="number" [(ngModel)]="thistrain.time.hour" name="hour">
+  <p>:שעה</p>
+  <input type="text" [(ngModel)]="thistrain.hour" name="hour">
+  <small class="text-danger" *ngIf="form.get('hour')?.hasError('required')">זהו שדה חובה</small>
+  <small class="text-danger" *ngIf="form.get('hour')?.hasError('invalidNumberRange')">!הימים יכולים להיות בין ראשון לשישי בלבד  </small>
 
-        <p>minute:</p>
-        <input type="number" [(ngModel)]="thistrain.time.minute" name="minute">
-        <p>isActive</p>
-        <input type="text" [(ngModel)]="thistrain.isActive" name="isActive">
 
-        <p>participantsCount</p>
-        <input type="text" [(ngModel)]="thistrain.participantsCount" name="participantsCount">
-       
-        
-        <input type="submit" value="save">
-    </form>
+  <p>:דקות</p>
+  <input type="text" [(ngModel)]="thistrain.minute" name="minute">
+
+  <p>:מספר משתתפות</p>
+  <input type="number" [(ngModel)]="thistrain.participantsCount" name="participantsCount">
+<br> <br>
+  <input type="submit" value="submit">
+</form>

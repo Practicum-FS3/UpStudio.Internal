@@ -1,15 +1,23 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { TrainingType } from "../Models/TrainingType.model";
 import { Observable } from "rxjs";
-import { TrainingType } from "../Models/trainingType.model";
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class TrainingTypeService {
-    apiUrl: string = "api/TrainingType";
-    constructor(private _http: HttpClient) {}
+    private baseUrl = "https://localhost:7101/api"
 
-    getTrainingTypeById(id: number): Observable<TrainingType[]> {
-        return this._http.get<TrainingType[]>(`${this.apiUrl}/${id}`);
+    apiUrl: string = "/api/TrainingType";
+  reload: any;
+    constructor(private _http: HttpClient) {
+
     }
-   
+
+    getTrainingTypeFromServer(): Observable<TrainingType[]> {        
+        return this._http.get<TrainingType[]>(this.baseUrl)
+
+    }  
+    getTrainingTypeById(id: number): Observable<TrainingType> {
+        return this._http.get<TrainingType>(`${this.baseUrl}/${id}`);
+    }
 }

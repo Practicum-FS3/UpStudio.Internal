@@ -26,8 +26,8 @@
   </p-table>
   <br>
   <p-button label="הוסף מנוי" (onClick)="addSubPress()" icon="pi pi-plus-circle" badgeClass="p-badge-contrast" [outlined]="true" class="add-button" />
-  <p-toast></p-toast>
-  <p-confirmDialog></p-confirmDialog>
+  <!-- <p-toast></p-toast> -->
+  <!-- <p-confirmDialog></p-confirmDialog> -->
 
   <app-subscription-form (loadChanges)="checkingToLoad($event)" [actionType]="action" [currentSubId]="currentSubId"></app-subscription-form>
 </div>

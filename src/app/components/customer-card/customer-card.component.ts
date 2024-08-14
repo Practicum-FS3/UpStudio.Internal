@@ -186,8 +186,8 @@ import { CustomerTypeService } from 'src/app/Services/customerType.service';
 import { PaymentOptionService } from 'src/app/Services/paymentOption.service';
 import { SubscriptionTypeService } from 'src/app/Services/subscriptionType.service';
 import { HMOService } from 'src/app/Services/HMO.service';
-import { TrainingCustomerService } from 'src/app/Services/trainingCustomer.service';
-import { TrainingService } from 'src/app/Services/trainig.servisec';
+import { TrainingCustomerTypeService } from 'src/app/Services/trainingCustomerType.service';
+import { TrainingService } from 'src/app/Services/trainig.service';
 import { TrainerService } from 'src/app/Services/trainer.service';
 import { AvailableTrainingService } from 'src/app/Services/availableTraining.service';
 import { TrainingDetails } from 'src/app/Models/training-details.model';
@@ -224,7 +224,7 @@ export class CustomerCardComponent {
     private paymentOptionService: PaymentOptionService,
     private customerTypeService: CustomerTypeService,
     private subscriptionTypeService: SubscriptionTypeService,
-    private trainingCustomerService: TrainingCustomerService,
+    private trainingCustomerService: TrainingCustomerTypeService,
     private trainingService: TrainingService,
     private trainerService: TrainerService,
     private availableTrainingService: AvailableTrainingService,
@@ -271,12 +271,12 @@ export class CustomerCardComponent {
 
   loadTrainings(customerId: number) {
     console.log(customerId);
-    this.trainingCustomerService.getTrainingByCustomerId(customerId).subscribe(trainingCustomers => {
-      const trainingIds = trainingCustomers.map(tc => tc.trainingID);
-      this.fetchTrainings(trainingIds);
-    }, error => {
-      console.error("Error fetching training customers:", error);
-    });
+    // this.trainingCustomerService.getTrainingByCustomerId(customerId).subscribe(trainingCustomers => {
+    //   const trainingIds = trainingCustomers.map(tc => tc.trainingID);
+    //   this.fetchTrainings(trainingIds);
+    // }, error => {
+    //   console.error("Error fetching training customers:", error);
+    // });
   }
 
   fetchTrainings(trainingIds: number[]) {
@@ -305,13 +305,13 @@ export class CustomerCardComponent {
 
   updateTrainerAndDate() {
     this.trainings.forEach((training, index) => {
-      this.trainerService.getTrainerById(training.trainerID).subscribe(trainer => {
-        this.trainings[index].trainerName = `${trainer.firstName} ${trainer.lastName}`;
-      });
+      // this.trainerService.getTrainerById(training.trainerID).subscribe(trainer => {
+      //   this.trainings[index].trainerName = `${trainer.firstName} ${trainer.lastName}`;
+      // });
 
-      this.availableTrainingService.getAvailableTrainingByTrainingId(training.id).subscribe(availableTraining => {
-        this.trainings[index].trainingDate = availableTraining.date;
-      });
+      // this.availableTrainingService.getAvailableTrainingByTrainingId(training.id).subscribe(availableTraining => {
+      //   this.trainings[index].trainingDate = availableTraining.date;
+      // });
     });
   }
 

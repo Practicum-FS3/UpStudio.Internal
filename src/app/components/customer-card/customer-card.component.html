@@ -51,92 +51,42 @@
                 <span [innerText]="currentCustomer?.subscriptionTypeId"></span>
             </p>
         </p-tabPanel>
-        <!-- <p-tabPanel header="היסטוריית אימונים">
-            <div *ngFor="let training of trainings">
-              <p>
-                <label class="title">:מאמן</label>
-                <span>{{ training.trainerName }}</span>
-              </p>
-              <p>
-                <label class="title">:תאריך אימון</label>
-                <span>{{ training.trainingDate | date: 'dd/MM/yyyy' }}</span>
-              </p>
-              <p>
-                <label class="title">:מספר משתתפים </label>
-                <span>{{ training.participantsCount }}</span>
-              </p>
-              <p>
-                <label class="title">:יום בשבוע</label>
-                <span>{{ training.dayOfWeek }}</span>
-              </p>
-              <p>
-                <label class="title">:שעה</label>
-                <span>{{ training.time.hour }}:{{ training.time.minute }}</span>
-              </p>
-              <hr>
-            </div>
-            <ng-template #noTrainings>
-                <p>אין אימונים להציג.</p>
-              </ng-template>
-          </p-tabPanel>     -->
-          
-          <p-tabPanel header="היסטוריית אימונים">
-            <ng-container *ngIf="trainings.length > 0; else noTrainings">
-                <ng-container *ngIf="currentTraining">
-                    <p>
-                        <label class="title">מאמן:</label>
-                        <span>{{ currentTraining.trainerName }}</span>
-                    </p>
-                    <p>
-                        <label class="title">תאריך אימון:</label>
-                        <span>{{ currentTraining.trainingDate | date: 'dd/MM/yyyy' }}</span>
-                    </p>
-                    <p>
-                        <label class="title">מספר משתתפים:</label>
-                        <span>{{ currentTraining.participantsCount }}</span>
-                    </p>
-                    <p>
-                        <label class="title">יום בשבוע:</label>
-                        <span>{{ currentTraining.dayOfWeek }}</span>
-                    </p>
-                    <p>
-                        <label class="title">שעה:</label>
-                        <span>{{ currentTraining.time.hour }}:{{ currentTraining.time.minute }}</span>
-                    </p>
-                    <div>
-                        <button (click)="prevTraining()" [disabled]="currentTrainingIndex === 0">אימון הבא</button>
-                        <button (click)="nextTraining()" [disabled]="currentTrainingIndex === trainings.length - 1">אימון קודם</button>
-                    </div>
-                </ng-container>
-            </ng-container>
-            <ng-template #noTrainings>
-                <p>אין אימונים להזנה.</p>
-            </ng-template>
-        </p-tabPanel>
-        
     </p-tabView>
     <ng-template #otherContent>
         <form [formGroup]="myForm" id="form" (submit)="saveChanges()">
             <h2>עריכה</h2>
             <div class="form-group">
                 <label>שם פרטי</label><br>
-                <input pInputText id="firstName" formControlName="firstName" [ngModel]="currentCustomer?.firstName" />
+                <input pInputText id="firstName" formControlName="firstName" [ngModel]="currentCustomer?.firstName" matTooltip="שדה חובה" matTooltipPosition="above" matTooltipClass="cute-tooltip" />
             </div>
+            <!-- לביטל שזה החובה -->
             <div class="form-group">
                 <label>שם משפחה</label><br>
                 <input pInputText id="lastName" formControlName="lastName" [ngModel]="currentCustomer?.lastName" />
+                <div *ngIf="myForm.get('lastName')?.hasError('required') && myForm.get('lastName')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
             <div class="form-group">
                 <label>טלפון</label><br>
                 <input pInputText id="tel" formControlName="tel" [ngModel]="currentCustomer?.tel" />
+                <div *ngIf="myForm.get('tel')?.hasError('required') && myForm.get('tel')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
             <div class="form-group">
                 <label>מייל</label><br>
                 <input pInputText id="email" formControlName="email" [ngModel]="currentCustomer?.email" />
+                <div *ngIf="myForm.get('email')?.hasError('required') && myForm.get('email')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
             <div class="form-group">
                 <label>כתובת</label><br>
                 <input pInputText id="address" formControlName="address" [ngModel]="currentCustomer?.address" />
+                <div *ngIf="myForm.get('address')?.hasError('required') && myForm.get('address')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
             <div class="form-group">
                 <label>סוג לקוח</label><br>
@@ -146,8 +96,11 @@
                         {{customerType.title}}
                     </option>
                 </select>
+                <div *ngIf="myForm.get('customerTypeId')?.hasError('required') && myForm.get('customerTypeId')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">customerTypeId
                 <label>אפשרות תשלום</label><br>
                 <select id="mySelect" pInputText formControlName="paymentOptionId"
                     ngModel="{{currentCustomer?.paymentOptionId}}">
@@ -155,6 +108,9 @@
                         {{paymentOptions.title}}
                     </option>
                 </select>
+                <div *ngIf="myForm.get('paymentOptionId')?.hasError('required') && myForm.get('paymentOptionId')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
             <div class="form-group">
                 <label>קופת חולים</label><br>
@@ -164,6 +120,9 @@
                         {{hmo.title}}
                     </option>
                 </select>
+                <div *ngIf="myForm.get('hmoId')?.hasError('required') && myForm.get('hmoId')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
             <div class="form-group">
                 <label>סוג מנוי</label><br>
@@ -173,14 +132,19 @@
                         {{subscriptionTypeId.title}}
                     </option>
                 </select>
+                <div *ngIf="myForm.get('subscriptionTypeId')?.hasError('required') && myForm.get('subscriptionTypeId')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
             <div class="form-group">
             <label>סטטוס</label>
             <p-selectButton [options]="stateOptions" formControlName="isActive" optionLabel="label"
                 optionValue="value" />
+                <div *ngIf="myForm.get('isActive')?.hasError('required') && myForm.get('isActive')?.touched">
+                    <small class="text-danger">זהו שדה חובה</small>
+                  </div>
             </div>
             <input type="submit" value="שמור שינויים" [disabled]="!myForm.valid">
         </form>
     </ng-template>
 </div>
-

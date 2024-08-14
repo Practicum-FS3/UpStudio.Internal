@@ -10,7 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SingleLessonComponent } from './components/single-lesson/single-lesson.component';
-import { TrainingService } from './Services/trainig.servisec';
+import { TrainingService } from './Services/trainig.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubscriptionOptionsComponent } from './components/Subscriptions/subscription-options/subscription-options.component';
 import { TableModule } from 'primeng/table';
@@ -21,8 +21,8 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CustomerCardComponent } from "./components/customer-card/customer-card.component";
-import { TrainingCustomerService } from './Services/trainingCustomer.service';
-import { TrainingTypeService } from './Services/trainingType.service';
+import { TrainingCustomerTypeService } from './Services/trainingCustomerType.service';
+import { TrainingTypeService } from './Services/TrainingType.service';
 import { TrainerService } from './Services/trainer.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
@@ -61,7 +61,8 @@ import { DialogModule } from 'primeng/dialog';
     InputNumberModule,
     CustomerCardComponent
 ],
-  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService],
+  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,
+    MessageService,TrainingCustomerTypeService,TrainingTypeService,TrainerService,AvailableTrainingService,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
