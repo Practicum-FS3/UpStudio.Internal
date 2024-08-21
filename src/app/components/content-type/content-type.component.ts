@@ -35,7 +35,7 @@ export class ContentTypeComponent implements OnInit {
 
   Save(content: ContentType) {
     if (content.id != 0) {
-      this.ctServise.updateC(content.id, content).subscribe(a => {
+      this.ctServise.updateC(content).subscribe(a => {
         this.ctServise.getAllContentType().subscribe(d =>{
           this.allCT = d
           this.update = false

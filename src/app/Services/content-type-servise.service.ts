@@ -13,25 +13,25 @@ export class ContentTypeServiseService{
   constructor(public _http: HttpClient) { }
 
   getAllContentType(): Observable<ContentType[]> {
-    return this._http.get<ContentType[]>(this.apiUrl);
+    return this._http.get<ContentType[]>(`${this.apiUrl}/GetAllContentType`);
   }
 
-  deleteContentType(id:number):Observable<void>{
-    return this._http.delete<void>(`${this.apiUrl}/${id}`)
-  }
+  // deleteContentType(id:number):Observable<void>{
+  //   return this._http.delete<void>(`${this.apiUrl}/${id}`)
+  // }
 
   addContentType(ct:ContentType) : Observable<ContentType>
   {
     console.log(ct);
     
-    return this._http.post<ContentType>(`${this.apiUrl}`, ct)
+    return this._http.post<ContentType>(`${this.apiUrl}/CreateContentType`, ct)
   }
 
-  updateC(id: number,ct:ContentType): Observable<ContentType> {
-    return this._http.put<ContentType>(`${this.apiUrl}/${id}`,ct);
+  updateC(ct:ContentType): Observable<ContentType> {
+    return this._http.put<ContentType>(`${this.apiUrl}/UpdateContentType`,ct);
   }
 
   getContentTypeById(id: number): Observable<ContentType> {
-    return this._http.get<ContentType>(`${this.apiUrl}/${id}`);
+    return this._http.get<ContentType>(`${this.apiUrl}/GetByContentTypeId/${id}`);
 }
 }

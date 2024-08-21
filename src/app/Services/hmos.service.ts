@@ -12,7 +12,7 @@ export class HMOsService {
   constructor(public _http: HttpClient) { }
 
   getAllHMO(): Observable<HMO[]> {
-    return this._http.get<HMO[]>(`${this.apiUrl}/GetAll`);
+    return this._http.get<HMO[]>(`${this.apiUrl}`);
   }
 
   deleteHMO(id: number): Observable<void> {
@@ -20,7 +20,7 @@ export class HMOsService {
   }
 
   addHMO(hmo: HMO): Observable<HMO> {
-    return this._http.post<HMO>(`${this.apiUrl}/Add`, hmo)
+    return this._http.post<HMO>(`${this.apiUrl}/AddHMO`, hmo)
   }
 
   updateHMO(id: number, hmo: HMO): Observable<boolean> {
