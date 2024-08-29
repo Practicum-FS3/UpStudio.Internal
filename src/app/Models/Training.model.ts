@@ -2,27 +2,37 @@ import { Time } from "./Time.model";
 
 export class Training {
     id: number;
-    trainingCustomerTypeID: number;
+    trainingCustomerTypeId: number;
     trainerID: number;
     dayOfWeek: number;
-    time: Time = { hour: 0, minute: 0 };
+    trainerName?:string;
+    hour: string;
+    minute:string;
+    trainingCustomerTypeName?:string;
     participantsCount: number;
     isActive: boolean;
     constructor(
         id: number,
-        trainingCustomerTypeID: number,
-        trainerID: number,
-        dayOfWeek: number,
-        time: Time,
-        participantsCount: number,
-        isActive: boolean
+        TrainingCustomerTypeId: number,
+        TrainerID: number,
+        DayOfWeek: number,
+        TrainerName:string,
+        Hour: string,
+        Minute:string,
+        TrainingCustomerTypeName:string,
+        ParticipantsCount: number,
+        IsActive: boolean
+    
     ) {
         this.id = id;
-        this.trainingCustomerTypeID =trainingCustomerTypeID;
-        this.trainerID =trainerID;
-        this.dayOfWeek= dayOfWeek;
-        this.time= time;
-        this.participantsCount= participantsCount;
-        this.isActive= isActive;
+        this.trainingCustomerTypeId =TrainingCustomerTypeId;
+        this.trainerID =TrainerID;
+        this.dayOfWeek= DayOfWeek;
+        this.trainerName=TrainerName;
+        this.hour=Hour;
+        this.minute=Minute;
+        this.trainingCustomerTypeName=TrainingCustomerTypeName;
+        this.participantsCount= ParticipantsCount;
+        this.isActive= IsActive;
     }
 }

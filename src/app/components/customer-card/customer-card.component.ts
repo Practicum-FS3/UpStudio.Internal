@@ -14,7 +14,7 @@ import { PaymentOptionService } from 'src/app/Services/paymentOption.service';
 import { SubscriptionTypeService } from 'src/app/Services/subscriptionType.service';
 import { HMOService } from 'src/app/Services/HMO.service';
 import { TrainingCustomerService } from 'src/app/Services/trainingCustomer.service';
-import { TrainingService } from 'src/app/Services/trainig.servisec';
+import { TrainingService } from 'src/app/Services/training.servisec';
 import { TrainerService } from 'src/app/Services/trainers.service';
 import { AvailableTrainingService } from 'src/app/Services/availableTraining.service';
 import { CalanderAvailableTraining } from 'src/app/Models/calanderAvailableTraining.model';
