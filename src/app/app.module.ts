@@ -10,7 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SingleLessonComponent } from './components/single-lesson/single-lesson.component';
-import { TrainingService } from './Services/trainig.servisec';
+import { TrainingService } from './Services/training.servisec';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubscriptionOptionsComponent } from './components/Subscriptions/subscription-options/subscription-options.component';
 import { TableModule } from 'primeng/table';
@@ -40,6 +40,7 @@ import { DialogModule } from 'primeng/dialog';
 import { HomeComponent } from './components/home/home.component';
 import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { TrainingCustomerTypeService } from './Services/trainingCustomerType.service';
 
 
 
@@ -53,7 +54,8 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     TrainingsListComponent,
     HomeComponent,
     TrainersListComponent, 
-    
+    // CustomerCardComponent,
+    // TrainerCardComponent
   ],
   imports: [
     BrowserModule,
@@ -77,10 +79,9 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     ToastModule,
     DialogModule,
     CalendarModule,
-    CustomerCardComponent,
-    TrainerCardComponent
+  
 ],   
-  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
+  providers: [CustomerService,TrainingCustomerTypeService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
    
     TrainerService,CustomerTrainingsDeatailsService 
 
