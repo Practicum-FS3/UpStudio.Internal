@@ -14,7 +14,13 @@
     <p-accordion>
       <p-accordionTab *ngFor="let customer of displayedCustomers" (click)="selectCust(customer.id)">
         <ng-template pTemplate="header">
-          {{ customer.firstName }} {{ customer.lastName }}
+          <div class="accordion-header">
+            <div class="row">
+              <div class="customer-detail">
+               <span class="value">{{ customer.firstName}} {{ customer.lastName}}</span>
+              </div>
+            </div>
+          </div>
         </ng-template>
         <div class="accordion-content">
           <p class="m-0">

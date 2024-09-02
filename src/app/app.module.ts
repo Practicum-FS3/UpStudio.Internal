@@ -26,6 +26,10 @@ import { TrainingTypeService } from './Services/trainingType.service';
 import { TrainerService } from './Services/trainers.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { TrainingsListComponent } from './components/trainings-list/trainings-list.component';
+import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDeatails.service';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -46,8 +50,10 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     SingleLessonComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
+    TrainingsListComponent,
     HomeComponent,
     TrainersListComponent, 
+    
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,7 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     HttpClientModule,
     InputTextModule,
     ButtonModule,
+    CheckboxModule,
     FormsModule,
     ReactiveFormsModule,
     TableModule,
@@ -64,19 +71,19 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-    CustomerCardComponent, 
-     TrainerCardComponent, 
-       DialogModule,
-     FormsModule,
-     ReactiveFormsModule
-],
-  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
+
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
     DialogModule,
-    TrainerService, 
+    CalendarModule,
+    CustomerCardComponent,
+    TrainerCardComponent
+],   
+  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
+   
+    TrainerService,CustomerTrainingsDeatailsService 
 
   ],
   bootstrap: [AppComponent]
