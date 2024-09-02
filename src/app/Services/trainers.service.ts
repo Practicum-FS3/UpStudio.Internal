@@ -13,7 +13,9 @@ export class TrainerService {
     apiUrl: string = "/api/TrainerControllers";
 
     constructor(private _http: HttpClient) {}
-    addTrainer(trainer: Trainer):Observable<Trainer> {
+    addTrainer(trainer: Trainer):Observable<Trainer> {   
+         console.log(trainer)
+
         return this._http.post<Trainer>(`${this.apiUrl}/addTrainer`,trainer,
           {headers: { 'content-type': "application/json" }} )    }
 

@@ -65,7 +65,10 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     FieldsetModule,
     InputNumberModule,
     CustomerCardComponent, 
-     TrainerCardComponent,
+     TrainerCardComponent, 
+       DialogModule,
+     FormsModule,
+     ReactiveFormsModule
 ],
   providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
     SplitButtonModule,

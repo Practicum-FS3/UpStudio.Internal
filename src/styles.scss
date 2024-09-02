@@ -3,7 +3,7 @@
 body {
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
-    direction: ltr !important;
+    direction: rtl !important;
     text-align: right !important;
 }
 
@@ -39,3 +39,8 @@ body {
     align-items: center;
     justify-content: flex-end; 
   }
+  .icon
+{
+  transform: scaleX(1); /* Flip the icon horizontally */
+
+}
