@@ -71,6 +71,7 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
+
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,

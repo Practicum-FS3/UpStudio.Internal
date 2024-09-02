@@ -1,6 +1,4 @@
-cardCust {
-    direction: rtl;
-}
+
 .title {
     font-size: 1.5em;
     color: #D91C5C;
@@ -112,6 +110,12 @@ select:focus {
 :host ::ng-deep .p-selectbutton .p-button:hover {
     background-color: #D91C5C;
 }
+
+
+
+
+
+
 @media (max-width: 768px) {
     .cardCust {
         padding: 1%;
@@ -133,6 +137,12 @@ select:focus {
         margin-top: 0%;
     }
 }
+
+
+
+
+
+
 @media (max-width: 480px) {
     .cardCust {
         padding: 0.5%;
@@ -155,7 +165,7 @@ select:focus {
 }
 @media (min-width: 769px) {
     form {
-        display: grid;
+        display: flex;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
