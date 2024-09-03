@@ -40,6 +40,8 @@ import { DialogModule } from 'primeng/dialog';
 import { HomeComponent } from './components/home/home.component';
 import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
+import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
 
 
 
@@ -52,7 +54,9 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     SubscriptionFormComponent,
     TrainingsListComponent,
     HomeComponent,
-    TrainersListComponent, 
+    TrainersListComponent,
+    TrainingDeatailsComponent, 
+    DayOfWeekPipe 
     
   ],
   imports: [

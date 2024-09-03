@@ -1,5 +1,5 @@
 <div class="panel">
-  <h1>אימונים</h1>
+  <h1>אימונים <img src="assets/dumbbell-icon.png" alt="Contact Icon" class="contact-icon"></h1>
   <div class="body">
     <div class="controls-container" [formGroup]="filterForm">
       <div class="cal">
@@ -21,46 +21,21 @@
       </div>
     </div>
 
+   
     <p-accordion>
       <p-accordionTab *ngFor="let training of displayedcalanderAT" (click)="selectTraining(training.id)">
         <ng-template pTemplate="header">
           <div class="accordion-header">
-            <div class="row">
-              <div class="training-detail">
-                <span class="label">מדריך:</span>
-                <span class="value">{{ training.trainerName }}</span>
-              </div>
-              <div class="training-detail">
-                <span class="label">סוג אימון:</span>
-                <span class="value">{{ training.trainingTypeName }}</span>
-              </div>
-              <div class="training-detail">
-                <span class="label">תאריך:</span>
-                <span class="value">{{ training.date | date: 'dd/MM/yyyy' }}</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="training-detail">
-                <span class="label">יום בשבוע:</span>
-                <span class="value">{{ training.dayOfWeek }}</span>
-              </div>
-              <div class="training-detail">
-                <span class="label">זמן:</span>
-                <span class="value">{{ training.time}}</span>
-              </div>
-              <div class="training-detail">
-                <span class="label">כמות משתתפים:</span>
-                <span class="value">{{ training.participantsCount }}</span>
-              </div>
-            </div>
+            <app-training-deatails [training]="training"></app-training-deatails>
           </div>
         </ng-template>
       </p-accordionTab>
     </p-accordion>
+    
 
-    <div class="pagination-buttons" *ngIf="calanderAT.length > itemsPerPage">
-      <button (click)="previousPage()" [disabled]="currentPage === 1">הקודם</button>
+    <div class="pagination-buttons" *ngIf="calanderAT.length >itemsPerPage">
       <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= calanderAT.length">הבא</button>
+      <button (click)="previousPage()" [disabled]="currentPage === 1">הקודם</button>
     </div>
   </div>
 </div>
