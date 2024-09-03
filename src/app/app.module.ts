@@ -75,6 +75,7 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
+
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,

@@ -18,10 +18,7 @@ export class TrainerCardComponent implements OnInit {
   myForm: FormGroup;
   toedit: boolean = true;
   currentTrainer?: Trainer;
-  stateOptions: any[] = [
-    { label: 'לא פעיל', value: false },
-    { label: 'פעיל', value: true }
-  ];
+
   @Input() trainerId?: number;
 
   constructor(
@@ -32,7 +29,6 @@ export class TrainerCardComponent implements OnInit {
     this.myForm = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת]*$')]),
       lastName: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת]*$')]),
-      isActive: new FormControl('', Validators.required),
       tel: new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]),
       address: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email])
@@ -40,7 +36,6 @@ export class TrainerCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ngOnInit called');
     if (this.trainerId) {
       this.getTrainer(this.trainerId);
       this.toedit = false;
@@ -55,7 +50,7 @@ export class TrainerCardComponent implements OnInit {
       this.myForm.patchValue({
         firstName: this.currentTrainer?.firstName,
         lastName: this.currentTrainer?.lastName,
-        isActive: this.currentTrainer?.isActive,
+  
         tel: this.currentTrainer?.tel,
         address: this.currentTrainer?.address,
         email: this.currentTrainer?.mail
@@ -75,7 +70,6 @@ export class TrainerCardComponent implements OnInit {
         firstName: controls['firstName'].value,
         lastName: controls['lastName'].value,
         mail: controls['email'].value,
-        isActive: controls['isActive'].value,
         tel: controls['tel'].value,
         address: controls['address'].value
       };
