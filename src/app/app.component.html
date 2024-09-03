@@ -1,8 +1,9 @@
-<a *ngIf="router.url !== '/customers-list'" routerLink="/customers-list">Go to Customers List</a>
+ <!-- <a *ngIf="router.url !== '/customers-list'" routerLink="/customers-list">Go to Customers List</a>
 <a *ngIf="router.url !== '/trainings-list'" routerLink="/trainings-list">Go to Training List</a>
-<a *ngIf="router.url !== '/trainer-list'" routerLink="/trainers-list">Go to Trainer List</a>
-
-<app-single-lesson [id]="1"></app-single-lesson>
+<a *ngIf="router.url !== '/trainer-list'" routerLink="/trainers-list">Go to Trainer List</a> -->
+<app-customer-card></app-customer-card>
+<app-single-lesson [id]="0"></app-single-lesson> 
+<!-- <app-trainer-card-component></app-trainer-card-component> -->
 <router-outlet></router-outlet>
 
 

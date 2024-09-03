@@ -16,9 +16,9 @@ export class TrainingCustomerTypeService {
   constructor(private _http: HttpClient) {
   }
   getTrainingCustomerTypeFromServer(): Observable<TrainingCustomerType[]> {
-    console.log("hgfdfghjhgfghjhgfghjkjhgfdfghjhgfd:    "+this._http.get<TrainingCustomerType[]>(`${this.apiUrl}/TrainingCustomersTypes/allTCT`));
+    console.log("hgfdfghjhgfghjhgfghjkjhgfdfghjhgfd:    "+this._http.get<TrainingCustomerType[]>(`${this.apiUrl}/TrainingCustomersTypes/GetAllTrainingCustomerTypes`));
     
-    return this._http.get<TrainingCustomerType[]>(`${this.baseUrl}${'/TrainingCustomersTypes/allTCT'}`)
+    return this._http.get<TrainingCustomerType[]>(`${this.baseUrl}${'/TrainingCustomersTypes/GetAllTrainingCustomerTypes'}`)
   }
   getTrainingCustomerTypeById(id: number): Observable<TrainingCustomerType> {
     console.log(id);

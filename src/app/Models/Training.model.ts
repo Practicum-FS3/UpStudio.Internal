@@ -8,6 +8,8 @@ export class Training {
     trainerName?:string;
     hour: string;
     minute:string;
+    customerTypeName:string;
+    trainingTypeName:string;
     trainingCustomerTypeName?:string;
     participantsCount: number;
     isActive: boolean;
@@ -19,6 +21,8 @@ export class Training {
         TrainerName:string,
         Hour: string,
         Minute:string,
+        customerTypeName:string,
+        trainingTypeName:string,
         TrainingCustomerTypeName:string,
         ParticipantsCount: number,
         IsActive: boolean
@@ -31,6 +35,8 @@ export class Training {
         this.trainerName=TrainerName;
         this.hour=Hour;
         this.minute=Minute;
+        this.customerTypeName=customerTypeName;
+        this.trainingTypeName=trainingTypeName;
         this.trainingCustomerTypeName=TrainingCustomerTypeName;
         this.participantsCount= ParticipantsCount;
         this.isActive= IsActive;

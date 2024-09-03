@@ -42,8 +42,6 @@ import { TrainersListComponent } from './components/trainers-list/trainers-list.
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
 import { TrainingCustomerTypeService } from './Services/trainingCustomerType.service';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,8 +52,8 @@ import { TrainingCustomerTypeService } from './Services/trainingCustomerType.ser
     TrainingsListComponent,
     HomeComponent,
     TrainersListComponent, 
-    // CustomerCardComponent,
-    // TrainerCardComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -79,7 +77,8 @@ import { TrainingCustomerTypeService } from './Services/trainingCustomerType.ser
     ToastModule,
     DialogModule,
     CalendarModule,
-  
+    CustomerCardComponent,
+    TrainerCardComponent
 ],   
   providers: [CustomerService,TrainingCustomerTypeService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
    

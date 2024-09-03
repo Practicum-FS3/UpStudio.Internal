@@ -1,33 +1,68 @@
 //הקומפוננטה הזו עוד לא סופית יש קצת תיקונים
-<form [formGroup]="form" (ngSubmit)="saveChanges(flage)" id="fo">
+<form #myForm="ngForm" (ngSubmit)="saveChanges(flage)" id="fo">
+
   <p *ngIf="flage==0">:הוספת אימון חדש</p>
   <p *ngIf="flage==1">:עדכון אימון קיים</p>
-  <p>סוג אימון לקוח:</p>
-  <select (change)="TCTSelectedOption($event)">
-    <option *ngFor="let person of alltrainingCustomerTypeActive" [value]="person.id">{{ person.trainingCustomerName }}</option>
-  </select>
+  <div class="form-group" dir="auto">
 
-  <p>:שם מאמנת</p>
-  <select (change)="TrainerSelectedOption($event)">
-    <option *ngFor="let person of alltrainerActive" [value]="person.id">{{ person.firstName +' '+ person.lastName}}</option>
-  </select>
+    <label>סוג אימון לקוח</label><br>
+    <!-- [(ngModel)]="thistrain.trainingCustomerTypeId" -->
+    <select (change)="TCTSelectedOption($event)" name="TCTID">
+      <option *ngFor="let person of alltrainingCustomerTypeActive" [value]="person.id">{{
+        person.trainingCustomerTypeName }}</option>
+    </select>
+    <span *ngIf="myForm.controls['TCTID']?.invalid && myForm.controls['TCTID']?.touched">
+      זהו שדה חובה
+    </span>
+  </div>
+  <div class="form-group" dir="auto">
 
-  <p>:יום בשבוע</p>
-  <input pInputText type="number" formControlName="dayOfWeek" name="dayOfWeek">
-  <small class="text-danger" *ngIf="form.get('dayOfWeek')?.hasError('required')">זהו שדה חובה</small>
-  <small class="text-danger" *ngIf="form.get('dayOfWeek')?.hasError('invalidNumberRange')">!הימים יכולים להיות בין ראשון לשישי בלבד  </small>
+    <label>שם מאמנת</label><br>
+    <!-- [(ngModel)]="thistrain.trainerID" -->
+    <select (change)="TrainerSelectedOption($event)" name="trainerName">
+      <option *ngFor="let person of alltrainerActive" [value]="person.id">{{ person.firstName +' '+ person.lastName}}
+      </option>
+    </select>
+    <span *ngIf="myForm.controls['trainerName']?.invalid && myForm.controls['trainerName']?.touched">
+      זהו שדה חובה
+    </span>
+  </div>
 
-  <p>:שעה</p>
-  <input type="text" [(ngModel)]="thistrain.hour" name="hour">
-  <small class="text-danger" *ngIf="form.get('hour')?.hasError('required')">זהו שדה חובה</small>
-  <!-- <small class="text-danger" *ngIf="form.get('hour')?.hasError('invalidNumberRange')">!הימים יכולים להיות בין ראשון לשישי בלבד  </small> -->
+  <div class="form-group" dir="auto">
+    <label>יום בשבוע</label><br>
+    <input type="number" [(ngModel)]="thistrain.dayOfWeek" name="dayOfWeek" min="1" max="6">
+    <span *ngIf="myForm.controls['dayOfWeek']?.invalid && myForm.controls['dayOfWeek']?.touched">
+      זהו שדה חובה
+    </span>
+  </div>
+
+  <div class="form-group" dir="auto">
+    <label>שעה</label><br>
+    <input type="number" [ngModel]="convertNumberToString(thistrain.hour)" (ngModelChange)="thistrain.hour = $event" name="hour" min="1" max="24">
+    <span *ngIf="myForm.controls['hour']?.invalid && myForm.controls['hour']?.touched">
+      זהו שדה חובה
+    </span>
+    <!-- <small class="text-danger" *ngIf="form.get('hour')?.hasError('invalidNumberRange')">!הימים יכולים להיות בין ראשון לשישי בלבד  </small> -->
+  </div>
 
 
-  <p>:דקות</p>
-  <input type="text" [(ngModel)]="thistrain.minute" name="minute">
+  <div class="form-group" dir="auto">
+    <label>דקות</label><br>
+    <input type="number" [ngModel]="convertNumberToString(thistrain.minute)" (ngModelChange)="thistrain.minute = $event"
+      name="minute" min="0" max="59">
+      <span *ngIf="myForm.controls['minute']?.invalid && myForm.controls['minute']?.touched">
+        זהו שדה חובה
+      </span>
+  </div>
 
-  <p>:מספר משתתפות</p>
-  <input type="number" [(ngModel)]="thistrain.participantsCount" name="participantsCount">
-<br> <br>
+  <div class="form-group" dir="auto">
+    <label>מספר משתתפות</label><br>
+    <input type="number" [(ngModel)]="thistrain.participantsCount" name="participantsCount" min="1">
+    <br> <br>
+    <span *ngIf="myForm.controls['participantsCount']?.invalid && myForm.controls['participantsCount']?.touched">
+      זהו שדה חובה
+    </span>
+  </div>
+
   <input type="submit" value="submit">
 </form>

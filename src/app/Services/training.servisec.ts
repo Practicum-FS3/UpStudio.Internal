@@ -13,16 +13,16 @@ export class TrainingService {
     }
 
     getTrainingFromServer(): Observable<Training[]> {        
-        return this._http.get<Training[]>(this.apiUrl)
+        return this._http.get<Training[]>(`${this.apiUrl}/GetAllTrainings`)
 
     }  
     getTrainingById(id: number): Observable<Training> {
-        return this._http.get<Training>(`${this.apiUrl}/${id}`);
+        return this._http.get<Training>(`${this.apiUrl}/GetTrainingById/${id}`);
     }
     UpdateTrainingById(id: number,training:Training): Observable<Training> {
-        return this._http.put<Training>(`${this.apiUrl}/${id}`,training);
+        return this._http.put<Training>(`${this.apiUrl}/UpdateTraining`,training);
     }
     addTraining(training : Training): Observable<Training> {        
-        return this._http.post<Training>(this.apiUrl,training)
+        return this._http.post<Training>(`${this.apiUrl}/AddTraining`,training)
     }  
 }

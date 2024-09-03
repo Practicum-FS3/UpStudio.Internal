@@ -27,7 +27,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SingleLessonComponent {
   @Input() id: number = 1;
   flage: number = 2;
-  thistrain: Training = new Training(0, 0, 0, 0, "", "", "", "", 0, true);
+  thistrain: Training = new Training(0, 0, 0, 0, "","","", "", "", "", 0, true);
   alltrainer: Trainer[] = [];
   alltrainerActive: Trainer[] = [];
   trainingCustomerTypeActive!: TrainingCustomerType;
@@ -44,17 +44,12 @@ export class SingleLessonComponent {
     }
     return null;
   }
-
-
   numberRangeValidator(control: FormControl): { [key: string]: boolean } | null {
     if (control.value !== null && (isNaN(control.value) || control.value < 1 || control.value > 6)) {
       return { 'invalidNumberRange': true };
     }
     return null;
   }
-
-
-
   selectedTrainingType: any;
   onTrainingTypeSelect(event: any) {
     this.selectedTrainingType = event.value;
@@ -83,6 +78,7 @@ export class SingleLessonComponent {
           this.alltrainingCustomerType.forEach(item => {
             if (item.isActive) {
               this.alltrainingCustomerTypeActive.push(item)
+              
             }
           });
         },
@@ -109,9 +105,9 @@ export class SingleLessonComponent {
       this.flage = 1//אימון קיים
       this._trainingService.getTrainingById(this.id).subscribe(
         action => {
-
           this.thistrain = action;
-
+          console.log(action);
+          
         },
         error => {
           if (error.status === 404) {
@@ -126,12 +122,13 @@ export class SingleLessonComponent {
     this.thistrain.trainingCustomerTypeId = selectedValue;
     this.alltrainingCustomerType.forEach(item => {
       if (item.id == selectedValue) {
-        this.thistrain.trainingCustomerTypeName = item.trainingCustomerName
+        this.thistrain.trainingCustomerTypeName = item.trainingCustomerTypeName
       }
-
     })
     alert(this.thistrain.trainingCustomerTypeId)
-
+  }
+  convertNumberToString(value: string): number {
+    return parseInt(value, 10);
   }
   TrainerSelectedOption(event: any): void {
     const selectedValue = event.target['value'];
@@ -142,13 +139,12 @@ export class SingleLessonComponent {
         alert("item.trainer " + item.firstName + ' ' + item.lastName)
         alert("this.thistrain.trainerName " + this.thistrain.trainerName)
       }
-
     })
   }
   saveChanges(flag: number) {
     if (flag == 1) {
       this._trainingService.UpdateTrainingById(this.id, this.thistrain).subscribe(
-        response => { alert("האימון עודכן בהצלחה במסד הנתונים " + this.thistrain.dayOfWeek) },
+        response => { alert("האימון עודכן בהצלחה במסד הנתונים " + this.thistrain.trainingCustomerTypeId) },
         error => { if (error.status === 500) { console.log("500"); } }
       )
     }
