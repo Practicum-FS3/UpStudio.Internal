@@ -10,7 +10,7 @@ export class Customer {
   isActive?: boolean;
   tel?: string;
   address?: string;
-
+  tz?:string
   constructor(
     id: number,
     firstName: string,
@@ -22,7 +22,8 @@ export class Customer {
     subscriptionTypeId: number,
     isActive: boolean,
     tel: string,
-    address: string
+    address: string,
+    tz:string
   ) {
     this.id = id;
     this.firstName = firstName;
@@ -35,5 +36,6 @@ export class Customer {
     this.isActive = isActive;
     this.tel = tel;
     this.address = address;
+    this.tz = tz
   }
 }

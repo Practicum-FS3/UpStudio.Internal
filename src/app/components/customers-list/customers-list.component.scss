@@ -1,10 +1,9 @@
-body {
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  direction: rtl !important;
-  text-align: right !important;
-}
-
+// body {
+//   background-color: #f9f9f9;
+//   font-family: Arial, sans-serif;
+//   direction: rtl !important;
+//   text-align: right !important;
+// }
 .panel {
   padding: 20px;
   background-color: #ffffff;
@@ -15,23 +14,56 @@ body {
   margin: 0 auto;
 }
 
-h1 {
-  color: #d91c5c;
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; 
-}
-
 .contact-icon {
   width: 30px;
   height: 30px;
   margin-left: 10px;
 }
+.body {
+  margin-top: 10px;
+  direction: rtl;
+}
+
+.accordion-header {
+  color: #4C4C49;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.customer-detail {
+  display: flex;
+  font-size: 14px;
+}
+
+.label {
+  font-weight: bold;
+  color: #D91C5C;
+  margin-right: 8px;
+}
+
+.value {
+  color: #4C4C49;
+}
+
+
+// h1 {
+//   color: #d91c5c;
+//   text-align: center;
+//   margin-bottom: 20px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-end; 
+// }
+
 
 .search-inputs {
   display: flex;
+  margin-left: 9vw;
   justify-content: flex-end; 
   gap: 15px;
   margin-bottom: 30px;
@@ -72,26 +104,24 @@ h1 {
   pointer-events: none;
 }
 
+
 #searchNameInput, #searchEmailInput {
   color: #4c4c49 !important;
-  direction: rtl !important;
 }
 
 #searchNameInput::placeholder, #searchEmailInput::placeholder {
   color: #d91c5c !important;
-  direction: rtl !important;
 }
 
 .p-icon {
   margin-right: 0 !important;
-  direction: rtl !important;
 }
 
-.accordion-content {
-  padding: 10px;
-  background-color: #ffcc0f;
-  text-align: right; 
-}
+// .accordion-content {
+//   padding: 10px;
+//   background-color: #ffcc0f;
+//   text-align: right; 
+// }
 
 .pagination-buttons {
   display: flex;
@@ -99,27 +129,27 @@ h1 {
   margin-top: 20px;
 }
 
-button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  background-color: #4c4c49;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-  text-align: right; 
-}
+// button {
+//   margin: 0 10px;
+//   padding: 10px 20px;
+//   background-color: #4c4c49;
+//   color: #fff;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   font-size: 14px;
+//   transition: background-color 0.3s ease;
+//   text-align: right; 
+// }
 
-button:hover {
-  background-color: #333;
-}
+// button:hover {
+//   background-color: #333;
+// }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
+// button:disabled {
+//   background-color: #ccc;
+//   cursor: not-allowed;
+// }
 
 .bt{
   direction: rtl;

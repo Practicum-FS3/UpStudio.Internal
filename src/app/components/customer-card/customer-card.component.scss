@@ -1,7 +1,6 @@
-.cardCust {
-    direction: rtl;
-}
-
+// cardCust {
+//     direction: rtl;
+// }
 .title {
     font-size: 1.5em;
     color: #D91C5C;
@@ -13,13 +12,11 @@
     margin-bottom: 1em;
     display: inline-block;
 }
-
 span {
     font-size: 1em;
     display: block;
     margin-bottom: 0.5em;
 }
-
 input[type="button"],
 input[type="submit"] {
     background-color: #FFCC0F;
@@ -34,44 +31,35 @@ input[type="submit"] {
     width: 100%;
     text-align: center;
 }
-
 input[type="button"]:hover,
 input[type="submit"]:hover {
     background-color: #D91C5C;
 }
-
 :host ::ng-deep .p-tabview .p-tabview-nav {
     background-color: #FFFFFF;
     border-radius: 5px;
 }
-
 :host ::ng-deep .p-tabview-panels {
     background-color: rgba(236, 236, 236, 1);
     padding: 20px;
 }
-
 .cardCust ::ng-deep .p-tabPanel[header="פרטים אישיים"] .ui-tabview-title {
     color: #D91C5C;
     padding: 1em;
 }
-
 form {
     display: flex;
     flex-direction: column;
 }
-
 .form-group {
     margin: 10px 0;
 }
-
-form input {
+input {
     border-radius: 10px;
     padding: 10px;
     border: 1px solid #D91C5C;
-    margin-top: 5px;
     width: 100%;
     box-sizing: border-box;
-
 }
 
 select {
@@ -87,15 +75,12 @@ select {
     font-size: 1em;
     cursor: pointer;
 }
-
 select:hover {
     background-color: #F2F2F2;
 }
-
 select:focus {
     border-color: #D91C5C;
 }
-
 :host ::ng-deep .p-selectbutton {
     width: 100%;
     display: flex;
@@ -105,9 +90,8 @@ select:focus {
     border-radius: 10px;
     padding: 4px;
     box-sizing: border-box;
-    // margin-top: 3%;  
+    // margin-top: 3%;
 }
-
 :host ::ng-deep .p-selectbutton .p-button {
     background-color: #FFCC0F;
     border: none;
@@ -122,15 +106,20 @@ select:focus {
     transition: background-color 0.3s ease;
     height: 30px;
 }
+#checkBox{
+    display: flex;
+    justify-content: center;
 
+}
+#checkBox2{
+    width: 70%;
+}
 :host ::ng-deep .p-selectbutton .p-button.p-highlight {
     background-color: #D91C5C;
 }
-
 :host ::ng-deep .p-selectbutton .p-button:hover {
     background-color: #D91C5C;
 }
-
 @media (max-width: 768px) {
     .cardCust {
         padding: 1%;
@@ -148,11 +137,9 @@ select:focus {
         padding: 8px 16px;
     }
     :host ::ng-deep .p-selectbutton {
-        //-------------------------------------------------
         margin-top: 0%;
     }
 }
-
 @media (max-width: 480px) {
     .cardCust {
         padding: 0.5%;
@@ -175,7 +162,7 @@ select:focus {
 }
 
 @media (min-width: 769px) {
-    form {
+    .external {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;

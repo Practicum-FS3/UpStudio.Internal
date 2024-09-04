@@ -1,11 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/Models/customer.model';
 import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { CustomerService } from 'src/app/Services/customers.service';
-import { AccordionModule } from 'primeng/accordion';
 import { Router } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-customers-list',
@@ -17,50 +14,49 @@ export class CustomersListComponent implements OnInit {
   displayedCustomers: Customer[] = [];
   selectedCustomerId?: number;
   addCust?:boolean
-
-  private searchTerms = new Subject<{ name: string, email: string, id: string }>();
+  
+  private searchTerms = new Subject<{ firstName: string, lastName: string, email: string }>();
   currentPage = 1;
-  itemsPerPage = 10; // הצגה של 10 לקוחות בעמוד
+  itemsPerPage = 10; 
 
   constructor(private _customerService: CustomerService, private _router: Router) { }
 
   ngOnInit(): void {
     this.setupSearch();
-    this._customerService.getCustomertFromServer().subscribe(customers => {
-      this.customers = customers;
-      this.updateDisplayedCustomers();
-    });
+    this.loadCustomers();
   }
 
   navigateToAddCustomer(): void {
-    // this._router.navigate(['/add-customer']);
+    //this._router.navigate(['/add-customer']);
     this.addCust=true
+
   }
 
   filterBySearch(name: string, email: string): void {
-    this.searchTerms.next({ name, email, id: '' });
-  }
+    const nameParts = name.split(' ');
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || ''; // handling middle names as well
+
+    this.searchTerms.next({ firstName, lastName, email });
+}
 
   setupSearch() {
     this.searchTerms.pipe(
       debounceTime(1000),
       distinctUntilChanged(),
-      switchMap(term => {
-        if (term.name === '' && term.email === '') {
-          return this._customerService.getCustomertFromServer();
-        } else if (term.name !== '') {
-          return this._customerService.getCustomerByName(term.name);
-        } else {
-          return this._customerService.getCustomerByEmail(term.email);
-        }
+      switchMap(({ firstName, lastName, email }) => {
+        return this._customerService.filterCustomers(firstName, lastName, email);
       })
     ).subscribe(data => {
-      if (Array.isArray(data)) {
-        this.customers = data;
-      } else {
-        this.customers = data ? [data] : [];
-      }
+      this.customers = data;
       this.currentPage = 1;
+      this.updateDisplayedCustomers();
+    });
+  }
+
+  loadCustomers(): void {
+    this._customerService.getCustomertFromServer().subscribe(customers => {
+      this.customers = customers;
       this.updateDisplayedCustomers();
     });
   }
@@ -84,7 +80,8 @@ export class CustomersListComponent implements OnInit {
       this.updateDisplayedCustomers();
     }
   }
-  selectCust(custId: number): void { 
+
+  selectCust(custId: number): void {
     this.selectedCustomerId = custId;
   }
 

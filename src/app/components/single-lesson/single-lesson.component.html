@@ -1,0 +1,24 @@
+    <form (ngSubmit)="saveChanges(flage)" id="fo">
+        <p>trainingTypeID</p>
+        <input type="text" [(ngModel)]="thistrain.trainingCustomerTypeID" name="trainingTypeID">
+
+        <p>trainerId:</p>
+        <input type="text" [(ngModel)]="thistrain.trainerID" name="trainerID">
+
+        <p>dayOfWeek:</p>
+        <input type="number" [(ngModel)]="thistrain.dayOfWeek" name="dayOfWeek">
+
+        <p>hour:</p>
+        <input type="number" [(ngModel)]="thistrain.time.hour" name="hour">
+
+        <p>minute:</p>
+        <input type="number" [(ngModel)]="thistrain.time.minute" name="minute">
+        <p>isActive</p>
+        <input type="text" [(ngModel)]="thistrain.isActive" name="isActive">
+
+        <p>participantsCount</p>
+        <input type="text" [(ngModel)]="thistrain.participantsCount" name="participantsCount">
+       
+        
+        <input type="submit" value="save">
+    </form>
