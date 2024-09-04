@@ -1,0 +1,33 @@
+<p>generate-available-trainings works!</p>
+<div class="cal">
+
+    <div class="card flex justify-content-center">
+        
+           
+
+            <p-calendar 
+            [(ngModel)]="rangeDates" 
+            selectionMode="range" 
+            [readonlyInput]="true" 
+            [showIcon]="true"
+            [numberOfMonths]="2"
+            [showButtonBar]="true"
+            [inline]="false"
+            [monthNavigator]="true"
+            [yearNavigator]="true"
+            [yearRange]="'2000:2030'"
+            [showOnFocus]="true"
+            [maxDateCount]="30"
+            (onBlur)="closeCalendarOnBlur($event)"
+            (onSelect)="onDateSelect($event)">
+        </p-calendar>
+  
+ <p-toast></p-toast>
+    </div> 
+  </div>
+  <!-- <div class="cal">
+    <p-calendar placeholder="אימונים מתאריך" formControlName="date1" [showIcon]="true" inputId="icondisplay1"></p-calendar>
+  </div>
+  <div class="cal">
+    <p-calendar placeholder="אימונים עד תאריך" formControlName="date2" [showIcon]="true" inputId="icondisplay2"></p-calendar>
+  </div> -->

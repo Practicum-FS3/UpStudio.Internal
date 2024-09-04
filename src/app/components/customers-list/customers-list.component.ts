@@ -55,6 +55,7 @@ export class CustomersListComponent implements OnInit {
   }
 
   loadCustomers(): void {
+    
     this._customerService.getCustomertFromServer().subscribe(customers => {
       this.customers = customers;
       this.updateDisplayedCustomers();

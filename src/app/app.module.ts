@@ -33,7 +33,8 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
-
+import { GenerateAvailableTrainingsComponent } from './components/generate-available-trainings/generate-available-trainings.component';
+import { CalendarModule } from 'primeng/calendar';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { DialogModule } from 'primeng/dialog';
     SingleLessonComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
+    GenerateAvailableTrainingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,14 +61,27 @@ import { DialogModule } from 'primeng/dialog';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-    CustomerCardComponent
+    CustomerCardComponent,
+    DialogModule,
+    ToastModule,
+    ConfirmDialogModule,
+    CalendarModule
 ],
-  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService],
+  providers: [CustomerService,
+     TrainingService, 
+     SubscriptionService,
+     ConfirmationService,
+     MessageService,
+     TrainingCustomerService,
+     TrainingTypeService,
+     TrainerService,
+     AvailableTrainingService,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
-    DialogModule
+    DialogModule,
+    CalendarModule
   ],
   bootstrap: [AppComponent]
 })
