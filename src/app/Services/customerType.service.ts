@@ -10,9 +10,9 @@ import { HMO } from '../Models/HMO.model';
   providedIn: 'root'
 })
 export class CustomerTypeService {
-private baseUrl = "https://localhost:7101/api"
+private baseUrl = "https://localhost:7101/api/CustomerType"
   constructor(private http:HttpClient) { }
   getAllCustomerType():Observable<Array<CustomerType>>{
-    return this.http.get<Array<CustomerType>>(`${this.baseUrl}/CustomerType`)
+    return this.http.get<Array<CustomerType>>(`${this.baseUrl}/GetAllCustomerTypes`)
   }
 }

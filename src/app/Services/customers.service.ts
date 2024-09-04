@@ -26,7 +26,7 @@ export class CustomerService {
       )
     }
     updateCustomer(customer:Customer):Observable<Customer>{
-      return this._http.put<Customer>(`${this.apiUrl}`,customer,
+      return this._http.put<Customer>(`${this.apiUrl}/UpdateCustomer`,customer,
         {headers: { 'content-type': "application/json" }}
       )
     }

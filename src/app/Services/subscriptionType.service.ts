@@ -10,9 +10,9 @@ import { HMO } from '../Models/HMO.model';
   providedIn: 'root'
 })
 export class SubscriptionTypeService {
-private baseUrl = "https://localhost:7101/api"
+private baseUrl = "https://localhost:7101/api/SubscriptionType"
   constructor(private http:HttpClient) { }
   getAllSubscriptionType():Observable<Array<SubscriptionType>>{
-    return this.http.get<Array<SubscriptionType>>(`${this.baseUrl}/SubscriptionType`)
+    return this.http.get<Array<SubscriptionType>>(`${this.baseUrl}/GetSubscriptionTypes`)
   }
 }
