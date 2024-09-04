@@ -1,55 +1,66 @@
 <div class="cardCust">
-    <p-tabView>
-      <p-tabPanel header="פרטים אישיים">
-        <ng-container *ngIf="!toedit; else otherContent">
-          <p>
-            <label class="title">שם </label><br>
-            <span [innerText]=" (currentCustomer?.lastName) + ' ' + (currentCustomer?.firstName)"></span>
-          </p>
-          <p>
-            <label class="title">טלפון </label><br>
-            <span [innerText]="currentCustomer?.tel"></span>
-          </p>
-          <p>
-            <label class="title">מייל </label><br>
-            <span [innerText]="currentCustomer?.email"></span>
-          </p>
-          <p>
-            <label class="title">כתובת </label><br>
-            <span [innerText]="currentCustomer?.address"></span>
-          </p>
-          <div>
-            <label class="title">סוג לקוח </label><br>
-            <div *ngFor="let allCustType of customersType">
-              <span *ngIf="allCustType.id==currentCustomer?.customerTypeId">{{allCustType.title}}</span>
-            </div>
-          </div>
-          <p>
-            <label class="title">סטטוס</label><br>
-            <span>{{ currentCustomer?.isActive ? 'פעיל' : 'לא פעיל' }}</span>
-          </p>
-          <div>
-            <label class="title">אפשרויות תשלום </label><br>
-            <div *ngFor="let allpaymentOptions of paymentOptions">
-              <span *ngIf="allpaymentOptions.id==currentCustomer?.paymentOptionId">{{allpaymentOptions.title}}</span>
-            </div>
-          </div>
-          <div>
-            <label class="title">קופת חולים </label><br>
-            <div *ngFor="let hmo of allHMO">
-              <span *ngIf="hmo.id==currentCustomer?.hmoId">{{hmo.title}}</span>
-            </div>
-          </div>
-          <input type="button" value="עריכה" (click)="edit()">
-        </ng-container>
-      </p-tabPanel>
-      <p-tabPanel header="מצב מנוי">
+  <p-tabView>
+    <p-tabPanel header="פרטים אישיים">
+      <ng-container *ngIf="!toedit; else otherContent">
         <p>
-          <label class="title">סוג מנוי </label>
-          <span [innerText]="currentCustomer?.subscriptionTypeId"></span>
+          <label class="title">שם </label><br>
+          <span [innerText]=" (currentCustomer?.lastName) + ' ' + (currentCustomer?.firstName)"></span>
         </p>
-      </p-tabPanel>
-      <p-tabPanel header="היסטוריית אימונים">
+    
+         <p>
+          <label class="title">טלפון </label><br>
+          <span [innerText]="currentCustomer?.tel"></span>
+        </p>
+        <p>
+          <label class="title">תעודת זהות </label><br>
+          <span [innerText]="currentCustomer?.tz"></span>
+        </p>
+        <p>
+          <label class="title">מייל </label><br>
+          <span [innerText]="currentCustomer?.email"></span>
+        </p>
+        <p>
+          <label class="title">כתובת </label><br>
+          <span [innerText]="currentCustomer?.address"></span>
+        </p>
+        <div>
+          <label class="title">סוג לקוח </label><br>
+          <div *ngFor="let allCustType of customersType">
+            <span *ngIf="allCustType.id==currentCustomer?.customerTypeId">{{allCustType.title}}</span>
+          </div>
+        </div>
+        <p>
+          <label class="title">סטטוס</label><br>
+          <span>{{ currentCustomer?.isActive ? 'פעיל' : 'לא פעיל' }}</span>
+        </p>
+        <div>
+          <label class="title">אפשרויות תשלום </label><br>
+          <div *ngFor="let allpaymentOptions of paymentOptions">
+            <span *ngIf="allpaymentOptions.id==currentCustomer?.paymentOptionId">{{allpaymentOptions.title}}</span>
+          </div>
+        </div>
+        <div>
+          <label class="title">סוג מנוי </label><br>
+          <div *ngFor="let sType of subscriptionType">
+            <span *ngIf="sType.id==currentCustomer?.subscriptionTypeId">{{sType.title}}</span>
+          </div>
+        </div>
+        <div>
+          <label class="title">קופת חולים </label><br>
+          <div *ngFor="let hmo of allHMO">
+            <span *ngIf="hmo.id==currentCustomer?.hmoId">{{hmo.title}}</span>
+          </div>
+        </div>
+        <input type="button" value="עריכה" (click)="edit()">
+      </ng-container>
+    </p-tabPanel>
+    <p-tabPanel header="מצב מנוי">
+      <p>
+        <label class="title">סוג מנוי </label>
+        <span [innerText]="currentCustomer?.subscriptionTypeId"></span>
+      </p>
+    </p-tabPanel>
+     <p-tabPanel header="היסטוריית אימונים">
         <ng-container *ngIf="trainings.length > 0; else noTrainings">
           <ng-container *ngIf="currentTraining">
             <p>
@@ -80,77 +91,103 @@
         </ng-template>
       </p-tabPanel>
     </p-tabView>
-  
-    <ng-template #otherContent>
-      <form [formGroup]="myForm">
-        <p>
-          <label class="title">שם משפחה </label>
-          <input type="text" formControlName="lastName">
-          <span *ngIf="myForm.get('lastName')?.invalid && myForm.get('lastName')?.touched">
-            שם משפחה הוא שדה חובה
-          </span>
-        </p>
-        <p>
-          <label class="title">שם פרטי </label>
-          <input type="text" formControlName="firstName">
-          <span *ngIf="myForm.get('firstName')?.invalid && myForm.get('firstName')?.touched">
-            שם פרטי הוא שדה חובה
-          </span>
-        </p>
-        <p>
-          <label class="title">טלפון </label>
-          <input type="text" formControlName="tel">
-          <span *ngIf="myForm.get('tel')?.invalid && myForm.get('tel')?.touched">
-            טלפון הוא שדה חובה
-          </span>
-        </p>
-        <p>
-          <label class="title">מייל </label>
-          <input type="text" formControlName="email">
-          <span *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
-            מייל הוא שדה חובה
-          </span>
-        </p>
-        <p>
-          <label class="title">כתובת </label>
-          <input type="text" formControlName="address">
-          <span *ngIf="myForm.get('address')?.invalid && myForm.get('address')?.touched">
-            כתובת היא שדה חובה
-          </span>
-        </p>
-        <div>
-          <label class="title">סוג לקוח </label>
-          <select formControlName="customerTypeId">
-            <option *ngFor="let allCustType of customersType" [ngValue]="allCustType.id">{{allCustType.title}}</option>
-          </select>
-          <span *ngIf="myForm.get('customerTypeId')?.invalid && myForm.get('customerTypeId')?.touched">
-            סוג לקוח הוא שדה חובה
-          </span>
+  <ng-template #otherContent>
+    <form [formGroup]="myForm">
+      <div class="external">
+      <div class="form-group">
+        <label class="title">שם משפחה </label>
+        <input id="firstName" formControlName="lastName" [ngModel]="currentCustomer?.lastName" />
+        <span *ngIf="myForm.get('lastName')?.invalid && myForm.get('lastName')?.touched">
+          שם משפחה הוא שדה חובה
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="title">שם פרטי </label>
+        <input type="text" formControlName="firstName" [ngModel]="currentCustomer?.firstName">
+        <span *ngIf="myForm.get('firstName')?.invalid && myForm.get('firstName')?.touched">
+          שם פרטי הוא שדה חובה
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="title">תעודת זהות </label>
+        <input type="text" formControlName="tz" [ngModel]="currentCustomer?.tz">
+        <span *ngIf="myForm.get('tz')?.invalid && myForm.get('tz')?.touched">
+          תעודת זהות הוא שדה חובה
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="title">טלפון </label>
+        <input type="text" formControlName="tel" [ngModel]="currentCustomer?.tel">
+        <span *ngIf="myForm.get('tel')?.invalid && myForm.get('tel')?.touched">
+          טלפון הוא שדה חובה
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="title">מייל</label>
+        <input type="text" formControlName="email" [ngModel]="currentCustomer?.email">
+        <span *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+          מייל הוא שדה חובה
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="title">כתובת </label>
+        <input type="text" formControlName="address" [ngModel]="currentCustomer?.address">
+        <span *ngIf="myForm.get('address')?.invalid && myForm.get('address')?.touched">
+          כתובת היא שדה חובה
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="title">סוג לקוח </label>
+        <select formControlName="customerTypeId" [ngModel]="currentCustomer?.customerTypeId">
+          <option *ngFor="let allCustType of customersType" [ngValue]="allCustType.id">{{allCustType.title}}</option>
+        </select>
+        <span *ngIf="myForm.get('customerTypeId')?.invalid && myForm.get('customerTypeId')?.touched">
+          סוג לקוח הוא שדה חובה
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="title">סוג מנוי</label>
+        <select id="mySelect" pInputText formControlName="subscriptionTypeId"
+          ngModel="{{currentCustomer?.subscriptionTypeId}}">
+          <option *ngFor="let subscriptionTypeId of subscriptionType" [value]="subscriptionTypeId.id">
+            {{subscriptionTypeId.title}}
+          </option>
+        </select>
+        <div
+          *ngIf="myForm.get('subscriptionTypeId')?.hasError('required') && myForm.get('subscriptionTypeId')?.touched">
+          <small class="text-danger">זהו שדה חובה</small>
         </div>
-        <div>
-          <label class="title">סטטוס</label>
-          <p-selectButton [options]="stateOptions" formControlName="isActive"></p-selectButton>
+      </div>
+      <div class="form-group">
+        <label class="title">קופת חולים </label>
+        <select formControlName="hmoId" [ngModel]="currentCustomer?.hmoId">
+          <option *ngFor="let hmo of allHMO" [ngValue]="hmo.id">{{hmo.title}}</option>
+        </select>
+        <span *ngIf="myForm.get('hmoId')?.invalid && myForm.get('hmoId')?.touched">
+          קופת חולים היא שדה חובה
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="title">אפשרויות תשלום </label>
+        <select formControlName="paymentOptionId" [ngModel]="currentCustomer?.paymentOptionId">
+          <option *ngFor="let allpaymentOptions of paymentOptions" [ngValue]="allpaymentOptions.id">
+            {{allpaymentOptions.title}}</option>
+        </select>
+        <span *ngIf="myForm.get('paymentOptionId')?.invalid && myForm.get('paymentOptionId')?.touched">
+          אפשרות תשלום היא שדה חובה
+        </span>
+      </div>
+    </div>
+    <div id="checkBox">
+      <div id="checkBox2">
+        <label class="title">סטטוס</label>
+        <p-selectButton [options]="stateOptions" formControlName="isActive" optionLabel="label" optionValue="value" />
+        <div *ngIf="myForm.get('isActive')?.hasError('required') && myForm.get('isActive')?.touched">
+          <small class="text-danger">זהו שדה חובה</small>
         </div>
-        <div>
-          <label class="title">אפשרויות תשלום </label>
-          <select formControlName="paymentOptionId">
-            <option *ngFor="let allpaymentOptions of paymentOptions" [ngValue]="allpaymentOptions.id">{{allpaymentOptions.title}}</option>
-          </select>
-          <span *ngIf="myForm.get('paymentOptionId')?.invalid && myForm.get('paymentOptionId')?.touched">
-            אפשרות תשלום היא שדה חובה
-          </span>
-        </div>
-        <div>
-          <label class="title">קופת חולים </label>
-          <select formControlName="hmoId">
-            <option *ngFor="let hmo of allHMO" [ngValue]="hmo.id">{{hmo.title}}</option>
-          </select>
-          <span *ngIf="myForm.get('hmoId')?.invalid && myForm.get('hmoId')?.touched">
-            קופת חולים היא שדה חובה
-          </span>
-        </div>
-        <input type="button" value="שמירה" (click)="saveChanges()">
-      </form>
-    </ng-template>
-  </div>
-  
+      </div>
+    </div>
+    </form>
+    <input type="button" value="שמירה" (click)="saveChanges()">
+  </ng-template>
+</div>
