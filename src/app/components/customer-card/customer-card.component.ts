@@ -103,9 +103,25 @@ export class CustomerCardComponent {
     });
   }
 
+  // loadTrainings(customerId: number) {
+  //   this.customerTDService.getCustomerTrainingsDeatails().subscribe(trainings => {
+  //     this.trainings = trainings;
+  //     if (this.trainings.length > 0) {
+  //       this.currentTraining = this.trainings[0];
+  //     }
+  //   }, error => {
+  //     console.error("Error fetching customer trainings:", error);
+  //   });
+  // }
   loadTrainings(customerId: number) {
     this.customerTDService.getCustomerTrainingsDeatails().subscribe(trainings => {
-      this.trainings = trainings;
+      // Sort trainings by date, closest date first in the future
+      this.trainings = trainings.sort((a, b) => {
+        const dateA = new Date(a.date); // Replace 'date' with the correct property name
+        const dateB = new Date(b.date);
+        return dateB.getTime() - dateA.getTime(); // Reverse the sort order
+      });
+  
       if (this.trainings.length > 0) {
         this.currentTraining = this.trainings[0];
       }
@@ -113,6 +129,7 @@ export class CustomerCardComponent {
       console.error("Error fetching customer trainings:", error);
     });
   }
+  
 
   edit() {
     this.toedit = true;

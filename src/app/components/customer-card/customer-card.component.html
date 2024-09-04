@@ -70,8 +70,9 @@
               </p>
           </ng-container>
           <div>
-            <button (click)="prevTraining()" [disabled]="currentTrainingIndex === 0">קודם</button>
-            <button (click)="nextTraining()" [disabled]="currentTrainingIndex === trainings.length - 1">הבא</button>
+            <button (click)="nextTraining()" [disabled]="currentTrainingIndex === trainings.length - 1">הקודם</button>
+            <button (click)="prevTraining()" [disabled]="currentTrainingIndex === 0">הבא</button>
+
           </div>
         </ng-container>
         <ng-template #noTrainings>
