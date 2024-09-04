@@ -41,7 +41,7 @@
         <div>
           <label class="title">סוג מנוי </label><br>
           <div *ngFor="let sType of subscriptionType">
-            <span *ngIf="sType.id==currentCustomer?.hmoId">{{sType.title}}</span>
+            <span *ngIf="sType.id==currentCustomer?.paymentOptionId">{{sType.title}}</span>
           </div>
         </div>
         <div>
