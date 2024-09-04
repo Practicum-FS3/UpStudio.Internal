@@ -91,9 +91,9 @@ export class SingleLessonComponent {
       action => {
         this.alltrainer = action
         this.alltrainer.forEach(item => {
-          if (item.isActive) {
+          // if (item.isActive) {
             this.alltrainerActive.push(item)
-          }
+          // }
         });
       }
     );

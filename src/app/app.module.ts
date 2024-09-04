@@ -40,8 +40,12 @@ import { DialogModule } from 'primeng/dialog';
 import { HomeComponent } from './components/home/home.component';
 import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
-import { TrainingCustomerTypeService } from './Services/trainingCustomerType.service';
 
+
+
+import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
+import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
+import { TrainingCustomerTypeService } from './Services/trainingCustomerType.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,8 +55,9 @@ import { TrainingCustomerTypeService } from './Services/trainingCustomerType.ser
     SubscriptionFormComponent,
     TrainingsListComponent,
     HomeComponent,
-    TrainersListComponent, 
-    AppComponent,
+    TrainersListComponent,
+    TrainingDeatailsComponent, 
+    DayOfWeekPipe 
     
   ],
   imports: [
@@ -71,6 +76,7 @@ import { TrainingCustomerTypeService } from './Services/trainingCustomerType.ser
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
+
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,

@@ -12,7 +12,7 @@ import { CustomerTrainingsDeatailsService } from 'src/app/Services/customerTrain
 export class TrainingsListComponent implements OnInit {
   selectedTrainingId?: number;
   currentPage = 1;
-  itemsPerPage = 10; 
+  itemsPerPage = 3; 
   calanderAT: CalanderAvailableTraining[] = [];
   displayedcalanderAT: CalanderAvailableTraining[] = [];
 
