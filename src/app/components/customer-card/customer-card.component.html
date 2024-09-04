@@ -6,7 +6,8 @@
           <label class="title">שם </label><br>
           <span [innerText]=" (currentCustomer?.lastName) + ' ' + (currentCustomer?.firstName)"></span>
         </p>
-        <p>
+    
+         <p>
           <label class="title">טלפון </label><br>
           <span [innerText]="currentCustomer?.tel"></span>
         </p>
@@ -59,36 +60,37 @@
         <span [innerText]="currentCustomer?.subscriptionTypeId"></span>
       </p>
     </p-tabPanel>
-    <p-tabPanel header="היסטוריית אימונים">
-      <ng-container *ngIf="trainings.length > 0; else noTrainings">
-        <ng-container *ngIf="currentTraining">
-          <p>
-            <label class="title">תאריך:</label>
-            <span [innerText]="currentTraining.date | date: 'dd/MM/yyyy'"></span>
-          </p>
-          <p>
-            <label class="title">מאמן:</label>
-            <span [innerText]="currentTraining.trainerName"></span>
-          </p>
-          <p>
-            <label class="title">סוג אימון:</label>
-            <span [innerText]="currentTraining.trainingTypeName"></span>
-          </p>
-          <p>
-            <label class="title">מס' מתתפים :</label>
-            <span [innerText]="currentTraining.participantsCount"></span>
-          </p>
+     <p-tabPanel header="היסטוריית אימונים">
+        <ng-container *ngIf="trainings.length > 0; else noTrainings">
+          <ng-container *ngIf="currentTraining">
+            <p>
+              <label class="title">תאריך:</label>
+              <span [innerText]="currentTraining.date | date: 'dd/MM/yyyy'"></span>
+            </p>
+            <p>
+              <label class="title">מאמן:</label>
+              <span [innerText]="currentTraining.trainerName"></span>
+            </p>
+            <p>
+              <label class="title">סוג אימון:</label>
+              <span [innerText]="currentTraining.trainingTypeName"></span>
+            </p>
+            <p>
+                <label class="title">מס' מתתפים :</label>
+                <span [innerText]="currentTraining.participantsCount"></span>
+              </p>
+          </ng-container>
+          <div>
+            <button (click)="nextTraining()" [disabled]="currentTrainingIndex === trainings.length - 1">הקודם</button>
+            <button (click)="prevTraining()" [disabled]="currentTrainingIndex === 0">הבא</button>
+
+          </div>
         </ng-container>
-        <div>
-          <button (click)="prevTraining()" [disabled]="currentTrainingIndex === 0">קודם</button>
-          <button (click)="nextTraining()" [disabled]="currentTrainingIndex === trainings.length - 1">הבא</button>
-        </div>
-      </ng-container>
-      <ng-template #noTrainings>
-        <p>אין היסטוריית אימונים</p>
-      </ng-template>
-    </p-tabPanel>
-  </p-tabView>
+        <ng-template #noTrainings>
+          <p>אין היסטוריית אימונים</p>
+        </ng-template>
+      </p-tabPanel>
+    </p-tabView>
   <ng-template #otherContent>
     <form [formGroup]="myForm">
       <div class="external">

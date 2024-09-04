@@ -34,8 +34,15 @@
     
 
     <div class="pagination-buttons" *ngIf="calanderAT.length >itemsPerPage">
-      <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= calanderAT.length">הבא</button>
       <button (click)="previousPage()" [disabled]="currentPage === 1">הקודם</button>
+      <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= calanderAT.length">הבא</button>
+    </div>
+    <div class="bt">
+      <p-button label="הוספת אימון" [raised]="true" severity="secondary" class="add-taining-button">
+        <span class="add-taining-icon-wrapper">
+          <img src="assets/addTraining-icon.png" alt="Add Customer Icon" class="add-taining-icon">
+        </span>
+      </p-button>
     </div>
   </div>
 </div>

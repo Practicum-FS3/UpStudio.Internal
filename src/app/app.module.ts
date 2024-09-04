@@ -28,7 +28,7 @@ import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
-import { TrainingsListComponent } from './components/trainings-list/trainings-list.component';
+import { TrainingsListComponent } from './components/available-trainings-list/available-trainings-list.component';
 import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDeatails.service';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
