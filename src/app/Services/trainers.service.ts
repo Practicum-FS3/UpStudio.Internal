@@ -31,6 +31,7 @@ export class TrainerService {
         if (firstName) params = params.set('firstName', firstName.trim());
         if (lastName) params = params.set('lastName', lastName.trim());
         if (mail) params = params.set('mail', mail.trim());
+        console.log(mail);
         return this._http.get<Trainer[]>(`${this.apiUrl}/filter`, { params });    ;
     }
     updateTrainer(trainer: Trainer): Observable<boolean> {

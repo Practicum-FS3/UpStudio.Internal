@@ -52,6 +52,7 @@ export class TrainingsListComponent implements OnInit {
   }
 
   updateDisplayedTrainings(): void {
+    console.log("dsf");
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.displayedcalanderAT = this.calanderAT.slice(startIndex, endIndex);

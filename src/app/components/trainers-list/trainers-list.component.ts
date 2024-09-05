@@ -77,10 +77,13 @@ this.showAddTrainerDialog=false;
   }
 
   filterBySearch(name: string, mail: string): void {
+   
     const nameParts = name.split(' ');
     const firstName = nameParts[0] || '';
-    const lastName = nameParts.slice(1).join(' ') || '';
+    const lastName = nameParts.slice(1).join(' ') || ''; 
+
     this.searchTerms.next({ firstName, lastName, mail });
+    
   }
 
 

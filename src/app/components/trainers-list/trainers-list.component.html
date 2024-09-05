@@ -30,10 +30,10 @@
         <ng-template pTemplate="header">
           {{ trainer.firstName }} {{ trainer.lastName }}
         </ng-template>
-        <div class="accordion-content">
+        <!-- <div class="accordion-content"> -->
           <!-- <p class="m-0"> -->
             <app-trainer-card *ngIf="selectedTrainerId === trainer.id" [trainerId]="selectedTrainerId"></app-trainer-card> 
-        </div>
+        <!-- </div> -->
       </p-accordionTab>
     </p-accordion>
 
