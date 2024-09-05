@@ -149,8 +149,8 @@
             </div>
             <div class="form-group">
                 <label>אפשרות תשלום</label><br>
-                <select id="mySelect" pInputText formControlName="paymentOptionId"
-                    ngModel="{{currentCustomer?.paymentOptionId}}">
+                <select id="mySelect" pInputText formControlName="paymentOptionId">
+                    <!-- ngModel="{{currentCustomer?.paymentOptionId}}" -->
                     <option *ngFor="let paymentOptions of paymentOptions" [value]="paymentOptions.id">
                         {{paymentOptions.title}}
                     </option>

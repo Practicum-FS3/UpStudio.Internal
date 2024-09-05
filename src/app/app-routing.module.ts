@@ -5,9 +5,12 @@ import { SingleLessonComponent } from './components/single-lesson/single-lesson.
 import { CustomerCardComponent } from './components/customer-card/customer-card.component';
 import { HomeComponent } from './components/home/home.component';
 import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
+import { ManagmentTableComponent } from './components/managment-table/managment-table.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:'',component:ManagmentTableComponent},
+
+  // {path:'',component:HomeComponent},
   { path: 'customers-list', component: CustomersListComponent },
   { path: 'single-lesson', component: SingleLessonComponent },
   { path: 'customer-card/:id', component: CustomerCardComponent },

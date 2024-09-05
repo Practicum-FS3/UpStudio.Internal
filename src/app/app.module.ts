@@ -36,6 +36,8 @@ import { DialogModule } from 'primeng/dialog';
 import { HomeComponent } from './components/home/home.component';
 import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { ManagmentTableComponent } from './components/managment-table/managment-table.component';
+import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
 
 
 
@@ -47,7 +49,8 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
     HomeComponent,
-    TrainersListComponent, 
+    TrainersListComponent,
+    ManagmentTableComponent, 
   ],
   imports: [
     BrowserModule,
@@ -66,14 +69,26 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     InputNumberModule,
     CustomerCardComponent, 
      TrainerCardComponent,
+     
+
 ],
-  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
+  providers: [CustomerService,
+     TrainingService,
+      SubscriptionService,
+      ConfirmationService,
+      MessageService,
+      TrainingCustomerService,
+      TrainingTypeService,
+      TrainerService,
+      AvailableTrainingService,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
     DialogModule,
     TrainerService, 
+    ButtonModule,
+  // trainingCustomersTypes
 
   ],
   bootstrap: [AppComponent]
