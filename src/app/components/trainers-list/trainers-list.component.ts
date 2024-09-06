@@ -1,7 +1,3 @@
-
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from '../../Models/trainer.model'
 import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
