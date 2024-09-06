@@ -49,7 +49,7 @@
           <span [innerText]="currentCustomer?.subscriptionTypeId"></span>
         </p>
       </p-tabPanel>
-      <p-tabPanel header="היסטוריית אימונים">
+      <!-- <p-tabPanel header="היסטוריית אימונים">
         <ng-container *ngIf="trainings.length > 0; else noTrainings">
           <ng-container *ngIf="currentTraining">
             <p>
@@ -64,10 +64,15 @@
               <label class="title">סוג אימון:</label>
               <span [innerText]="currentTraining.trainingTypeName"></span>
             </p>
-            <p>
-                <label class="title">מס' מתתפים :</label>
-                <span [innerText]="currentTraining.participantsCount"></span>
-              </p>
+            <p *ngIf="currentTraining">
+              <label class="title">נוכחות:</label>
+              <span *ngIf="getAttendance(currentTraining.trainingId)">
+                <img class="presence" src="assets/v-icon.png" alt="נוכחות"/>
+              </span>
+              <span *ngIf="!getAttendance(currentTraining.trainingId)">
+                <img  class="presence" src="assets/minus-icon.png" alt="אין נוכחות"  />
+              </span>
+            </p>
           </ng-container>
           <div>
             <button (click)="nextTraining()" [disabled]="currentTrainingIndex === trainings.length - 1">הקודם</button>
@@ -78,7 +83,46 @@
         <ng-template #noTrainings>
           <p>אין היסטוריית אימונים</p>
         </ng-template>
+      </p-tabPanel> -->
+      <p-tabPanel header="היסטוריית אימונים">
+        <ng-container *ngIf="trainings.length > 0; else noTrainings">
+          <table class="training-table">
+            <thead>
+              <tr>
+                <th>תאריך</th>
+                <th>מאמן</th>
+                <th>סוג אימון</th>
+                <th>נוכחות</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let training of paginatedTrainings">
+                <td>{{ training.date | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ training.trainerName }}</td>
+                <td>{{ training.trainingTypeName }}</td>
+                <td>
+                  <span *ngIf="getAttendance(training.trainingId)">
+                    <img class="presence" src="assets/v-icon.png" alt="נוכחות"/>
+                  </span>
+                  <span *ngIf="!getAttendance(training.trainingId)">
+                    <img class="presence" src="assets/minus-icon.png" alt="אין נוכחות"/>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <div class="pagination-buttons" *ngIf="trainings.length > 6">
+            <button (click)="prevPage()" [disabled]="currentPage === 0">הבא</button>
+            <button (click)="nextPage()" [disabled]="currentPage >= totalPages - 1">הקודם</button>
+          </div>
+        </ng-container>
+      
+        <ng-template #noTrainings>
+          <p>אין היסטוריית אימונים</p>
+        </ng-template>
       </p-tabPanel>
+      
     </p-tabView>
   
     <ng-template #otherContent>

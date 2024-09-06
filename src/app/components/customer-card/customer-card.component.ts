@@ -23,6 +23,7 @@ import { PaymentOption } from 'src/app/Models/paymentOption.model';
 import { CustomerType } from 'src/app/Models/customerType.model';
 import { HMO } from 'src/app/Models/HMO.model';
 import { SubscriptionType } from 'src/app/Models/subscriptionType.model';
+import { TrainingCustomer } from 'src/app/Models/trainingCustomer.model';
 
 @Component({
   selector: 'app-customer-card',
@@ -37,6 +38,12 @@ export class CustomerCardComponent {
   customersType: CustomerType[] = [];
   allHMO: HMO[] = [];
   trainings: CalanderAvailableTraining[] = [];
+  trainingCustomers: TrainingCustomer[] = [];
+  paginatedTrainings: CalanderAvailableTraining[] = [];
+  currentPage: number = 0;
+  pageSize: number = 6;
+  totalPages: number = 0;
+
   myForm: FormGroup;
   toedit: boolean = true;
   currentCustomer?: Customer;
@@ -103,34 +110,64 @@ export class CustomerCardComponent {
     });
   }
 
-  // loadTrainings(customerId: number) {
-  //   this.customerTDService.getCustomerTrainingsDeatails().subscribe(trainings => {
-  //     this.trainings = trainings;
-  //     if (this.trainings.length > 0) {
-  //       this.currentTraining = this.trainings[0];
-  //     }
-  //   }, error => {
-  //     console.error("Error fetching customer trainings:", error);
-  //   });
-  // }
+  
+  
   loadTrainings(customerId: number) {
     this.customerTDService.getCustomerTrainingsDeatails().subscribe(trainings => {
-      // Sort trainings by date, closest date first in the future
-      this.trainings = trainings.sort((a, b) => {
-        const dateA = new Date(a.date); // Replace 'date' with the correct property name
-        const dateB = new Date(b.date);
-        return dateB.getTime() - dateA.getTime(); // Reverse the sort order
-      });
-  
+      // this.trainings = trainings.sort((a, b) => {
+      //   const dateA = new Date(a.date);
+      //   const dateB = new Date(b.date);
+      //   return dateB.getTime() - dateA.getTime();
+      // });
+      const currentDate = new Date(); // התאריך הנוכחי
+
+      this.trainings = trainings.filter(training => new Date(training.date) < currentDate)
+                              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+      this.totalPages = Math.ceil(this.trainings.length / this.pageSize);
+      this.updatePaginatedTrainings();
+
       if (this.trainings.length > 0) {
         this.currentTraining = this.trainings[0];
       }
+
+      this.trainingCustomerService.getTrainingByCustomerId(customerId).subscribe(trainingCustomers => {
+        this.trainingCustomers = trainingCustomers;
+      }, error => {
+        console.error("Error fetching training attendance:", error);
+      });
     }, error => {
       console.error("Error fetching customer trainings:", error);
     });
   }
-  
 
+  updatePaginatedTrainings() {
+    const startIndex = this.currentPage * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedTrainings = this.trainings.slice(startIndex, endIndex);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages - 1) {
+      this.currentPage++;
+      this.updatePaginatedTrainings();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.updatePaginatedTrainings();
+    }
+  }
+
+
+  getAttendance(trainingId: number): boolean {
+    const attendanceRecord = this.trainingCustomers.find(tc => tc.trainingID === trainingId);
+    return attendanceRecord ? attendanceRecord.attended : false;
+  }
+  
+  
   edit() {
     this.toedit = true;
     let val = this.currentCustomer?.isActive === true ? true : false;
