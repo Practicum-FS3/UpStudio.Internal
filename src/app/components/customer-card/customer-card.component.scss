@@ -121,6 +121,54 @@ select:focus {
 :host ::ng-deep .p-selectbutton .p-button:hover {
     background-color: #D91C5C;
 }
+.presence{
+    width: 20px;
+     height: 20px;
+}
+.training-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: right;
+  
+    th {
+      background-color: #FFCC0F;
+      color: white;
+      padding: 10px;
+      border: 1px solid #D91C5C;
+    }
+  
+    td {
+      padding: 10px;
+      border: 1px solid #D91C5C;
+    }
+  }
+  
+  .pagination-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  
+    button {
+      background-color: #FFCC0F;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      color: #fff;
+  
+      &:disabled {
+        background-color: grey;
+        cursor: not-allowed;
+      }
+  
+      &:hover:not(:disabled) {
+        background-color: #D91C5C;
+      }
+    }
+  }
+  
 @media (max-width: 768px) {
     .cardCust {
         padding: 1%;

@@ -5,11 +5,11 @@ import { TrainingCustomer } from "../Models/trainingCustomer.model";
 
 @Injectable()
 export class TrainingCustomerService {
-    apiUrl: string = "api/TraningCustomer";
+    apiUrl: string = "api/TrainingCustomer";
     constructor(private _http: HttpClient) {}
 
     getTrainingByCustomerId(id: number): Observable<TrainingCustomer[]> {
-        return this._http.get<TrainingCustomer[]>(`${this.apiUrl}/byCustomerId/${id}`);
+        return this._http.get<TrainingCustomer[]>(`${this.apiUrl}/GetTraningCustomerByCustomerId/${id}`);
     }
    
 }
