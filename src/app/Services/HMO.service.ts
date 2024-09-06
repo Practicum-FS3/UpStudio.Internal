@@ -13,6 +13,6 @@ export class HMOService {
 private baseUrl = "https://localhost:7101/api"
   constructor(private http:HttpClient) { }
   getAllHMO():Observable<Array<HMO>>{
-    return this.http.get<Array<HMO>>(`${this.baseUrl}/HMO/GetAll`)
+    return this.http.get<Array<HMO>>(`${this.baseUrl}/HMO`)
   }
 }

@@ -10,9 +10,9 @@ import { HMO } from '../Models/HMO.model';
   providedIn: 'root'
 })
 export class PaymentOptionService {
-private baseUrl = "https://localhost:7101/api"
+private baseUrl = "https://localhost:7101/api/PaymentOption"
   constructor(private http:HttpClient) { }
   getAllPaymentOption():Observable<Array<PaymentOption>>{
-    return this.http.get<Array<PaymentOption>>(`${this.baseUrl}/PaymentOption`)
+    return this.http.get<Array<PaymentOption>>(`${this.baseUrl}/GetPaymentOptions`)
   }
 }

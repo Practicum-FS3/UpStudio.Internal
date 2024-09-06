@@ -76,7 +76,8 @@ export class CustomerCardComponent {
       isActive: new FormControl('', Validators.required),
       tel: new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]),
       address: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      tz: new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')])
     });
   }
 
@@ -175,7 +176,7 @@ export class CustomerCardComponent {
   }
 
   saveChanges() {
-    console.log(this.myForm.valid);
+
     if (this.myForm.valid) {
       const { controls } = this.myForm;
       let cust: Customer = new Customer(
@@ -189,14 +190,23 @@ export class CustomerCardComponent {
         controls['subscriptionTypeId'].value,
         controls['isActive'].value,
         controls['tel'].value,
-        controls['address'].value
+        controls['address'].value,
+        controls['tz'].value,
       );
+      console.log({cust});
+      
       if (this.custId != undefined) {
-        if (this.currentCustomer?.id) { cust.id = this.currentCustomer?.id; }
+        if (this.currentCustomer?.id) { 
+          cust.id = this.currentCustomer?.id; 
+        }
         this.customerService.updateCustomer(cust).subscribe(data => {
+          console.log({data});
+          
           if (this.currentCustomer?.id) {
             this.getCust(this.currentCustomer.id);
             this.toedit = false;
+            if(cust.isActive==false)
+              location.reload();
           }
         });
       } else {
