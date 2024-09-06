@@ -29,7 +29,6 @@ import { AvailableTrainingService } from './Services/availableTraining.service';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
 import { TrainingsListComponent } from './components/available-trainings-list/available-trainings-list.component';
-import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDeatails.service';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -87,7 +86,7 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
 ],   
   providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
    
-    TrainerService,CustomerTrainingsDeatailsService 
+    TrainerService 
 
   ],
   bootstrap: [AppComponent]

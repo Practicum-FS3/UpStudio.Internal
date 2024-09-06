@@ -18,7 +18,6 @@ import { TrainingService } from 'src/app/Services/trainig.servisec';
 import { TrainerService } from 'src/app/Services/trainers.service';
 import { AvailableTrainingService } from 'src/app/Services/availableTraining.service';
 import { CalanderAvailableTraining } from 'src/app/Models/calanderAvailableTraining.model';
-import { CustomerTrainingsDeatailsService } from 'src/app/Services/customerTrainingsDeatails.service';
 import { PaymentOption } from 'src/app/Models/paymentOption.model';
 import { CustomerType } from 'src/app/Models/customerType.model';
 import { HMO } from 'src/app/Models/HMO.model';
@@ -58,10 +57,6 @@ export class CustomerCardComponent {
     private customerTypeService: CustomerTypeService,
     private subscriptionTypeService: SubscriptionTypeService,
     private trainingCustomerService: TrainingCustomerService,
-    private trainingService: TrainingService,
-    private trainerService: TrainerService,
-    private availableTrainingService: AvailableTrainingService,
-    private customerTDService: CustomerTrainingsDeatailsService,
     private HMOService: HMOService,
     private route: ActivatedRoute,
     private router: Router
@@ -114,7 +109,7 @@ export class CustomerCardComponent {
   
   
   loadTrainings(customerId: number) {
-    this.customerTDService.getCustomerTrainingsDeatails().subscribe(trainings => {
+    this.trainingCustomerService.getAllRegisteredTrainingsDetails().subscribe(trainings => {
       // this.trainings = trainings.sort((a, b) => {
       //   const dateA = new Date(a.date);
       //   const dateB = new Date(b.date);
@@ -123,7 +118,7 @@ export class CustomerCardComponent {
       const currentDate = new Date(); // התאריך הנוכחי
 
       this.trainings = trainings.filter(training => new Date(training.date) < currentDate)
-                              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
       this.totalPages = Math.ceil(this.trainings.length / this.pageSize);
       this.updatePaginatedTrainings();
