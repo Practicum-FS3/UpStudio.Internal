@@ -1,6 +1,3 @@
-cardCust {
-    direction:rtl ;
-}
 
 .title {
     font-size: 1.5em;
@@ -55,14 +52,14 @@ form {
 .form-group {
     margin: 10px 0;
 }
-input {
+form input {
     border-radius: 10px;
     padding: 10px;
     border: 1px solid #D91C5C;
+    margin-top: 5px;
     width: 100%;
     box-sizing: border-box;
 }
-
 select {
     appearance: none;
     -webkit-appearance: none;
@@ -107,68 +104,18 @@ select:focus {
     transition: background-color 0.3s ease;
     height: 30px;
 }
-#checkBox{
-    display: flex;
-    justify-content: center;
-
-}
-#checkBox2{
-    width: 70%;
-}
 :host ::ng-deep .p-selectbutton .p-button.p-highlight {
     background-color: #D91C5C;
 }
 :host ::ng-deep .p-selectbutton .p-button:hover {
     background-color: #D91C5C;
 }
-.presence{
-    width: 20px;
-     height: 20px;
-}
-.training-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    text-align: right;
-  
-    th {
-      background-color: #FFCC0F;
-      color: white;
-      padding: 10px;
-      border: 1px solid #D91C5C;
-    }
-  
-    td {
-      padding: 10px;
-      border: 1px solid #D91C5C;
-    }
-  }
-  
-  .pagination-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  
-    button {
-      background-color: #FFCC0F;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1em;
-      color: #fff;
-  
-      &:disabled {
-        background-color: grey;
-        cursor: not-allowed;
-      }
-  
-      &:hover:not(:disabled) {
-        background-color: #D91C5C;
-      }
-    }
-  }
-  
+
+
+
+
+
+
 @media (max-width: 768px) {
     .cardCust {
         padding: 1%;
@@ -186,9 +133,16 @@ select:focus {
         padding: 8px 16px;
     }
     :host ::ng-deep .p-selectbutton {
+        //-------------------------------------------------
         margin-top: 0%;
     }
 }
+
+
+
+
+
+
 @media (max-width: 480px) {
     .cardCust {
         padding: 0.5%;
@@ -209,10 +163,9 @@ select:focus {
         padding: 6px 12px;
     }
 }
-
 @media (min-width: 769px) {
-    .external {
-        display: grid;
+    form {
+        display: flex;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }

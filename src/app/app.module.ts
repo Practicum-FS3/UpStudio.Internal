@@ -23,9 +23,12 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CustomerCardComponent } from "./components/customer-card/customer-card.component";
 import { TrainingCustomerService } from './Services/trainingCustomer.service';
 import { TrainingTypeService } from './Services/trainingType.service';
-import { TrainerService } from './Services/trainer.service';
+import { TrainerService } from './Services/trainers.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { TrainingsListComponent } from './components/available-trainings-list/available-trainings-list.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -34,6 +37,10 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
 import { HomeComponent } from './components/home/home.component';
+import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
+import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
+import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
 
 
 
@@ -44,7 +51,12 @@ import { HomeComponent } from './components/home/home.component';
     SingleLessonComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
+    TrainingsListComponent,
     HomeComponent,
+    TrainersListComponent,
+    TrainingDeatailsComponent, 
+    DayOfWeekPipe 
+    
   ],
   imports: [
     BrowserModule,
@@ -54,6 +66,7 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     InputTextModule,
     ButtonModule,
+    CheckboxModule,
     FormsModule,
     ReactiveFormsModule,
     TableModule,
@@ -61,14 +74,20 @@ import { HomeComponent } from './components/home/home.component';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-    CustomerCardComponent
-],
-  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
+
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
-    DialogModule
+    DialogModule,
+    CalendarModule,
+    CustomerCardComponent,
+    TrainerCardComponent
+],   
+  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
+   
+    TrainerService 
+
   ],
   bootstrap: [AppComponent]
 })
