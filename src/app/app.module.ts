@@ -26,6 +26,9 @@ import { TrainingTypeService } from './Services/trainingType.service';
 import { TrainerService } from './Services/trainers.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { TrainingsListComponent } from './components/available-trainings-list/available-trainings-list.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -38,6 +41,8 @@ import { TrainersListComponent } from './components/trainers-list/trainers-list.
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
 import { ManagmentTableComponent } from './components/managment-table/managment-table.component';
 import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
+import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
+import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
 
 
 
@@ -48,9 +53,12 @@ import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
     SingleLessonComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
+    TrainingsListComponent,
     HomeComponent,
     TrainersListComponent,
-    ManagmentTableComponent, 
+    ManagmentTableComponent,
+    TrainingDeatailsComponent,
+    DayOfWeekPipe
   ],
   imports: [
     BrowserModule,
@@ -60,6 +68,7 @@ import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
     HttpClientModule,
     InputTextModule,
     ButtonModule,
+    CheckboxModule,
     FormsModule,
     ReactiveFormsModule,
     TableModule,
@@ -67,30 +76,33 @@ import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-    CustomerCardComponent, 
-     TrainerCardComponent,
-     
-
-],
-  providers: [CustomerService,
-     TrainingService,
-      SubscriptionService,
-      ConfirmationService,
-      MessageService,
-      TrainingCustomerService,
-      TrainingTypeService,
-      TrainerService,
-      AvailableTrainingService,
+    CustomerCardComponent,
+    TrainerCardComponent,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
     DialogModule,
-    TrainerService, 
     ButtonModule,
-  // trainingCustomersTypes
+    CalendarModule,
+    CustomerCardComponent,
+    TrainerCardComponent
+
 
   ],
+  providers: [CustomerService,
+    TrainingService,
+    SubscriptionService,
+    ConfirmationService,
+    MessageService,
+    TrainingCustomerService,
+    TrainingTypeService,
+    TrainerService,
+    AvailableTrainingService
+
+  
+],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

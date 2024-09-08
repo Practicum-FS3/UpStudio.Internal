@@ -26,5 +26,9 @@ export class PaymentOptionService {
 
   addPaymentOption(paymentOption: PaymentOption): Observable<PaymentOption> {
     return this.http.post<PaymentOption>(`${this.baseUrl}/CreatePaymentOption`,paymentOption)
+// private baseUrl = "https://localhost:7101/api/PaymentOption"
+//   constructor(private http:HttpClient) { }
+//   getAllPaymentOption():Observable<Array<PaymentOption>>{
+//     return this.http.get<Array<PaymentOption>>(`${this.baseUrl}/GetPaymentOptions`)
   }
 }

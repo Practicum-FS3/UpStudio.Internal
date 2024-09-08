@@ -1,1 +1,16 @@
-<p>home works!</p>
+
+
+<div class="container text-center">
+    <div class="row row-cols-3">
+        <ng-container *ngFor="let link of links">
+            <div class="col" *ngIf="link.isActive">
+                <ng-container *ngIf="!link.isExternal">
+                    <a routerLink="/{{link.link}}">{{link.title}}</a>
+                </ng-container>
+                <ng-container *ngIf="link.isExternal">
+                    <a href="{{link.link}}" target="_blank">{{link.title}}</a>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</div>
