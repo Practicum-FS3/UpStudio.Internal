@@ -29,7 +29,6 @@ import { AvailableTrainingService } from './Services/availableTraining.service';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
 import { TrainingsListComponent } from './components/available-trainings-list/available-trainings-list.component';
-import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDeatails.service';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -40,6 +39,8 @@ import { DialogModule } from 'primeng/dialog';
 import { HomeComponent } from './components/home/home.component';
 import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { ManagmentTableComponent } from './components/managment-table/managment-table.component';
+import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
 import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
 import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
 
@@ -55,9 +56,9 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
     TrainingsListComponent,
     HomeComponent,
     TrainersListComponent,
-    TrainingDeatailsComponent, 
-    DayOfWeekPipe 
-    
+    ManagmentTableComponent,
+    TrainingDeatailsComponent,
+    DayOfWeekPipe
   ],
   imports: [
     BrowserModule,
@@ -75,21 +76,33 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-
+    CustomerCardComponent,
+    TrainerCardComponent,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
     DialogModule,
+    ButtonModule,
     CalendarModule,
     CustomerCardComponent,
     TrainerCardComponent
-],   
-  providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
-   
-    TrainerService,CustomerTrainingsDeatailsService 
+
 
   ],
+  providers: [CustomerService,
+    TrainingService,
+    SubscriptionService,
+    ConfirmationService,
+    MessageService,
+    TrainingCustomerService,
+    TrainingTypeService,
+    TrainerService,
+    AvailableTrainingService
+
+  
+],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
