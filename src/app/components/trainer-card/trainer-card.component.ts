@@ -31,7 +31,7 @@ export class TrainerCardComponent implements OnInit {
       lastName: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת]*$')]),
       tel: new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]),
       address: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email])
+      mail: new FormControl('', [Validators.required, Validators.email])
     });
   }
 
@@ -53,7 +53,7 @@ export class TrainerCardComponent implements OnInit {
   
         tel: this.currentTrainer?.tel,
         address: this.currentTrainer?.address,
-        email: this.currentTrainer?.mail
+        mail: this.currentTrainer?.mail
       });
     });
   }
@@ -69,7 +69,7 @@ export class TrainerCardComponent implements OnInit {
         id: this.currentTrainer?.id ?? 0,
         firstName: controls['firstName'].value,
         lastName: controls['lastName'].value,
-        mail: controls['email'].value,
+        mail: controls['mail'].value,
         tel: controls['tel'].value,
         address: controls['address'].value
       };

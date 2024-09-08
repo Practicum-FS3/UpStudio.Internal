@@ -24,27 +24,39 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 1em;
     color: #fff;
-    margin-top: 10px;
+     margin-top: 10px;
     display: block;
-    width: 100%;
+    width: 60%;
     text-align: center;
+    margin: 0 auto;
 }
 input[type="button"]:hover,
 input[type="submit"]:hover {
     background-color: #D91C5C;
 }
-:host ::ng-deep .p-tabview .p-tabview-nav {
-    background-color: #FFFFFF;
-    border-radius: 5px;
+
+
+
+
+:host ::ng-deep.p-tabview .p-tabview-panels {
+    // border: 2px solid #FFCC0F; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
-:host ::ng-deep .p-tabview-panels {
-    background-color: rgba(236, 236, 236, 1);
-    padding: 20px;
-}
-.cardCust ::ng-deep .p-tabPanel[header="פרטים אישיים"] .ui-tabview-title {
-    color: #D91C5C;
-    padding: 1em;
-}
+
+ 
+// :host ::ng-deep .p-tabview .p-tabview-nav {
+//     background-color: #FFFFFF;
+//     border-radius: 5px;
+// }
+// :host ::ng-deep .p-tabview-panels {
+//     background-color: rgba(236, 236, 236, 1);
+//     padding: 20px;
+// }
+// .cardCust ::ng-deep .p-tabPanel[header="פרטים אישיים"] .ui-tabview-title {
+//     color: #D91C5C;
+//     padding: 1em;
+// }
 form {
     display: flex;
     flex-direction: column;
@@ -88,7 +100,6 @@ select:focus {
     border-radius: 10px;
     padding: 4px;
     box-sizing: border-box;
-    // margin-top: 3%;
 }
 :host ::ng-deep .p-selectbutton .p-button {
     background-color: #FFCC0F;
