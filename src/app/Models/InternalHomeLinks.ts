@@ -1,7 +1,10 @@
-export class PaymentOption {
+export class internalHomeLinks {
     id?: number;
     title?: string;
-    isActive?:boolean
+    link?:string;
+    isExternal?:boolean;
+    isActive?:boolean;
+
     constructor(title: string) {
         this.title = title;
     }

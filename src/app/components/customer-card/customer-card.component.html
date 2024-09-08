@@ -101,6 +101,75 @@
       </p-tabPanel>
       
     </p-tabView>
+<!--     <ng-template #otherContent>
+        <form [formGroup]="myForm" id="form" (submit)="saveChanges()">
+            <h2>עריכה</h2>
+            <div class="form-group">
+                <label>שם פרטי</label><br>
+                <input pInputText id="firstName" formControlName="firstName" [ngModel]="currentCustomer?.firstName" />
+            </div>
+            <div class="form-group">
+                <label>שם משפחה</label><br>
+                <input pInputText id="lastName" formControlName="lastName" [ngModel]="currentCustomer?.lastName" />
+            </div>
+            <div class="form-group">
+                <label>טלפון</label><br>
+                <input pInputText id="tel" formControlName="tel" [ngModel]="currentCustomer?.tel" />
+            </div>
+            <div class="form-group">
+                <label>מייל</label><br>
+                <input pInputText id="email" formControlName="email" [ngModel]="currentCustomer?.email" />
+            </div>
+            <div class="form-group">
+                <label>כתובת</label><br>
+                <input pInputText id="address" formControlName="address" [ngModel]="currentCustomer?.address" />
+            </div>
+            <div class="form-group">
+                <label>סוג לקוח</label><br>
+                <select id="mySelect" pInputText formControlName="customerTypeId"
+                    ngModel="{{currentCustomer?.customerTypeId}}">
+                    <option *ngFor="let customerType of customersType" [value]="customerType.id">
+                        {{customerType.title}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>אפשרות תשלום</label><br>
+                <select id="mySelect" pInputText formControlName="paymentOptionId">
+                    <!-- ngModel="{{currentCustomer?.paymentOptionId}}" -->
+                    <option *ngFor="let paymentOptions of paymentOptions" [value]="paymentOptions.id">
+                        {{paymentOptions.title}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>קופת חולים</label><br>
+                <select id="mySelect" pInputText formControlName="hmoId"
+                    ngModel="{{currentCustomer?.hmoId}}">
+                    <option *ngFor="let hmo of allHMO" [value]="hmo.id">
+                        {{hmo.title}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>סוג מנוי</label><br>
+                <select id="mySelect" pInputText formControlName="subscriptionTypeId"
+                    ngModel="{{currentCustomer?.subscriptionTypeId}}">
+                    <option *ngFor="let subscriptionTypeId of subscriptionType" [value]="subscriptionTypeId.id">
+                        {{subscriptionTypeId.title}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+            <label>סטטוס</label>
+            <p-selectButton [options]="stateOptions" formControlName="isActive" optionLabel="label"
+                optionValue="value" />
+            </div>
+            <input type="submit" value="שמור שינויים" [disabled]="!myForm.valid">
+        </form>
+    </ng-template>
+</div> -->
+
   <ng-template #otherContent>
     <form [formGroup]="myForm">
       <div class="external">
