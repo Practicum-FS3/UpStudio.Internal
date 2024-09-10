@@ -1,10 +1,10 @@
 <div id="containerman">
     <div id="k">
-        <h1>דף ניהול לטבלאות ניהול <img src="assets/contact-icon.png" alt="Contact Icon" class="c-icon"></h1>
+        <h1 dir="ltr">דף ניהול לטבלאות ניהול <img src="assets/contact-icon.png" alt="Contact Icon" class="c-icon" ></h1>
         <div id="options">
 
             <p-accordion dir="ltr">
-                <p-accordionTab header="לטבלת סוג מתאמנים">
+                <p-accordionTab header="לטבלת סוג מתאמנים" >
                     <div *ngFor="let c of custType;let i = index" dir="rtl">
                         <div *ngIf="editItemId !== c.id; else editForm" id="one">
                             <p style="margin: 5px; font-size: 135%;width: 60%;"><span style="color: #D91C5C;">•</span>
@@ -163,14 +163,15 @@
                         <ng-template #editForm>
                             <form [formGroup]="myForm" id="two" (submit)="x.id&&saveChangesForTCT(x.id)" dir="rtl">
                                 <div id="pl" style="display: flex;flex-direction: column;">
+                                   
                                     <div style="display: flex;flex-direction: row;">
-                                        <label
-                                            style="color: #D91C5C;font-size:140% ;margin-left:1.5%; border-bottom: #D91C5C 2px solid;height: fit-content;margin-right: 1.5%;width: 50%;">
+                                        <div
+                                            style="color: #D91C5C;font-size:140% ;margin-left:1.5%; border-bottom: #D91C5C 2px solid;height: fit-content;margin-right: 1.5%;width: 60%;">
                                             סוג אימון:
-                                        </label>
-                                        <select id="mySelect" pInputText formControlName="title5"
-                                            [ngModel]="x.trainingTypeID">
-                                            <option *ngFor="let paymentOptions of trainType"
+                                        </div>
+
+                                        <select id="mySelect" pInputText formControlName="trainingTypeID">
+                                            <option *ngFor="let paymentOptions of trainType" [value]="paymentOptions.id"
                                                 style="background-color:#D91C5C;font-weight: bold;color: #fff;">
                                                 {{paymentOptions.title}}
                                             </option>
@@ -207,11 +208,37 @@
                     <form *ngIf="addTC===true" [formGroup]="myForm" id="two" (submit)="addTrCustType()" dir="rtl">
                         <div style="display: flex;flex-direction: column;">
 
-                            <div style="display: flex;flex-direction: row;">
+                            <!-- <div style="display: flex;flex-direction: row;">
                                 <label
                                     style="color: #D91C5C;font-size:140% ;margin-left:1.5%; height: fit-content;margin-right: 1.5%;width: 50%;border-bottom: #D91C5C 2px solid;;">
                                     סוג אימון:
                                 </label>
+                                <select id="mySelect" pInputText formControlName="trainingTypeID">
+                                    <option *ngFor="let paymentOptions of trainType" 
+                                        style="background-color:#D91C5C;font-weight: bold;color: #fff;">
+                                        {{paymentOptions.title}}
+                                    </option>
+                                </select>
+                            </div> -->
+                            <!-- <div style="display: flex;flex-direction: row;">
+                                <label
+                                    style="color: #D91C5C;font-size:140% ;margin-left:1.5%; height: fit-content;margin-right: 1.5%;width: 50%;border-bottom: #D91C5C 2px solid;">
+                                    סוג מתאמן:
+                                </label>
+
+                                <select id="mySelect" pInputText formControlName="customerTypeID">
+                                    <option *ngFor="let paymentOptions of custType" 
+                                        style="background-color:#D91C5C;font-weight: bold;color: #fff;">
+                                        {{paymentOptions.title}}
+                                    </option>
+                                </select>
+                            </div> -->
+                            <div style="display: flex;flex-direction: row;">
+                                <div
+                                    style="color: #D91C5C;font-size:140% ;margin-left:1.5%; border-bottom: #D91C5C 2px solid;height: fit-content;margin-right: 1.5%;width: 60%;">
+                                    סוג אימון:
+                                </div>
+
                                 <select id="mySelect" pInputText formControlName="trainingTypeID">
                                     <option *ngFor="let paymentOptions of trainType" [value]="paymentOptions.id"
                                         style="background-color:#D91C5C;font-weight: bold;color: #fff;">
@@ -220,10 +247,10 @@
                                 </select>
                             </div>
                             <div style="display: flex;flex-direction: row;">
-                                <label
-                                    style="color: #D91C5C;font-size:140% ;margin-left:1.5%; height: fit-content;margin-right: 1.5%;width: 50%;border-bottom: #D91C5C 2px solid;">
+                                <div
+                                    style="color: #D91C5C;font-size:140% ;margin-left:1.5%; border-bottom: #D91C5C 2px solid;height: fit-content;margin-right: 1.5%;width: 60%;">
                                     סוג מתאמן:
-                                </label>
+                                </div>
 
                                 <select id="mySelect" pInputText formControlName="customerTypeID">
                                     <option *ngFor="let paymentOptions of custType" [value]="paymentOptions.id"

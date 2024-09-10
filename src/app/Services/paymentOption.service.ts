@@ -15,7 +15,7 @@ export class PaymentOptionService {
   getAllPaymentOption(): Observable<Array<PaymentOption>> {
     return this.http.get<Array<PaymentOption>>(`${this.baseUrl}/GetPaymentOptions`)
   }
-  updatePayOptions(paymentOption: PaymentOption): Observable<PaymentOption> {
+  updatePaymentOption(paymentOption: PaymentOption): Observable<PaymentOption> {
     console.log('update pay type  ', paymentOption);
 
     return this.http.put(`${this.baseUrl}/UpdatePaymentOption`, paymentOption)

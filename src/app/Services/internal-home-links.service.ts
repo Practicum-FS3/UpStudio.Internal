@@ -19,6 +19,8 @@ export class InternalHomeLinksServiceTsService {
     return this.http.put(`${this.baseUrl}/update/${internalHomeLinks.id}`, internalHomeLinks)
   }
   deleteInternalHomeLink(id: number): Observable<Object> {
+    console.log({id});
+    
     return this.http.delete(`${this.baseUrl}/delete/${id}`)
   }
 

@@ -117,21 +117,21 @@ export class ManagmentTableComponent {
     const { controls } = this.myForm
     let payOp: PaymentOption = {
       id: itemId,
-      title: controls['title'].value,
+      title: controls['title3'].value,
       isActive: true
     }
-    console.log({payOp});
+    // console.log({payOp});
     
-    this.paymentOptionsService.updatePayOptions(payOp).subscribe(data => {
-      this.myForm.reset()
-      // location.reload();
+    this.paymentOptionsService.updatePaymentOption(payOp).subscribe(data => {
+      this.myForm.reset();
+      location.reload();
     })
   }
   saveChangesForHomeInternalLinks(itemId: number): void {
     const { controls } = this.myForm
     let internalHomeLink: internalHomeLinks = {
       id: itemId,
-      title: controls['title'].value,
+      title: controls['title4'].value,
       link:controls['link'].value,
       isExternal:controls['isExternal'].value,
       isActive: true
@@ -143,12 +143,16 @@ export class ManagmentTableComponent {
   }
   saveChangesForTrainingType(itemId: number): void {
     const { controls } = this.myForm
+    console.log({controls});
+
     let trainingType: TrainingType = {
       id: itemId,
-      title: controls['title'].value,
+      title: controls['title2'].value,
       isActive: true
     }
-    this.trainingTypeService.updateCustomerType(trainingType).subscribe(data => {
+    this.trainingTypeService.updatetrainType(trainingType).subscribe(data => {
+      console.log({trainingType});
+      
       this.myForm.reset()
       location.reload();
     })
@@ -166,7 +170,7 @@ export class ManagmentTableComponent {
     }
     
     this.trainingCustomersTypes.updateTCT(tct).subscribe(data => {
-      // this.myForm.reset()
+      this.myForm.reset()
       location.reload();
     })
 

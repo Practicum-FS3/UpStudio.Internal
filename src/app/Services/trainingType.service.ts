@@ -13,7 +13,7 @@ export class TrainingTypeService {
   getAllTrainingType(): Observable<Array<TrainingType>> {
     return this._http.get<Array<TrainingType>>(`${this.apiUrl}/GetAllTrainingTypes`)
   }
-  updateCustomerType(trainingType: TrainingType): Observable<TrainingType> {
+  updatetrainType(trainingType: TrainingType): Observable<TrainingType> {
     return this._http.put(`${this.apiUrl}/UpdateTrainingType`, trainingType)
   }
   deleteTrainingType(id: number): Observable<Object> {

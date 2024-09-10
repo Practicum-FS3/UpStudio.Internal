@@ -33,7 +33,7 @@
           <label class="title">סטטוס</label><br>
           <span>{{ currentCustomer?.isActive ? 'פעיל' : 'לא פעיל' }}</span>
         </p>
-      </p-tabPanel>
+      <!-- </p-tabPanel> -->
         <div>
           <label class="title">אפשרויות תשלום </label><br>
           <div *ngFor="let allpaymentOptions of paymentOptions">
@@ -136,8 +136,8 @@
             <div class="form-group">
                 <label>אפשרות תשלום</label><br>
                 <select id="mySelect" pInputText formControlName="paymentOptionId">
-                    <!-- ngModel="{{currentCustomer?.paymentOptionId}}" -->
-                    <option *ngFor="let paymentOptions of paymentOptions" [value]="paymentOptions.id">
+                  ngModel="{{currentCustomer?.paymentOptionId}}" -->
+                    <!-- <option *ngFor="let paymentOptions of paymentOptions" [value]="paymentOptions.id">
                         {{paymentOptions.title}}
                     </option>
                 </select>
@@ -168,7 +168,7 @@
             <input type="submit" value="שמור שינויים" [disabled]="!myForm.valid">
         </form>
     </ng-template>
-</div> -->
+</div> --> 
 
   <ng-template #otherContent>
     <form [formGroup]="myForm">
