@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomersListComponent } from './components/customers-list/customers-list.component';
+import { CustomersListComponent } from './components/customers/customers-list/customers-list.component';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerService } from './Services/customers.service';
@@ -20,7 +20,7 @@ import { SubscriptionFormComponent } from './components/Subscriptions/subscripti
 import { SpeedDialModule } from 'primeng/speeddial';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { CustomerCardComponent } from "./components/customer-card/customer-card.component";
+import { CustomerCardComponent } from "./components/customers/customer-card/customer-card.component";
 import { TrainingCustomerService } from './Services/trainingCustomer.service';
 import { TrainingTypeService } from './Services/trainingType.service';
 import { TrainerService } from './Services/trainers.service';
@@ -28,7 +28,7 @@ import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
-import { TrainingsListComponent } from './components/trainings-list/trainings-list.component';
+import { TrainingsListComponent } from './components/trainings/trainings-list/trainings-list.component';
 import {CustomerTrainingsDeatailsService } from './Services/customerTrainingsDeatails.service';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
@@ -38,12 +38,12 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
 import { HomeComponent } from './components/home/home.component';
-import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
-import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
-import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
-import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
-
-
+import { TrainersListComponent } from './components/trainers/trainers-list/trainers-list.component'; 
+import { TrainerCardComponent } from './components/trainers/trainer-card/trainer-card.component'; 
+import { TrainingDeatailsComponent } from './components/trainings/training-deatails/training-deatails.component';
+import { DayOfWeekPipe } from './components/trainings/training-deatails/day-of-week.pipe';
+import { MenubarModule } from 'primeng/menubar';
+import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -56,8 +56,8 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
     HomeComponent,
     TrainersListComponent,
     TrainingDeatailsComponent, 
-    DayOfWeekPipe 
-    
+    DayOfWeekPipe,
+  
   ],
   imports: [
     BrowserModule,
@@ -75,7 +75,7 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-
+    MenubarModule,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
@@ -83,7 +83,9 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
     DialogModule,
     CalendarModule,
     CustomerCardComponent,
-    TrainerCardComponent
+    TrainerCardComponent,
+    SidebarModule,
+    ButtonModule,
 ],   
   providers: [CustomerService, TrainingService, SubscriptionService,ConfirmationService,MessageService,TrainingCustomerService,TrainingTypeService,TrainerService,AvailableTrainingService,
    

@@ -21,7 +21,6 @@
       </div>
     </div>
 
-   
     <p-accordion>
       <p-accordionTab *ngFor="let training of displayedcalanderAT" (click)="selectTraining(training.id)">
         <ng-template pTemplate="header">
@@ -31,12 +30,10 @@
         </ng-template>
       </p-accordionTab>
     </p-accordion>
-    
 
-    <div class="pagination-buttons" *ngIf="calanderAT.length >itemsPerPage">
+    <div class="pagination-buttons" *ngIf="calanderAT.length > itemsPerPage">
       <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= calanderAT.length">הבא</button>
       <button (click)="previousPage()" [disabled]="currentPage === 1">הקודם</button>
     </div>
   </div>
 </div>
-

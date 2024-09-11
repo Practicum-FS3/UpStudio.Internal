@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Trainer } from '../../Models/trainer.model';
+import { Trainer } from '../../../Models/trainer.model';
 import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
-import { TrainerService } from '../../Services/trainers.service';
+import { TrainerService } from '../../../Services/trainers.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-trainers-list',

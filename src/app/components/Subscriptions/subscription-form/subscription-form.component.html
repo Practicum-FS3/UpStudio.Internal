@@ -2,7 +2,7 @@
     <div>
         <form [formGroup]="subscriptionForm" (ngSubmit)="saveDetails()">
             <div class="container my-custom-class">
-                <!-- <p-dialog header="הוספת מנוי" [modal]="true" [(visible)]="visible" [style]="{ width: '40%', minWidth: '40%', height:'auto' }"><br/> -->
+                <p-dialog header="הוספת מנוי" [modal]="true" [(visible)]="visible" [style]="{ width: '40%', minWidth: '40%', height:'auto' }"><br/>
                     <div class="form-group">
                         <label for="title" class="label">סוג מנוי</label>
                         <input pInputText type="text" name="title" formControlName="title" class="input common-input" autocomplete="off" />
@@ -27,7 +27,7 @@
                         <p-button label="שמירה" type="Submit"  (onClick)="visible = false" />
                         <p-button label="ביטול" (onClick)="cancleAction()" (onClick)="visible = false" />
                     </div>
-                <!-- </p-dialog> -->
+                </p-dialog>
             </div>
         </form>
     </div>

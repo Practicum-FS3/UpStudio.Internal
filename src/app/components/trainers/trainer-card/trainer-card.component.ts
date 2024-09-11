@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TabViewModule } from 'primeng/tabview';
-import { TrainerService } from '../../Services/trainers.service';
+import { TrainerService } from 'src/app/Services/trainers.service'; 
 import { Trainer } from 'src/app/Models/trainer.model';
 
 @Component({
