@@ -1,13 +1,18 @@
 <div class="container-fluid" dir="ltr">
-    <div class="row">
-        <div class="col-6">
+    <div class="row heder">
+        <img src="../../../assets/logo.png" alt="logo" class="img">
+            <div class="admin pi pi-user">
+                <label>admin</label>
+            </div>
+    </div>
+    <div class="row body">
+        <div class="col-4">
             <app-trainings-list></app-trainings-list>
         </div>
-        <div class="col-5">
+        <div class="col-7 ">
             <div class="row">
                 <app-customers-list></app-customers-list>
             </div>
-            <!-- <div class="row bg-success">row2</div> -->
         </div>
         <div class="col-p">
             <p-sidebar [(visible)]="sidebarVisible2" position="right" class="sidebar">
@@ -41,4 +46,5 @@
             <p-button type="button" class="menu-toggle" (onClick)="sidebarVisible2 = true" icon='pi pi-bars'></p-button>
         </div>
     </div>
+    <div class="row footer">Footer</div>
 </div>
