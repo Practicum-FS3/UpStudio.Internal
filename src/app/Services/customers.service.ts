@@ -8,12 +8,12 @@ export class CustomerService {
     constructor(private _http: HttpClient) {}
 
     getCustomertFromServer(): Observable<Customer[]> {
-      console.log(this.apiUrl)
-        return this._http.get<Customer[]>(this.apiUrl);
+
+        return this._http.get<Customer[]>(`${this.apiUrl}/GetAllCustomers`);
     }
 
     getCustomerById(id: number): Observable<Customer> {
-        return this._http.get<Customer>(`${this.apiUrl}/byId/${id}`);
+        return this._http.get<Customer>(`${this.apiUrl}/GetCustomerById/${id}`);
     }
     
     filterCustomers(firstName?: string, lastName?: string, email?: string): Observable<Customer[]> {
@@ -21,7 +21,7 @@ export class CustomerService {
         if (firstName) params = params.set('firstName', firstName.trim());
         if (lastName) params = params.set('lastName', lastName.trim());
         if (email) params = params.set('email', email.trim());
-        return this._http.get<Customer[]>(`${this.apiUrl}/filter`, { params });
+        return this._http.get<Customer[]>(`${this.apiUrl}/FilterCustomers`, { params });
     }
 
     addCustomer(customer:Customer):Observable<Customer>{
@@ -32,7 +32,7 @@ export class CustomerService {
     }
 
     updateCustomer(customer:Customer):Observable<Customer>{
-      return this._http.put<Customer>(`${this.apiUrl}`,customer,
+      return this._http.put<Customer>(`${this.apiUrl}/UpdateCustomer`,customer,
         {headers: { 'content-type': "application/json" }}
       )
     }

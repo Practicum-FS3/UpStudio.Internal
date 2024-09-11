@@ -23,9 +23,12 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CustomerCardComponent } from "./components/customer-card/customer-card.component";
 import { TrainingCustomerService } from './Services/trainingCustomer.service';
 import { TrainingTypeService } from './Services/trainingType.service';
-import { TrainerService } from './Services/trainer.service';
+import { TrainerService } from './Services/trainers.service';
 import { AvailableTraining } from './Models/availableTraining.model';
 import { AvailableTrainingService } from './Services/availableTraining.service';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { TrainingsListComponent } from './components/available-trainings-list/available-trainings-list.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -34,7 +37,14 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
 import { GenerateAvailableTrainingsComponent } from './components/generate-available-trainings/generate-available-trainings.component';
-import { CalendarModule } from 'primeng/calendar';
+import { HomeComponent } from './components/home/home.component';
+import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
+import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { ManagmentTableComponent } from './components/managment-table/managment-table.component';
+import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
+import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
+import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
+
 
 
 @NgModule({
@@ -44,7 +54,12 @@ import { CalendarModule } from 'primeng/calendar';
     SingleLessonComponent,
     SubscriptionOptionsComponent,
     SubscriptionFormComponent,
-    GenerateAvailableTrainingsComponent,
+    TrainingsListComponent,
+    HomeComponent,
+    TrainersListComponent,
+    ManagmentTableComponent,
+    TrainingDeatailsComponent,
+    DayOfWeekPipe
   ],
   imports: [
     BrowserModule,
@@ -54,6 +69,7 @@ import { CalendarModule } from 'primeng/calendar';
     HttpClientModule,
     InputTextModule,
     ButtonModule,
+    CheckboxModule,
     FormsModule,
     ReactiveFormsModule,
     TableModule,
@@ -61,11 +77,7 @@ import { CalendarModule } from 'primeng/calendar';
     SpeedDialModule,
     FieldsetModule,
     InputNumberModule,
-    CustomerCardComponent,
-    DialogModule,
-    ToastModule,
-    ConfirmDialogModule,
-    CalendarModule
+    CustomerCardComponent  
 ],
   providers: [CustomerService,
      TrainingService, 
@@ -76,13 +88,33 @@ import { CalendarModule } from 'primeng/calendar';
      TrainingTypeService,
      TrainerService,
      AvailableTrainingService,
+    TrainerCardComponent,
     SplitButtonModule,
     MessagesModule,
     ConfirmDialogModule,
     ToastModule,
     DialogModule,
-    CalendarModule
+    ButtonModule,
+    CalendarModule,
+    CustomerCardComponent,
+    TrainerCardComponent
+
+
+
   ],
+  providers: [CustomerService,
+    TrainingService,
+    SubscriptionService,
+    ConfirmationService,
+    MessageService,
+    TrainingCustomerService,
+    TrainingTypeService,
+    TrainerService,
+    AvailableTrainingService
+
+  
+],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

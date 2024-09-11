@@ -1,18 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
+//@import "primeng/resources/themes/lara-light-blue/theme.css";
+//@import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
-
 body {
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
-    direction: ltr !important;
+    direction: rtl !important;
     text-align: right !important;
 }
-
-
+a{
+  color: #4c4c49;
+}
 .accordion-content {
-    padding: 10px;
+    padding: 5px;
     background-color: #ffcc0f;
     text-align: right; 
   }
@@ -23,7 +23,7 @@ body {
     color: #fff;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    // cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
     text-align: right; 
@@ -41,5 +41,13 @@ body {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    justify-content: flex-end; 
+    justify-content: flex-end;
+    margin-right: 10px;
+ 
   }
+
+  .icon
+{
+  transform: scaleX(1); /* Flip the icon horizontally */
+
+}
