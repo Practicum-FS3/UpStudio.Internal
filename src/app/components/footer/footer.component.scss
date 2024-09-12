@@ -1,0 +1,14 @@
+.link-container {
+  display: flex; 
+   align-items: center; 
+
+  justify-content: center;
+  gap: 150px; 
+
+  
+  .link-image {
+    width: 100px; 
+    height: auto; 
+    object-fit: contain;
+  }
+}
