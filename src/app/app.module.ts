@@ -43,7 +43,8 @@ import { ManagmentTableComponent } from './components/managment-table/managment-
 import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
 import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
 import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
-
+import { GenerateAvailableTrainingsComponent } from './components/generate-available-trainings/generate-available-trainings.component';
+import { SelectButtonModule } from 'primeng/selectbutton'; // PrimeNG SelectButton
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
     TrainersListComponent,
     ManagmentTableComponent,
     TrainingDeatailsComponent,
-    DayOfWeekPipe
+    DayOfWeekPipe,
+    GenerateAvailableTrainingsComponent
   ],
   imports: [
     BrowserModule,
@@ -86,8 +88,8 @@ import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
     ButtonModule,
     CalendarModule,
     CustomerCardComponent,
-    TrainerCardComponent
-
+    TrainerCardComponent,
+    SelectButtonModule // Already imported
 
   ],
   providers: [CustomerService,
