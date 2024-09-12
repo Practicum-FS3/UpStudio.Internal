@@ -24,7 +24,7 @@
                         <input pInputText type="text" name="description" formControlName="description" class="input common-input" autocomplete="off" />
                     </div>
                        <div class="options-buttons">
-                        <p-button label="שמירה" type="Submit"  (onClick)="visible = false" />
+                        <p-button label="שמירה" type="Submit" class="btn-save" (onClick)="visible = false" [disabled]="subscriptionForm.invalid" />
                         <p-button label="ביטול" (onClick)="cancleAction()" (onClick)="visible = false" />
                     </div>
                 </p-dialog>
