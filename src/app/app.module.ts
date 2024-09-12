@@ -27,6 +27,7 @@ import { DialogModule } from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
 import { HMOsComponent } from './components/hmos/hmos.component';
 import { AddHMOsComponent } from './components/hmos/add-hmos/add-hmos.component';
+import { AddContentSectionComponent } from './components/content-type/add-content-section/add-content-section.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AddHMOsComponent } from './components/hmos/add-hmos/add-hmos.component'
     UpdateContentComponent,
     HMOsComponent,
     AddHMOsComponent,
+    AddContentSectionComponent,
   ],
   imports: [
     BrowserModule,

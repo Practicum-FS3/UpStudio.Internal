@@ -1,52 +1,113 @@
 <div class="panel">
-<p-card>
-    <p-accordion  class="acord">
-        <h1>סוגי תוכן</h1>
-        <p-accordionTab *ngFor="let ct of allCT" >
-            <!-- <div *ngIf="ct.isActive == true"> -->
-                <ng-template pTemplate="header">
-                    {{ct.title}}
+    <p-card>
+        <p-accordion class="acord">
+            <h1>סוגי תוכן</h1>
+            <p-accordionTab *ngFor="let ct of allCT"  (click)="allCS(ct.id)">
+                <!-- <div *ngIf="ct.isActive == true"> -->
+                <ng-template pTemplate="header" >
+                    <div class="accordion-header">
+                        <div class="row">
+                          <div class="ct-detail">
+                           <span class="value">{{ct.title}}</span>
+                          </div>
+                        </div>
+                      </div>
                 </ng-template>
                 <div class="Contact" *ngIf="update == false">
-                    <p>כותרת:  {{ct.title}}</p>
-                    <p>תאור:  {{ct.description}}</p>
-                    <p>קישור לדף הבית:  {{ct.linkHP}}</p>
-                    <p>קישור2:  {{ct.link2}}</p>
-                    <p>כותרת1:  {{ct.title1}}</p>
-                    <p>כותרת2:  {{ct.title2}}</p>
-                    <p>כותרת3:  {{ct.title3}}</p>
+                    <p><b>כותרת: </b>{{ct.title}}</p>
+                    <p><b>תאור: </b>{{ct.description}}</p>
+                    <p><b>קישור לדף הבית: </b>{{ct.linkHP}}</p>
+                    <p><b>קישור2:</b>{{ct.link2}}</p>
+                    <p><b>כותרת1: </b>{{ct.title1}}</p>
+                    <p><b>כותרת2: </b>{{ct.title2}}</p>
+                    <p><b>כותרת3: </b>{{ct.title3}}</p>
                     <p-button label="ערוך" (click)="edit(ct.id)"></p-button>
                 </div>
                 <div class="Contact1" *ngIf="update == true">
                     <input id="title" type="text" pInputText [(ngModel)]="selectedContent.title" />
-                    <label for="title">:כותרת</label><br/><br/>
+                    <label for="title">כותרת</label><br /><br />
                     <input id="description" type="text" pInputText [(ngModel)]="selectedContent.description" />
-                    <label for="description">:תאור</label><br/><br/>
+                    <label for="description">תאור</label><br /><br />
+                    <label for="linkHP">קישור לדף בית</label><br /><br />
 
-                    <input id="linkHP" type="text" pInputText [(ngModel)]="selectedContent.linkHP" />
-                    <label for="linkHP">:קישור לדף הבית</label><br/><br/>
+                    <input id="linkHP" type="text" pInputText [(ngModel)]="selectedContent.linkHP" /><br /><br />
 
                     <input id="link2" type="text" pInputText [(ngModel)]="selectedContent.link2" />
-                    <label for="link2">:קישור2</label><br/><br/>
+                    <label for="link2">קישור2</label><br /><br />
 
                     <input id="title1" type="text" pInputText [(ngModel)]="selectedContent.title1" />
-                    <label for="title1">:כותרת1</label><br/><br/>
+                    <label for="title1">כותרת1</label><br /><br />
 
                     <input id="title2" type="text" pInputText [(ngModel)]="selectedContent.title2" />
-                    <label for="title2">:כותרת2</label><br/><br/>
+                    <label for="title2">כותרת2</label><br /><br />
 
                     <input id="title3" type="text" pInputText [(ngModel)]="selectedContent.title3" />
-                    <label for="title3">:כותרת3</label><br/><br/>
+                    <label for="title3">כותרת3</label><br /><br />
 
                     <p-button label="שמירה" (click)="Save(selectedContent)"></p-button>
                     <p-button label="ביטול" (click)="Close()"></p-button>
 
                 </div>
-            <!-- </div> -->
-        </p-accordionTab>
-    </p-accordion>
-    <app-update-content [item]="selectedContent" (onSave)="Save($event)"></app-update-content>
-    <br/><p-button label="הוסף תוכן" (click)="add()"></p-button>
-</p-card>
+                <p-table [value]="ContentSections">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>סעיף 1</th>
+                            <th>סעיף 2</th>
+                            <th>סעיף 3</th>
+                            <th>?האם יש קישור לדף הבית</th>
+                            <th>תמונה</th>
+                            <th>מחיקה/עריכה</th>
+
+                            <!-- <th>קישור לדף הבית</th> -->
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-ContentSections>
+                        <!-- <div *ngFor="let cs of ct.contentSections"> -->
+                        <tr *ngIf="ContentSections.isActive == true && updateN != ContentSections.id">
+                            <td>{{ContentSections.section1}}</td>
+                            <td>{{ContentSections.section2}}</td>
+                            <td>{{ContentSections.section3}}</td>
+                            <td>{{ContentSections.viewInHP}}</td>
+                            <td><img *ngIf="ContentSections.image.data != ''" src="{{urlImg}}{{ContentSections.image.data}}" >
+                            </td>
+                            <td>
+                                <p-button icon="pi pi-pencil" styleClass="p-button-rounded p-button-text" (click)="updatecs(ContentSections.id)"></p-button><br/><br/>
+
+                                <p-button icon="pi pi-trash" styleClass="p-button-rounded p-button-danger p-button-text" (click)="delete(ContentSections.id, ContentSections.contentTypeID)"></p-button>
+                            </td>
+
+                        </tr> 
+
+                        <tr *ngIf="ContentSections.isActive == true && updateN == ContentSections.id">
+                            <td><input type="text" pInputText [(ngModel)]="selectedContentSection.section1" />
+                            </td>
+                            <td><input type="text" pInputText [(ngModel)]="selectedContentSection.section2" /></td>
+                            <td><input type="text" pInputText [(ngModel)]="selectedContentSection.section3" /></td>
+                            <td><input type="checkbox" [(ngModel)]="selectedContentSection.viewInHP" /></td>
+
+                            <td>
+                                <input type="file" >
+                            </td>
+                            
+                            <td>
+                                <p-button (click)="saveUp(selectedContentSection)">שמירה</p-button><br/><br/>
+
+                                <p-button  (click)="cancel()">ביטול</p-button>
+                            </td>
+                        </tr> 
+                    <!-- </div> -->
+
+                    </ng-template>
+                </p-table>
+                <br /><p-button label="הוסף תוכן" (click)="addCSe(ct.id)"></p-button>
+
+                <!-- </div> -->
+            </p-accordionTab>
+        </p-accordion>
+        <app-add-content-section [item]="selectedContentSection" (onSave)="Savecs($event)"></app-add-content-section>
+        <app-update-content [item]="selectedContent" (onSave)="Save($event)"></app-update-content>
+        <br /><p-button label="הוסף תוכן" (click)="add()"></p-button>
+    </p-card>
 
 </div>

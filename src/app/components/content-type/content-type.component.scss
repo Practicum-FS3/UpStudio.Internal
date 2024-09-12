@@ -1,11 +1,11 @@
 .panel{
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 2%;
-    border: 3px;
-    border-color: rgb(209, 233, 154);
-    border-style: solid;
-    border-radius: 10px;
+    padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+//   border: 2px solid #ffcc0f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
 }
 .Contact1{
     width: 50%;
@@ -17,3 +17,45 @@
 .Contact1 label{
     float: right;
 }
+
+.accordion-header {
+    color: #4C4C49;
+    padding: 10px;
+    // margin-left: 600px;
+  }
+  ::ng-deep .p-accordion .p-accordion-header {
+    padding: 8px 15px; 
+    font-size: 18px;
+    background-color: transparent; 
+    direction: rtl; 
+  }
+  
+  ::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+    justify-content: space-between; 
+    flex-direction: row-reverse;
+  }
+  
+  ::ng-deep .p-accordion .p-accordion-toggle-icon {
+    color: #D91C5C; 
+    transform: rotate(180deg); 
+  }
+  
+  ::ng-deep .p-accordion .p-accordion-content {
+    direction: rtl;
+  }
+  
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  
+  .ct-detail {
+    display: flex;
+    font-size: 14px;
+    
+  }
+  .value{
+    
+  }

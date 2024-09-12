@@ -1,0 +1,28 @@
+<p-dialog header=" הוספת תוכן" [(visible)]="display">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="section1">סעיף 1</label>
+        <input id="section1" type="text" pInputText [(ngModel)]="item.section1" />
+      </div>
+      <div class="p-field">
+        <label for="section2">סעיף 2</label>
+        <input id="section2" type="text" pInputText [(ngModel)]="item.section2" />
+      </div>
+      <div class="p-field">
+        <label for="section3">סעיף 3</label>
+        <input id="section3" type="text" pInputText [(ngModel)]="item.section3" />
+      </div>
+      <div class="p-field">
+        <label for="viewInHP">?האם יש קישור לדף הבית</label>
+        <input id="viewInHP" type="checkbox" [(ngModel)]="item.viewInHP" />
+      </div> 
+      <div class="p-field">
+        <label for="image">תמונה (אופציונלי)</label>
+        <input id="image" type="file" (change)="onFileSelected($event)" [(ngModel)]="item.image"/>
+      </div>
+    </div>
+    <p-footer>
+      <button pButton type="button" label="שמירה" icon="pi pi-check" (click)="save()" class="p-button-success"></button>
+      <button pButton type="button" label="ביטול" icon="pi pi-times" (click)="display=false" class="p-button-secondary"></button>
+    </p-footer>
+  </p-dialog>

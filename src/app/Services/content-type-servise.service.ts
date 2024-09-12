@@ -23,7 +23,7 @@ export class ContentTypeServiseService{
   addContentType(ct:ContentType) : Observable<ContentType>
   {
     console.log(ct);
-    
+    ct.contentSections = []
     return this._http.post<ContentType>(`${this.apiUrl}/CreateContentType`, ct)
   }
 
