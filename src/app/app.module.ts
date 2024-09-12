@@ -45,7 +45,6 @@ import { TrainingDeatailsComponent } from './components/training-deatails/traini
 import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { GenerateAvailableTrainingsComponent } from './components/generate-available-trainings/generate-available-trainings.component';
-import { AvailableTrainingsManagmentComponent } from './components/available-trainings-managment/available-trainings-managment.component';
 
 
 @NgModule({
@@ -61,8 +60,7 @@ import { AvailableTrainingsManagmentComponent } from './components/available-tra
     ManagmentTableComponent,
     TrainingDeatailsComponent,
     DayOfWeekPipe,
-    GenerateAvailableTrainingsComponent,
-    AvailableTrainingsManagmentComponent
+    GenerateAvailableTrainingsComponent
   ],
   imports: [
     BrowserModule,
