@@ -43,8 +43,9 @@ import { ManagmentTableComponent } from './components/managment-table/managment-
 import { trainingCustomersTypes } from './Models/trainingCustomersTypes.model';
 import { TrainingDeatailsComponent } from './components/training-deatails/training-deatails.component';
 import { DayOfWeekPipe } from './components/training-deatails/day-of-week.pipe';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { GenerateAvailableTrainingsComponent } from './components/generate-available-trainings/generate-available-trainings.component';
-import { SelectButtonModule } from 'primeng/selectbutton'; // PrimeNG SelectButton
+import { AvailableTrainingsManagmentComponent } from './components/available-trainings-managment/available-trainings-managment.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { SelectButtonModule } from 'primeng/selectbutton'; // PrimeNG SelectButt
     ManagmentTableComponent,
     TrainingDeatailsComponent,
     DayOfWeekPipe,
-    GenerateAvailableTrainingsComponent
+    GenerateAvailableTrainingsComponent,
+    AvailableTrainingsManagmentComponent
   ],
   imports: [
     BrowserModule,
