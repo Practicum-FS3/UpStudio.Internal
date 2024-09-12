@@ -14,6 +14,7 @@
                 <app-customers-list></app-customers-list>
             </div>
         </div>
+        
         <div class="col-p">
             <p-sidebar [(visible)]="sidebarVisible2" position="right" class="sidebar">
                 <ul class="list-none p-0 m-0 overflow-hidden">
@@ -46,5 +47,7 @@
             <p-button type="button" class="menu-toggle" (onClick)="sidebarVisible2 = true" icon='pi pi-bars'></p-button>
         </div>
     </div>
-    <div class="row footer">Footer</div>
+    <div class="row footer">
+        <app-footer></app-footer>
+    </div>
 </div>

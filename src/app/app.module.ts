@@ -44,6 +44,7 @@ import { TrainingDeatailsComponent } from './components/trainings/training-deata
 import { DayOfWeekPipe } from './components/trainings/training-deatails/day-of-week.pipe';
 import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { SidebarModule } from 'primeng/sidebar';
     HomeComponent,
     TrainersListComponent,
     TrainingDeatailsComponent, 
-    DayOfWeekPipe,
+    DayOfWeekPipe, FooterComponent,
   
   ],
   imports: [
