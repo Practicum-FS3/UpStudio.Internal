@@ -1,20 +1,14 @@
-import { Component } from '@angular/core';
-import { homeLinks } from 'src/app/Models/homeLinks';
-import { homeLinksService } from 'src/app/Services/homeLinks.service';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { MenuItem } from 'primeng/api';
+import { MenubarModule } from 'primeng/menubar';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent {
-
-  links: Array<homeLinks> | undefined
-  constructor(private service: homeLinksService) {
-    this.service.getAllLinks().subscribe(data => {
-      console.log({ data });
-      this.links = data
-    })
-  }
+  sidebarVisible2: boolean = false;
 
 }

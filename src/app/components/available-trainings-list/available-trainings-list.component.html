@@ -1,5 +1,5 @@
 <div class="panel">
-  <h1>יומן אימונים <img src="assets/dumbbell-icon.png" alt="Contact Icon" class="contact-icon"></h1>
+  <h1>אימונים <img src="assets/dumbbell-icon.png" alt="Contact Icon" class="contact-icon"></h1>
   <div class="body">
     <div class="controls-container" [formGroup]="filterForm">
       <div class="cal">
@@ -21,7 +21,6 @@
       </div>
     </div>
 
-   
     <p-accordion>
       <p-accordionTab *ngFor="let training of displayedcalanderAT" (click)="selectTraining(training.id)">
         <ng-template pTemplate="header">
@@ -31,19 +30,10 @@
         </ng-template>
       </p-accordionTab>
     </p-accordion>
-    
 
-    <div class="pagination-buttons" *ngIf="calanderAT.length >itemsPerPage">
-      <button (click)="previousPage()" [disabled]="currentPage === 1">הקודם</button>
+    <div class="pagination-buttons" *ngIf="calanderAT.length > itemsPerPage">
       <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= calanderAT.length">הבא</button>
-    </div>
-    <div class="bt">
-      <p-button label="הוספת אימון" [raised]="true" severity="secondary" class="add-taining-button">
-        <span class="add-taining-icon-wrapper">
-          <img src="assets/addTraining-icon.png" alt="Add Customer Icon" class="add-taining-icon">
-        </span>
-      </p-button>
+      <button (click)="previousPage()" [disabled]="currentPage === 1">הקודם</button>
     </div>
   </div>
 </div>
-

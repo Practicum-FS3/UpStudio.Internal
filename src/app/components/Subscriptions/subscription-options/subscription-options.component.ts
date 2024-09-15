@@ -99,7 +99,6 @@ export class SubscriptionOptionsComponent {
   checkingToLoad(flag: boolean) {
     if (flag) {
       this.cancleAction();
-      this.loadSubscriptions();
     }
   }
 
@@ -107,5 +106,6 @@ export class SubscriptionOptionsComponent {
     this.action = '';
     this.currentSubId = 0;
     this.showDeleteMess = false;
+    this.loadSubscriptions();
   }
 }
