@@ -7,16 +7,17 @@ import { TrainingsListComponent } from './components/available-trainings-list/av
 import { HomeComponent } from './components/home/home.component';
 import { TrainersListComponent } from './components/trainers-list/trainers-list.component';
 import { ManagmentTableComponent } from './components/managment-table/managment-table.component';
+import { SubscriptionOptionsComponent } from './components/Subscriptions/subscription-options/subscription-options.component';
 
 const routes: Routes = [
-  {path:'',component:ManagmentTableComponent},
-
-  // {path:'',component:HomeComponent},
+  {path:'',component:HomeComponent},
   { path: 'customers-list', component: CustomersListComponent },
   { path: 'single-lesson', component: SingleLessonComponent },
   { path: 'customer-card/:id', component: CustomerCardComponent },
   { path: 'trainings-list', component: TrainingsListComponent },
   { path: 'trainers-list', component:TrainersListComponent },
+  {path:'managment-table',component:ManagmentTableComponent},
+  { path: 'subscriptions-options', component:SubscriptionOptionsComponent },
 
 
 ];

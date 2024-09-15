@@ -1,16 +1,16 @@
-
 div[_ngcontent-ng-c2422015523] {
     display: flex !important;
     flex-direction: row !important;
     width: 20%;
     flex-wrap: nowrap;
 }
+
 .form-group {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 .label {
@@ -19,13 +19,12 @@ div[_ngcontent-ng-c2422015523] {
     padding-right: 1rem;
 }
 
-.input common-input
- {
+.input common-input {
     box-sizing: border-box;
     padding: 0.5rem;
     font-size: 1rem;
     height: 2.5rem;
-    flex:3;
+    flex: 3;
 }
 
 .my-custom-class .p-dialog .p-dialog-content {
@@ -37,9 +36,11 @@ div[_ngcontent-ng-c2422015523] {
     align-content: center !important;
     justify-content: space-between !important;
 }
+
 .p-dialog .p-dialog-header {
-    background-color:#e6e6d2;
+    background-color: #e6e6d2;
 }
+
 .options-buttons button:hover {
     background-color: #e9c230;
 }
@@ -48,11 +49,11 @@ div[_ngcontent-ng-c2422015523] {
 @media (max-width: 600px) {
     .label {
         flex: 100%;
-        text-align: left; 
+        text-align: left;
         padding-right: 0;
         margin-bottom: 0.5rem;
     }
-    
+
     .input {
         flex: 100%;
     }
@@ -62,4 +63,3 @@ div[_ngcontent-ng-c2422015523] {
         margin-bottom: 1rem;
     }
 }
-
